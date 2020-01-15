@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.dyh.common.lib.weigit.tablayout.CommonTabLayout
+        android:id="@+id/mBottomCommonTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_general_background_white"
+        app:tl_iconHeight="20dp"
+        app:tl_iconWidth="20dp"
+        app:tl_indicator_anim_enable="true"
+        app:tl_indicator_color="@color/general_mainLightColor"
+        app:tl_indicator_gravity="TOP"
+        app:tl_indicator_height="@dimen/dividing_line"
+        app:tl_textSelectColor="@color/general_mainLightColor"
+        app:tl_textUnselectColor="@color/text_gray"
+        app:tl_textsize="@dimen/general_textSize"
+        app:tl_underline_color="@color/dividing_line"
+        app:tl_underline_gravity="TOP"
+        app:tl_underline_height="@dimen/dividing_line" />
+
+</LinearLayout>

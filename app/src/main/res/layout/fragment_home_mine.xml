@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mLogoutTextView"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+            android:id="@+id/mCommonTitleBar"
+            style="@style/titleBar_default"
+            app:centerText="@string/mine"
+            app:showBottomLine="false" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/general_titleColor"
+            android:orientation="vertical"
+            android:padding="@dimen/general_item_padding">
+
+            <TextView
+                android:id="@+id/mNameTextView"
+                style="@style/general_textStyle_blackMax2"
+                android:textColor="@color/text_white" />
+
+            <TextView
+                android:id="@+id/mRolesNameTextView"
+                style="@style/general_textStyle_blackDefaultSize"
+                android:layout_marginTop="@dimen/general_item_margin"
+                android:textColor="@color/text_white" />
+
+            <TextView
+                android:id="@+id/mCityNameTextView"
+                style="@style/general_textStyle_blackDefaultSize"
+                android:layout_marginTop="@dimen/general_item_margin"
+                android:textColor="@color/text_white" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/general_item_margin_min"
+            app:cardCornerRadius="@dimen/common_radius"
+            app:cardElevation="@dimen/general_item_margin_min">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/mSetPrinterTextView"
+                    style="@style/general_textStyle_blackMax1"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_white_selector"
+                    android:clickable="true"
+                    android:drawableLeft="@mipmap/icon_printer"
+                    android:drawableRight="@mipmap/more_right"
+                    android:drawablePadding="@dimen/general_item_padding"
+                    android:focusable="true"
+                    android:padding="@dimen/general_item_padding"
+                    android:text="@string/printerManager" />
+
+                <View
+                    style="@style/horizontalLine"
+                    android:layout_marginLeft="@dimen/general_item_margin" />
+
+                <TextView
+                    android:id="@+id/mCheckVersionTextView"
+                    style="@style/general_textStyle_blackMax1"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_white_selector"
+                    android:clickable="true"
+                    android:drawableLeft="@mipmap/icon_update"
+                    android:drawableRight="@mipmap/more_right"
+                    android:drawablePadding="@dimen/general_item_padding"
+                    android:focusable="true"
+                    android:padding="@dimen/general_item_padding" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/mLogoutTextView"
+        style="@style/general_button"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/general_item_margin_max"
+        android:text="@string/logout" />
+
+</RelativeLayout>

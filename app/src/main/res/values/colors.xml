@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDark">#BA342A</color>
+    <color name="colorAccent">#E91E63</color>
+
+    <color name="bg_slanted_firstDiscount">#673AB7</color>
+    <color name="bg_slanted_limitedTimeDiscount">#9C27B0</color>
+    <color name="mapLinesColor">#FF5722</color>
+    <color name="mapOverlyColor">#3F9C27B0</color>
+    <color name="mapLinesColor2">#993F51B5</color>
+    <color name="mapOverlyColor2">#403F51B5</color>
+
+</resources>

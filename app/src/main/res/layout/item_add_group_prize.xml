@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/general_item_margin_min"
+    app:cardCornerRadius="@dimen/common_radius"
+    app:cardElevation="@dimen/general_item_margin_min">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/general_item_padding">
+
+        <TableRow>
+
+            <TextView
+                style="@style/general_textStyle_grayDefaultSize"
+                android:text="@string/prizeImage" />
+
+            <ImageView
+                android:id="@+id/mImageView"
+                android:layout_width="@dimen/imageWidth_detail"
+                android:layout_height="@dimen/imageHeight_detail"
+                android:scaleType="centerInside"
+                android:src="@mipmap/add_grey" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="@dimen/general_item_margin">
+
+            <TextView
+                style="@style/general_textStyle_grayDefaultSize"
+                android:text="@string/prizeName" />
+
+            <EditText
+                android:id="@+id/mNameEditText"
+                style="@style/style_generalEditTextDefault_blackText"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:maxLines="1" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="@dimen/general_item_margin"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/general_textStyle_grayDefaultSize"
+                android:text="@string/prizeRules" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/general_textStyle_blackDefaultSize"
+                    android:text="@string/prizeRulesPart1Info" />
+
+                <EditText
+                    android:id="@+id/mPersonNumberEditText"
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:layout_width="wrap_content"
+                    android:inputType="numberSigned"
+                    android:maxLength="3"
+                    android:maxLines="1"
+                    android:minWidth="50dp" />
+
+                <TextView
+                    style="@style/general_textStyle_blackDefaultSize"
+                    android:text="@string/prizeRulesPart2Info" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow android:layout_marginTop="@dimen/general_item_margin">
+
+            <TextView
+                style="@style/general_textStyle_grayDefaultSize"
+                android:text="@string/prizeDescription" />
+
+            <EditText
+                android:id="@+id/mDescriptionEditText"
+                style="@style/style_generalEditTextDefault_blackText"
+                android:layout_weight="1"
+                android:hint="@string/hint_inputMax200"
+                android:inputType="text"
+                android:maxLength="200"
+                android:maxLines="5" />
+        </TableRow>
+    </TableLayout>
+
+</android.support.v7.widget.CardView>

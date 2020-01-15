@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.tpc.SetTpcGoodsLabelActivity">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        app:centerText="@string/setFiner"
+        app:rightText="@string/save"
+        app:rightType="textView" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/mSwipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <View style="@style/horizontalLine" />
+
+    <TextView
+        style="@style/general_textStyle_blackMax1"
+        android:layout_width="match_parent"
+        android:background="@color/color_general_background_white"
+        android:padding="@dimen/general_item_padding"
+        android:text="@string/alreadySelected" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mSelectedItemRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_general_background_white" />
+</LinearLayout>

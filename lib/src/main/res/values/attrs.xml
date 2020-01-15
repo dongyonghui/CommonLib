@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MaxHeightScrollView">
+        <attr name="maxHeight" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="Rotate3dAnimation">
+        <attr name="rollType" format="enum">
+            <enum name="x" value="0" />
+            <enum name="y" value="1" />
+            <enum name="z" value="2" />
+        </attr>
+        <attr name="fromDeg" format="float" />
+        <attr name="toDeg" format="float" />
+        <attr name="pivotX" format="fraction" />
+        <attr name="pivotY" format="fraction" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressWheel">
+        <attr name="progressIndeterminate" format="boolean" />
+        <attr name="barColor" format="color" />
+        <attr name="rimColor" format="color" />
+        <attr name="rimWidth" format="dimension" />
+        <attr name="spinSpeed" format="float" />
+        <attr name="barSpinCycleTime" format="integer" />
+        <attr name="circleRadius" format="dimension" />
+        <attr name="fillRadius" format="boolean" />
+        <attr name="barWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="UpdateAppNumberProgressBar">
+        <attr name="progress_current" format="integer" />
+        <attr name="progress_max" format="integer" />
+
+        <attr name="progress_unreached_color" format="color" />
+        <attr name="progress_reached_color" format="color" />
+
+        <attr name="progress_reached_bar_height" format="dimension" />
+        <attr name="progress_unreached_bar_height" format="dimension" />
+
+        <attr name="progress_text_size" format="dimension" />
+        <attr name="progress_text_color" format="color" />
+
+        <attr name="progress_text_offset" format="dimension" />
+
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CommonTitleBar">
+        <!-- 标题栏背景 图片或颜色 -->
+        <attr name="titleBarColor" format="color" />
+        <!-- 填充状态栏 -->
+        <attr name="fillStatusBar" format="boolean" />
+        <!-- 状态栏颜色 -->
+        <attr name="statusBarColor" format="color" />
+        <!-- 状态栏模式 -->
+        <attr name="statusBarMode" format="enum">
+            <enum name="dark" value="0" />
+            <enum name="light" value="1" />
+        </attr>
+        <!-- 标题栏高度 -->
+        <attr name="titleBarHeight" format="dimension" />
+        <!-- 显示标题栏分割线 -->
+        <attr name="showBottomLine" format="boolean" />
+        <!-- 标题栏分割线颜色 -->
+        <attr name="bottomLineColor" format="color" />
+        <!-- 底部阴影高度 showBottomLine = false时有效 -->
+        <attr name="bottomShadowHeight" format="dimension" />
+
+        <!-- 左边视图类型 -->
+        <attr name="leftType">
+            <enum name="none" value="0" />
+            <enum name="textView" value="1" />
+            <enum name="imageButton" value="2" />
+            <enum name="customView" value="3" />
+        </attr>
+        <!-- TextView 文字, 对应leftType_TextView -->
+        <attr name="leftText" format="string" />
+        <!-- TextView 颜色, 对应leftType_TextView -->
+        <attr name="leftTextColor" format="color" />
+        <!-- TextView 字体大小, 对应leftType_TextView -->
+        <attr name="leftTextSize" format="dimension" />
+        <!-- TextView 左边图片, 对应leftType_TextView -->
+        <attr name="leftDrawable" format="reference" />
+        <!-- TextView 左边padding, 对应leftType_TextView -->
+        <attr name="leftDrawablePadding" format="dimension" />
+        <!-- ImageView 资源, 对应leftType_ImageBotton -->
+        <attr name="leftImageResource" format="reference" />
+        <!-- 左边自定义布局, 对应leftType_CustomView -->
+        <attr name="leftCustomView" format="reference" />
+
+        <!-- 右边视图类型 -->
+        <attr name="rightType">
+            <enum name="none" value="0" />
+            <enum name="textView" value="1" />
+            <enum name="imageButton" value="2" />
+            <enum name="customView" value="3" />
+        </attr>
+        <!-- TextView 文字, 对应rightType_TextView -->
+        <attr name="rightText" format="string" />
+        <!-- TextView 颜色, 对应rightType_TextView -->
+        <attr name="rightTextColor" format="color" />
+        <!-- TextView 字体大小, 对应rightType_TextView -->
+        <attr name="rightTextSize" format="dimension" />
+        <!-- ImageView 资源, 对应rightType_ImageBotton -->
+        <attr name="rightImageResource" format="reference" />
+        <!-- 右边自定义布局, 对应rightType_CustomView -->
+        <attr name="rightCustomView" format="reference" />
+
+        <!-- 中间视图类型 -->
+        <attr name="centerType">
+            <enum name="none" value="0" />
+            <enum name="textView" value="1" />
+            <enum name="searchView" value="2" />
+            <enum name="customView" value="3" />
+        </attr>
+        <attr name="centerSearchRightType">
+            <enum name="voice" value="0" />
+            <enum name="delete" value="1" />
+        </attr>
+        <!-- TextView 文字, 对应centerType_TextView -->
+        <attr name="centerText" format="string" />
+        <!-- TextView 颜色, 对应centerType_TextView -->
+        <attr name="centerTextColor" format="color" />
+        <!-- TextView 字体大小, 对应centerType_TextView -->
+        <attr name="centerTextSize" format="dimension" />
+        <!-- TextView 跑马灯效果, 默认打开, 对应centerType_TextView -->
+        <attr name="centerTextMarquee" format="boolean" />
+        <!-- 子标题TextView 文字, 对应centerType_TextView -->
+        <attr name="centerSubText" format="string" />
+        <!-- 子标题TextView 颜色, 对应centerType_TextView -->
+        <attr name="centerSubTextColor" format="color" />
+        <!-- 子标题TextView 字体大小, 对应centerType_TextView -->
+        <attr name="centerSubTextSize" format="dimension" />
+        <!-- 搜索输入框是否可输入 -->
+        <attr name="centerSearchEditable" format="boolean" />
+        <!-- 搜索框背景 -->
+        <attr name="centerSearchBg" format="reference" />
+        <!-- 中间自定义布局, 对应centerType_CustomView -->
+        <attr name="centerCustomView" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ucrop_UCropView">
+
+        <!--Crop image view-->
+        <attr name="ucrop_aspect_ratio_x" format="float" />
+        <attr name="ucrop_aspect_ratio_y" format="float" />
+
+        <!--Overlay view-->
+        <attr name="ucrop_show_oval_crop_frame" format="boolean" />
+        <attr name="ucrop_circle_dimmed_layer" format="boolean" />
+        <attr name="ucrop_dimmed_color" format="color" />
+
+        <attr name="ucrop_grid_stroke_size" format="dimension" />
+        <attr name="ucrop_grid_color" format="color" />
+        <attr name="ucrop_grid_row_count" format="integer" />
+        <attr name="ucrop_grid_column_count" format="integer" />
+        <attr name="ucrop_show_grid" format="boolean" />
+
+        <attr name="ucrop_frame_stroke_size" format="dimension" />
+        <attr name="ucrop_frame_color" format="color" />
+        <attr name="ucrop_show_frame" format="boolean" />
+
+    </declare-styleable>
+
+    <declare-styleable name="ucrop_AspectRatioTextView">
+
+        <attr name="ucrop_artv_ratio_title" format="string" />
+
+        <attr name="ucrop_artv_ratio_x" format="float" />
+        <attr name="ucrop_artv_ratio_y" format="float" />
+
+    </declare-styleable>
+
+    <declare-styleable name="SlantedTextView">
+        <attr name="slantedTextSize" format="dimension" />
+        <attr name="slantedBackgroundColor" format="color" />
+        <attr name="slantedText" format="string" />
+        <attr name="slantedTextColor" format="color" />
+        <attr name="slantedLength" format="dimension" />
+        <attr name="slantedMode" format="enum">
+            <enum name="left" value="0"></enum>
+            <enum name="right" value="1"></enum>
+            <enum name="left_bottom" value="2"></enum>
+            <enum name="right_bottom" value="3"></enum>
+            <enum name="left_triangle" value="4"></enum>
+            <enum name="right_triangle" value="5"></enum>
+            <enum name="left_bottom_triangle" value="6"></enum>
+            <enum name="right_bottom_triangle" value="7"></enum>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="Themes">
+        <attr name="tagGroupStyle" format="reference" />
+        <attr name="targetValueProgressStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="BothProgressBar">
+        <!-- 设置目标指示器颜色 -->
+        <attr name="dyh_indicator_color" format="color" />
+        <!-- 设置进度条高度 -->
+        <attr name="dyh_progress_height" format="dimension" />
+        <!-- 设置目标指示器固定宽度，默认10dp -->
+        <attr name="dyh_indicator_width" format="dimension" />
+        <!--最大值，默认100-->
+        <attr name="dyh_max_value" format="float" />
+        <!--最小值，默认0-->
+        <attr name="dyh_min_value" format="float" />
+        <!-- 设置目标指示器数值,-->
+        <attr name="dyh_indicator_value" format="float" />
+        <!-- 设置进度条数值-->
+        <attr name="dyh_progress_value" format="float" />
+        <!-- 设置进度条颜色 -->
+        <attr name="dyh_progress_color" format="color" />
+        <!-- 设置根布局背景颜色 -->
+        <attr name="dyh_background_color" format="color" />
+        <!-- 设置进度条背景颜色 -->
+        <attr name="dyh_progressBackground_color" format="color" />
+
+        <!--文本的边距-->
+        <attr name="dyh_text_margin" format="dimension" />
+        <!-- 设置目标指示器圆角弧度-->
+        <attr name="dyh_indicator_corner_radius" format="dimension" />
+        <!-- 设置进度条圆角弧度-->
+        <attr name="dyh_background_corner_radius" format="dimension" />
+        <!-- title -->
+        <!-- 设置字体大小,默认10sp -->
+        <attr name="dyh_textSize" format="dimension" />
+        <!-- 设置字体选中颜色 -->
+        <attr name="dyh_textColor" format="color" />
+        <!-- 进度提示文字 -->
+        <attr name="dyh_progressText" format="string" />
+        <!-- 第二进度（指示器）提示文字 -->
+        <attr name="dyh_indicatorText" format="string" />
+        <!--是否展示文本信息-->
+        <attr name="dyh_showText" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TagGroup">
+        <!-- Whether the tag group is in append mode. -->
+        <attr name="atg_isAppendMode" format="boolean" />
+        <!-- If the tag group is in append mode, what the hint of input tag. -->
+        <attr name="atg_inputHint" format="string" />
+
+        <!-- The tag view outline border color. -->
+        <attr name="atg_borderColor" format="color" />
+        <!-- The tag view text color. -->
+        <attr name="atg_textColor" format="color" />
+        <!-- The tag view background color. -->
+        <attr name="atg_backgroundColor" format="color" />
+
+        <!-- The dash outline border color, when in append mode. -->
+        <attr name="atg_dashBorderColor" format="color" />
+        <!-- The input tag hint text color, when in append mode. -->
+        <attr name="atg_inputHintColor" format="color" />
+        <!-- The input tag type text color, when in append mode. -->
+        <attr name="atg_inputTextColor" format="color" />
+
+        <!-- The checked tag view outline border color. -->
+        <attr name="atg_checkedBorderColor" format="color" />
+        <!-- The checked text color. -->
+        <attr name="atg_checkedTextColor" format="color" />
+        <!-- The checked marker color. -->
+        <attr name="atg_checkedMarkerColor" format="color" />
+        <!-- The checked tag view background color. -->
+        <attr name="atg_checkedBackgroundColor" format="color" />
+
+        <!-- The tag view background color, when the tag view is being pressed. -->
+        <attr name="atg_pressedBackgroundColor" format="color" />
+
+        <!-- The tag view outline border stroke width. -->
+        <attr name="atg_borderStrokeWidth" format="dimension" />
+        <!-- The tag view text size. -->
+        <attr name="atg_textSize" format="dimension" />
+
+        <attr name="atg_horizontalSpacing" format="dimension" />
+        <attr name="atg_verticalSpacing" format="dimension" />
+        <attr name="atg_horizontalPadding" format="dimension" />
+        <attr name="atg_verticalPadding" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="WrapLayout">
+        <attr name="wrapLayout_HorizontalSpacing" format="dimension" />
+        <attr name="wrapLayout_VerticalSpacing" format="dimension" />
+        <attr name="wrapLayout_Gravity" format="enum">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="WrapLayout_Layout">
+        <attr name="wrapLayout_Layout_gravity" format="enum">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="CalendarPickerView">
+        <attr name="android:background"/>
+        <attr name="tsquare_dividerColor" format="color"/>
+        <attr name="tsquare_dayBackground" format="reference"/>
+        <attr name="tsquare_dayTextColor" format="color"/>
+        <attr name="tsquare_titleTextStyle" format="reference"/>
+        <attr name="tsquare_displayHeader" format="boolean"/>
+        <attr name="tsquare_displayDayNamesHeaderRow" format="boolean"/>
+        <attr name="tsquare_displayAlwaysDigitNumbers" format="boolean"/>
+        <attr name="tsquare_headerTextColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="calendar_cell">
+        <attr name="tsquare_state_selectable" format="boolean" />
+        <attr name="tsquare_state_current_month" format="boolean" />
+        <attr name="tsquare_state_today" format="boolean" />
+        <attr name="tsquare_state_range_first" format="boolean" />
+        <attr name="tsquare_state_range_middle" format="boolean" />
+        <attr name="tsquare_state_range_last" format="boolean" />
+        <attr name="tsquare_state_highlighted" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SnappingStepper">
+        <attr name="min" format="integer"/>
+        <attr name="max" format="integer"/>
+        <attr name="value" format="integer"/>
+        <attr name="step" format="integer"/>
+        <attr name="text" format="string"/>
+        <attr name="mode" format="enum">
+            <enum name="auto" value="0"/>
+            <enum name="custom" value="1"/>
+        </attr>
+        <attr name="stepper_background" format="color|reference"/>
+        <attr name="stepper_buttonBackground" format="color|reference"/>
+        <attr name="stepper_contentBackground" format="color|reference"/>
+        <attr name="stepper_contentTextColor" format="color"/>
+        <attr name="stepper_contentTextSize" format="float"/>
+        <attr name="stepper_leftButtonBackground" format="color|reference"/>
+        <attr name="stepper_rightButtonBackground" format="color|reference"/>
+        <attr name="stepper_leftButtonResources" format="color|reference"/>
+        <attr name="stepper_rightButtonResources" format="color|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="BubbleSeekBar">
+        <attr name="bsb_min" format="float|reference"/> <!--min < max, default: 0.0f-->
+        <attr name="bsb_max" format="float|reference"/> <!--min < max, default: 100.0f-->
+        <attr name="bsb_progress" format="float|reference"/> <!--real time progress value, default: min-->
+        <attr name="bsb_is_float_type" format="boolean"/> <!--support for float type-->
+        <attr name="bsb_track_size" format="dimension|reference"/> <!--height of right-track(on the right of thumb), default: 2dp-->
+        <!--height of left-track(on the left of thumb), default: 2dp higher than right-track's height-->
+        <attr name="bsb_second_track_size" format="dimension|reference"/>
+        <attr name="bsb_thumb_radius" format="dimension|reference"/> <!--radius of thumb, default: 2dp higher than left-track's height-->
+        <!--radius of thumb when be dragging, default: 2 times of left-track's height-->
+        <attr name="bsb_thumb_radius_on_dragging" format="dimension|reference"/>
+        <attr name="bsb_track_color" format="color|reference"/> <!--color of right-track, default: R.color.colorPrimary-->
+        <attr name="bsb_second_track_color" format="color|reference"/> <!--color of left-track, default: R.color.colorAccent-->
+        <attr name="bsb_thumb_color" format="color|reference"/> <!--color of thumb, default: same as left-track's color-->
+        <attr name="bsb_section_count" format="integer|reference"/> <!--shares of whole progress(max - min), default: 10-->
+        <attr name="bsb_show_section_mark" format="boolean"/> <!--show demarcation points or not, default: false-->
+        <attr name="bsb_auto_adjust_section_mark" format="boolean"/> <!--auto scroll to the nearest section_mark or not, default: false-->
+        <attr name="bsb_show_section_text" format="boolean"/> <!--show section-text or not, default: false-->
+        <attr name="bsb_section_text_size" format="dimension|reference"/> <!--text size of section-text, default: 14sp-->
+        <attr name="bsb_section_text_color" format="color|reference"/> <!--text color of section-text, default: same as right-track's color-->
+        <!--text position of section-text relative to track, sides, bottom_sides, below_section_mark, default: sides-->
+        <attr name="bsb_section_text_position">
+            <enum name="sides" value="0"/>
+            <enum name="bottom_sides" value="1"/>
+            <enum name="below_section_mark" value="2"/>
+        </attr>
+        <attr name="bsb_section_text_interval" format="integer"/> <!--the interval of two section-text, default: 1-->
+        <attr name="bsb_show_thumb_text" format="boolean"/> <!--show real time progress-text under thumb or not, default: false-->
+        <attr name="bsb_thumb_text_size" format="dimension|reference"/> <!--text size of progress-text, default: 14sp-->
+        <attr name="bsb_thumb_text_color" format="color|reference"/> <!--text color of progress-text, default: same as left-track's color-->
+        <attr name="bsb_show_progress_in_float" format="boolean"/> <!--show bubble-progress in float or not, default: false-->
+        <attr name="bsb_touch_to_seek" format="boolean"/> <!--touch anywhere on track to quickly seek, default: false-->
+        <attr name="bsb_seek_step_section" format="boolean"/> <!--seek one step by one section, the progress is discrete, default: false-->
+        <attr name="bsb_seek_by_section" format="boolean"/> <!--seek by section, the progress may not be linear, default: false-->
+        <attr name="bsb_bubble_color" format="color|reference"/> <!--color of bubble, default: same as left-track's color-->
+        <attr name="bsb_bubble_text_size" format="dimension|reference"/> <!--text size of bubble-progress, default: 14sp-->
+        <attr name="bsb_bubble_text_color" format="color|reference"/> <!--text color of bubble-progress, default: #ffffffff-->
+        <attr name="bsb_anim_duration" format="integer"/> <!--duration of animation, default: 200ms-->
+        <attr name="bsb_always_show_bubble" format="boolean"/> <!--bubble shows all time, default: false-->
+        <attr name="bsb_always_show_bubble_delay" format="integer"/> <!--the delay duration before bubble shows all the time, default: 200ms-->
+        <attr name="bsb_hide_bubble" format="boolean"/> <!--hide bubble, default: false-->
+        <attr name="bsb_rtl" format="boolean"/> <!--right to left, default: false-->
+        <attr name="android:enabled"/>
+    </declare-styleable>
+
+</resources>

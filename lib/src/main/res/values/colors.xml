@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue_btn_bg_color">#3F51B5</color>
+    <color name="blue_btn_bg_pressed_color">#212958</color>
+    <color name="button_text_color">#FFFFFF</color>
+    <color name="error_stroke_color">#F44336</color>
+    <color name="float_transparent">#00000000</color>
+    <color name="gray_btn_bg_color">#D0D0D0</color>
+    <color name="gray_btn_bg_pressed_color">#B6B6B6</color>
+    <color name="material_blue_grey_80">#ff37474f</color>
+    <color name="material_blue_grey_90">#ff263238</color>
+    <color name="material_blue_grey_95">#ff21272b</color>
+    <color name="material_deep_teal_20">#ff80cbc4</color>
+    <color name="material_deep_teal_50">#ff009688</color>
+    <color name="red_btn_bg_color">#F44336</color>
+    <color name="red_btn_bg_pressed_color">#CD5B55</color>
+    <color name="success_stroke_color">#A5DC86</color>
+    <color name="sweet_dialog_bg_color">#FFFFFF</color>
+    <color name="text_color">#575757</color>
+    <color name="trans_success_stroke_color">#33A5DC86</color>
+    <color name="warning_stroke_color">#F8BB86</color>
+
+    <!--app公用属性 start-->
+    <color name="colorAccent">#E91E63</color>
+    <color name="general_titleColor">#F44336</color>
+    <color name="general_titleColorPressed">#BA352C</color>
+    <color name="general_mainLightColor">#03A9F4</color>
+    <color name="color_general_background_white">#fff</color>
+    <color name="color_general_background_dialog">#33000000</color>
+    <color name="color_general_background_translate">#9fFFFFFF</color>
+    <color name="color_transparent60_white">#AAFFFFFF</color>
+    <!-- 灰色文字色值 -->
+    <color name="text_gray">#666666</color>
+    <color name="text_black">#2f2e04</color>
+    <!-- 分割线 -->
+    <color name="dividing_line">#d8d8d8</color>
+    <color name="bg_toolsItemNormalBgColor">#ffffff</color>
+    <color name="bg_toolsItemErrorBgColor">#E91E63</color>
+    <color name="bg_toolsItemConfirmErrorBgColor">#e1afaf</color>
+    <color name="bg_toolsListItemLineColor">#70c9ce</color>
+    <!--菜单分割线-->
+    <!-- 边框线颜色 -->
+    <color name="progressBarBackgroundColor">#88bbfc</color>
+    <color name="progressBarFrondColor">#3f94ff</color>
+    <color name="btn_normal">#3F51B5</color>
+    <color name="btn_pressed">#283472</color>
+    <color name="btn_gray_normal">#A9A9AA</color>
+    <color name="btn_gray_pressed">#9A9EB0</color>
+    <color name="common_disable">#d9d9d9</color>
+    <color name="white_btn_pressed">#c5c8c7</color>
+    <color name="common_list_item_bg_pressed_color">#FFEEEEEE</color>
+    <color name="common_list_item_bg_normal_color">@color/color_general_background_white</color>
+    <color name="text_white">#FFFFFFFF</color>
+    <color name="text_blue">#3f94ff</color>
+    <color name="text_red">#F44336</color>
+    <!--app公用属性 end-->
+
+    <!--uCrop Activity-->
+    <color name="ucrop_color_toolbar">#FF6E40</color>
+    <color name="ucrop_color_statusbar">#CC5833</color>
+    <color name="ucrop_color_toolbar_widget">#fff</color>
+    <color name="ucrop_color_widget">#000</color>
+    <color name="ucrop_color_widget_active">#FF6E40</color>
+    <color name="ucrop_color_widget_background">#fff</color>
+    <color name="ucrop_color_widget_text">#000</color>
+    <color name="ucrop_color_progress_wheel_line">#808080</color>
+    <color name="ucrop_color_crop_background">#000</color>
+
+    <!--Crop View-->
+    <color name="ucrop_color_default_crop_grid">#80ffffff</color>
+    <color name="ucrop_color_default_crop_frame">#ffffff</color>
+    <color name="ucrop_color_default_dimmed">#8c000000</color>
+    <color name="ucrop_color_default_logo">#4f212121</color>
+    <color name="ucrop_color_grey">#999999</color>
+
+    <!--picture使用-->
+    <color name="bar_grey">#393a3e</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#7D7DFF</color>
+    <color name="color_69">#999999</color>
+    <color name="image_overlay_true">#80000000</color>
+    <color name="image_overlay_false">#20000000</color>
+    <color name="line_color">#EEEEEE</color>
+    <color name="color_fa">#FAFAFA</color>
+    <color name="tab_color_true">#FA632D</color>
+    <color name="tab_color_false">#9b9b9b</color>
+    <color name="color_f2">#F2F2F2</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_white">#F0FFFFFF</color>
+    <color name="transparent_db">#E0DBDBDB</color>
+    <color name="color_53">#53575e</color>
+    <color name="color_f0">#F0F0F0</color>
+    <color name="bar_grey_90">#dd393a3e</color>
+    <color name="color_4d">#4d4d4d</color>
+    <color name="color_orange">#FF5722</color>
+
+    <!-- dialog panter start -->
+    <color name="panter_hint_color">#804a4a4a</color>
+    <color name="panter_input_text_color">#282828</color>
+    <color name="panter_negative_button_color">#80000000</color>
+    <color name="panter_positive_button_color">#009688</color>
+    <color name="panter_divider_color">#33000000</color>
+    <color name="panter_title_color">#ffffff</color>
+    <!-- dialog panter end -->
+
+
+    <color name="calendar_active_month_bg">#fff5f7f9</color>
+    <color name="calendar_bg">#ffffffff</color>
+    <color name="calendar_divider">#ffbababa</color>
+    <color name="calendar_inactive_month_bg">#ffd7d9db</color>
+    <color name="calendar_selected_day_bg">#ff379bff</color>
+    <color name="calendar_highlighted_day_bg">#ccffcc</color>
+    <color name="calendar_selected_range_bg">#ff96caff</color>
+    <color name="calendar_text_inactive">#40778088</color>
+    <color name="calendar_text_active">#ff778088</color>
+    <color name="calendar_text_selected">#ffffffff</color>
+    <color name="calendar_text_unselectable">#7f778088</color>
+    <color name="calendar_text_highlighted">#ff778088</color>
+
+    <color name="cl_snappingstepper_button_normal">#237bb6</color>
+    <color name="cl_snappingstepper_button_press">#1f567b</color>
+    <color name="cl_snappingstepper_text_bg">#2b8ccd</color>
+    <color name="cl_snappingstepper_text">#000000</color>
+
+</resources>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.tpc.TpcGoodsDetailActivity">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        app:centerText="@string/tpcGoodsDetail" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/general_item_margin_min"
+                app:cardBackgroundColor="@color/color_general_background_white"
+                app:cardCornerRadius="@dimen/common_radius"
+                app:cardElevation="@dimen/general_item_padding_min">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/general_item_padding">
+
+                    <TextView
+                        android:id="@+id/mGoodsNameTextView"
+                        style="@style/general_textStyle_blackMax1" />
+
+                    <TextView
+                        android:id="@+id/mStatusTextView"
+                        style="@style/general_textStyle_black"
+                        android:layout_marginTop="@dimen/general_item_padding_min"
+                        android:background="@drawable/shape_box_round_corners_white_blueline"
+                        android:paddingLeft="@dimen/general_item_padding_min"
+                        android:paddingRight="@dimen/general_item_padding_min"
+                        android:textColor="@color/text_blue" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/mTagsRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/general_item_margin_min" />
+
+                    <TextView
+                        android:id="@+id/mGoodsRemarkTextView"
+                        style="@style/general_textStyle_grayMin"
+                        android:layout_marginTop="@dimen/general_item_padding_min" />
+
+                    <TextView
+                        android:id="@+id/mGoodsMainImagesTitleView"
+                        style="@style/general_textStyle_blackMax1"
+                        android:layout_marginTop="@dimen/general_item_padding"
+                        android:text="@string/goodsMainImages"
+                        android:textStyle="bold" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/mGoodsMainImagesRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/mGoodsDetailImagesTitleView"
+                        style="@style/general_textStyle_blackMax1"
+                        android:layout_marginTop="@dimen/general_item_padding"
+                        android:text="@string/goodsDetailImages"
+                        android:textStyle="bold" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/mGoodsDetailImagesRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/general_item_margin_min"
+                app:cardBackgroundColor="@color/color_general_background_white"
+                app:cardCornerRadius="@dimen/common_radius"
+                app:cardElevation="@dimen/general_item_padding_min">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/general_item_padding">
+
+                    <TextView
+                        android:id="@+id/mAddedPriceTextView"
+                        style="@style/general_textStyle_blackDefaultSize"
+                        android:layout_marginTop="@dimen/general_item_padding_min" />
+
+                    <TextView
+                        android:id="@+id/mPriceTextView"
+                        style="@style/general_textStyle_blackDefaultSize"
+                        android:layout_marginTop="@dimen/general_item_padding_min" />
+
+                    <TextView
+                        android:id="@+id/mLimitNumTextView"
+                        style="@style/general_textStyle_blackDefaultSize"
+                        android:layout_marginTop="@dimen/general_item_padding_min" />
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/general_item_margin_min"
+                app:cardBackgroundColor="@color/color_general_background_white"
+                app:cardCornerRadius="@dimen/common_radius"
+                app:cardElevation="@dimen/general_item_padding_min">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/general_item_padding">
+
+
+                    <TextView
+                        style="@style/general_textStyle_blackMax1"
+                        android:text="@string/shopInfo"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/mShopInfoTextView"
+                        style="@style/general_textStyle_black"
+                        android:layout_marginTop="@dimen/general_item_padding_min"
+                        android:lineSpacingExtra="@dimen/general_item_padding_min" />
+
+                    <TextView
+                        android:id="@+id/mGoodsDeliveryAddressTitleView"
+                        style="@style/general_textStyle_blackMax1"
+                        android:layout_marginTop="@dimen/general_item_padding"
+                        android:text="@string/deliveryAddress"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/mGoodsDeliveryAddressTextView"
+                        style="@style/general_textStyle_blackDefaultSize"
+                        android:layout_marginTop="@dimen/general_item_padding_min" />
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/general_item_margin_min"
+                app:cardBackgroundColor="@color/color_general_background_white"
+                app:cardCornerRadius="@dimen/common_radius"
+                app:cardElevation="@dimen/general_item_padding_min">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/general_item_padding">
+
+                    <TextView
+                        android:id="@+id/mShowTimeInfoTextView"
+                        style="@style/general_textStyle_black" />
+
+                    <TextView
+                        android:id="@+id/mCategoryTextView"
+                        style="@style/general_textStyle_blackDefaultSize"
+                        android:layout_marginTop="@dimen/general_item_padding_min" />
+
+                    <TextView
+                        android:id="@+id/mWeightTextView"
+                        style="@style/general_textStyle_blackDefaultSize"
+                        android:layout_marginTop="@dimen/general_item_padding_min" />
+
+                    <TextView
+                        android:id="@+id/mRejectInfoTextView"
+                        style="@style/general_textStyle_blackDefaultSize"
+                        android:layout_marginTop="@dimen/general_item_padding_min" />
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <View style="@style/horizontalLine" />
+
+    <com.dyh.common.lib.weigit.WrapLayout
+        android:id="@+id/mOptionButtonRootView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_general_background_white"
+        android:padding="@dimen/general_item_padding"
+        app:wrapLayout_Gravity="top"
+        app:wrapLayout_HorizontalSpacing="@dimen/general_item_margin"
+        app:wrapLayout_VerticalSpacing="@dimen/general_item_margin">
+
+        <TextView
+            android:id="@+id/mEditTextView"
+            style="@style/general_buttonMinDefault"
+            android:text="@string/edit"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mAgreeTextView"
+            style="@style/general_buttonMinDefault"
+            android:text="@string/agree"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mAgreeAndAddPriceTextView"
+            style="@style/general_buttonMinDefault"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:text="@string/agreeAndAddPrice"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mModifyAddPriceTextView"
+            style="@style/general_buttonMinDefault"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:text="@string/modifyAddPrice"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mSetLabelTextView"
+            style="@style/general_buttonMinDefault"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:text="@string/setLabel"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mModifySortTextView"
+            style="@style/general_buttonMinDefault"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:text="@string/modifySort"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mSetClassTextView"
+            style="@style/general_buttonMinDefault"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:text="@string/setClass"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mSetSuperiorTextView"
+            style="@style/general_buttonMinDefault"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:text="@string/setSuperior"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mRejectTextView"
+            style="@style/general_buttonMinRed"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:text="@string/reject"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mDeleteTextView"
+            style="@style/general_buttonMinRed"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:text="@string/delete"
+            android:visibility="gone" />
+    </com.dyh.common.lib.weigit.WrapLayout>
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/general_item_padding_min"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/common_radius"
+    app:cardElevation="@dimen/general_item_padding_min">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/general_item_padding">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mAddressNameTextView"
+                style="@style/general_textStyle_blackMax2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mDetailAddressTextView"
+                style="@style/general_textStyle_blackDefaultSize"
+                android:layout_marginTop="@dimen/general_item_margin_min"
+                android:drawableRight="@mipmap/address_min_blue"
+                android:drawablePadding="@dimen/general_item_padding_min" />
+
+            <TextView
+                android:id="@+id/mStatusTextView"
+                style="@style/general_textStyle_black"
+                android:layout_marginTop="@dimen/general_item_padding_min"
+                android:background="@drawable/shape_box_round_corners_white_blueline"
+                android:paddingLeft="@dimen/general_item_padding_min"
+                android:paddingRight="@dimen/general_item_padding_min"
+                android:textColor="@color/text_blue" />
+
+            <TextView
+                android:id="@+id/mSendTypeTextView"
+                style="@style/general_textStyle_black"
+                android:layout_marginTop="@dimen/general_item_padding_min" />
+
+            <TextView
+                android:id="@+id/mTakePointTextView"
+                style="@style/general_textStyle_grayDefaultSize"
+                android:layout_marginTop="@dimen/general_item_padding_min" />
+
+            <TextView
+                android:id="@+id/mDeliveryManTextView"
+                style="@style/general_textStyle_grayDefaultSize"
+                android:layout_marginTop="@dimen/general_item_padding_min" />
+
+            <LinearLayout
+                android:id="@+id/mOptionButtonRootView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/general_item_margin_min"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/mOpenOrCloseTextView"
+                    style="@style/general_buttonMinDefault"
+                    android:text="@string/openAddress" />
+
+                <TextView
+                    android:id="@+id/mDeleteTextView"
+                    style="@style/general_buttonMinRed"
+                    android:layout_marginLeft="@dimen/general_item_margin"
+                    android:text="@string/delete" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/more_right" />
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

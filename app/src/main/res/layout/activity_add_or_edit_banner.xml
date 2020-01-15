@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.delivery_address.AddOrEditDeliveryAddressActivity">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        app:centerText="@string/addNewBanner"
+        app:rightText="@string/save"
+        app:rightType="textView" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/general_item_margin_min"
+        app:cardBackgroundColor="@color/color_general_background_white"
+        app:cardCornerRadius="@dimen/common_radius"
+        app:cardElevation="@dimen/general_item_margin_min">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/general_item_padding">
+
+            <TextView
+                android:id="@+id/mAddImageTextView"
+                style="@style/general_buttonMinDefault"
+                android:text="@string/addImage" />
+
+            <ImageView
+                android:id="@+id/mImageView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/imageHeight_bannerFullWidth"
+                android:layout_marginTop="@dimen/general_item_margin_min"
+                android:scaleType="centerInside" />
+
+
+            <TextView
+                android:id="@+id/mAddDeliveryAddressTextView"
+                style="@style/general_buttonMinDefault"
+                android:layout_marginTop="@dimen/general_item_margin"
+                android:text="@string/addDeliverAddress" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mDeliverAddressRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/general_item_margin_min" />
+
+            <TextView
+                style="@style/general_textStyle_blackMax2"
+                android:layout_marginTop="@dimen/general_item_margin"
+                android:text="@string/clickedEffect" />
+
+            <RadioGroup
+                android:id="@+id/mTypeRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/mInAppPagesRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/general_item_padding"
+                    android:text="@string/inAppPages" />
+
+                <RadioButton
+                    android:id="@+id/mWebUrlRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/general_item_padding"
+                    android:text="@string/webUrl" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/mToPageEditText"
+                style="@style/style_generalEditTextDefault_blackText"
+                android:inputType="text"
+                android:maxLines="1" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

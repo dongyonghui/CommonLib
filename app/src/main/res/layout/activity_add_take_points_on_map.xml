@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.delivery_address.AddTakePointsOnMapActivity">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        app:centerText="@string/addTakePoints"
+        app:rightText="@string/save"
+        app:rightType="textView" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/general_item_padding">
+
+        <TextView
+            style="@style/general_textStyle_blackDefaultSize"
+            android:text="@string/takePointName" />
+
+        <EditText
+            android:id="@+id/mNameEditText"
+            style="@style/style_generalEditTextDefault_blackText"
+            android:hint="@string/hint_inputTakePointName"
+            android:inputType="text"
+            android:maxLength="15"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/general_textStyle_blackDefaultSize"
+        android:layout_marginLeft="@dimen/general_item_margin"
+        android:text="@string/selectPointsOnMap" />
+
+    <FrameLayout
+        android:id="@+id/mContentRootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:titlebar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        style="@style/titleBar_default"
+        titlebar:centerText="@string/login" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/general_item_padding">
+
+            <TextView
+                style="@style/general_textStyle_blackMax2"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/app_name" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@drawable/shape_box_round_corners_white"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/general_textStyle_blackDefaultSize"
+                    android:padding="@dimen/general_item_padding"
+                    android:text="@string/pre_loginNo" />
+
+                <EditText
+                    android:id="@+id/mLoginNoEditText"
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:background="@null"
+                    android:hint="@string/inputLoginName"
+                    android:maxLines="1"
+                    android:padding="@dimen/general_item_padding" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@drawable/shape_box_round_corners_white"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/general_textStyle_blackDefaultSize"
+                    android:padding="@dimen/general_item_padding"
+                    android:text="@string/pre_loginPwd" />
+
+                <EditText
+                    android:id="@+id/mPwdEditText"
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:background="@null"
+                    android:hint="@string/inputLoginPassword"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="@dimen/general_item_padding" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mLoginTextView"
+                style="@style/general_button"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/login" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

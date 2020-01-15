@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.delivery_address.AddOrEditDeliveryAddressActivity">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        app:centerText="@string/cityDeliverPriceManage"
+        app:rightText="@string/save"
+        app:rightType="textView" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/general_item_margin_min"
+        app:cardBackgroundColor="@color/color_general_background_white"
+        app:cardCornerRadius="@dimen/common_radius"
+        app:cardElevation="@dimen/general_item_margin_min">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/general_item_padding">
+
+            <TextView
+                style="@style/general_textStyle_grayMax2"
+                android:text="@string/deliveryPrice" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/general_item_margin_min">
+
+                <TextView
+                    style="@style/general_textStyle_grayDefaultSize"
+                    android:text="@string/firstCustomer" />
+
+                <EditText
+                    android:id="@+id/mFirstCustomerDeliveryPriceEditText"
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="numberSigned"
+                    android:maxLines="1" />
+
+                <TextView
+                    style="@style/general_textStyle_grayDefaultSize"
+                    android:text="@string/moneyUnit" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/general_item_margin">
+
+                <TextView
+                    style="@style/general_textStyle_grayDefaultSize"
+                    android:text="@string/notFirstCustomer" />
+
+                <EditText
+                    android:id="@+id/mNotFirstCustomerDeliveryPriceEditText"
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1" />
+
+                <TextView
+                    style="@style/general_textStyle_grayDefaultSize"
+                    android:text="@string/moneyUnit" />
+            </TableRow>
+
+            <TextView
+                style="@style/general_textStyle_grayMax2"
+                android:layout_marginTop="@dimen/general_item_margin"
+                android:text="@string/noDeliveryMoneyPrice" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/general_item_margin">
+
+                <TextView
+                    style="@style/general_textStyle_grayDefaultSize"
+                    android:text="@string/noDeliveryMoneyPrice" />
+
+                <EditText
+                    android:id="@+id/mNoDeliveryMoneyPriceEditText"
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1" />
+
+                <TextView
+                    style="@style/general_textStyle_grayDefaultSize"
+                    android:text="@string/moneyUnit" />
+            </TableRow>
+        </TableLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

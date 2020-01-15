@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.delivery_address.AddOrEditDeliveryAddressActivity">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        app:centerText="@string/addNewGroupPrize"
+        app:rightText="@string/save"
+        app:rightType="textView" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/general_item_padding">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/general_textStyle_grayMax2"
+                android:text="@string/deliveryAddress" />
+
+            <TextView
+                android:id="@+id/mAddDeliveryAddressTextView"
+                style="@style/general_buttonMinDefault"
+                android:layout_marginLeft="@dimen/general_item_margin"
+                android:text="@string/selectDeliveryAddress" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mDeliverAddressRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_item_margin_min" />
+
+        <CheckBox
+            android:id="@+id/mUseNotInputAddressCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_item_margin_min"
+            android:text="@string/useNotInputAddress"
+            android:textSize="@dimen/general_textSize_max1" />
+
+        <TextView
+            style="@style/general_textStyle_grayDefaultSize"
+            android:text="@string/useNotInputAddressInfo" />
+
+
+        <TextView
+            style="@style/general_textStyle_grayMax2"
+            android:layout_marginTop="@dimen/general_item_margin"
+            android:text="@string/groupPrize" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mGroupPrizeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_item_margin_min" />
+
+    </LinearLayout>
+
+</LinearLayout>

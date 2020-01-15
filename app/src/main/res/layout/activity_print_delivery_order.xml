@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        tl:centerText="@string/app_name" />
+
+    <com.dyh.common.lib.weigit.tablayout.CommonTabLayout
+        android:id="@+id/mTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_margin="@dimen/general_item_padding"
+        android:background="@drawable/shape_box_round_corners_white_blueline"
+        android:visibility="gone"
+        tl:tl_iconVisible="false"
+        tl:tl_indicator_color="@color/blue_btn_bg_color"
+        tl:tl_indicator_corner_radius="@dimen/common_radius"
+        tl:tl_indicator_margin_bottom="0dp"
+        tl:tl_indicator_margin_top="0dp"
+        tl:tl_indicator_style="BLOCK"
+        tl:tl_textBold="SELECT"
+        tl:tl_textSelectColor="@color/text_white"
+        tl:tl_textUnselectColor="@color/text_blue"
+        tl:tl_textsize="14sp" />
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/mSwipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/general_item_padding">
+
+                <CheckBox
+                    android:id="@+id/mSelectAllCheckBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:padding="@dimen/general_item_padding"
+                    android:text="@string/selectAll"
+                    android:textSize="@dimen/general_textSize_max1" />
+
+                <TextView
+                    android:id="@+id/mPrintTextView"
+                    style="@style/general_buttonMinDefault"
+                    android:layout_margin="@dimen/general_item_padding"
+                    android:onClick="onClick"
+                    android:text="@string/print" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

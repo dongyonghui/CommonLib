@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.supply_pool.SupplyPoolDetailActivity">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        app:centerText="@string/supplyPoolManage" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/general_item_margin"
+            app:cardElevation="@dimen/general_item_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/general_item_padding">
+
+                <TextView
+                    android:id="@+id/mNameTextView"
+                    style="@style/general_textStyle_blackMax2"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/mCityTextView"
+                    style="@style/general_textStyle_black"
+                    android:layout_marginTop="@dimen/general_item_margin"
+                    android:background="@drawable/shape_box_round_corners_white_blueline"
+                    android:paddingLeft="@dimen/general_item_padding_min"
+                    android:paddingRight="@dimen/general_item_padding_min"
+                    android:textColor="@color/text_blue" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/general_item_margin">
+
+                    <TableRow android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/general_textStyle_grayDefaultSize"
+                            android:text="@string/manager" />
+
+                        <TextView
+                            android:id="@+id/mManagerTextView"
+                            style="@style/general_textStyle_blackDefaultSize"
+                            android:layout_marginLeft="@dimen/general_item_margin_min" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="@dimen/general_item_margin"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/general_textStyle_grayDefaultSize"
+                            android:text="@string/shopsInPool" />
+
+                        <TextView
+                            android:id="@+id/mShopsTextView"
+                            style="@style/general_textStyle_blackDefaultSize"
+                            android:layout_marginLeft="@dimen/general_item_margin_min"
+                            android:hint="@string/emptyData" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="@dimen/general_item_margin"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/general_textStyle_grayDefaultSize"
+                            android:text="@string/deliveryAddress" />
+
+                        <TextView
+                            android:id="@+id/mDeliverAddressTextView"
+                            style="@style/general_textStyle_blackDefaultSize"
+                            android:layout_marginLeft="@dimen/general_item_margin_min"
+                            android:hint="@string/emptyData" />
+                    </TableRow>
+                </TableLayout>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/mOptionButtonRootView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/general_item_margin_min"
+        android:background="@color/color_general_background_white"
+        android:orientation="horizontal"
+        android:padding="@dimen/general_item_padding">
+
+        <TextView
+            android:id="@+id/mDrawFenceTextView"
+            style="@style/general_buttonMinDefault"
+            android:text="@string/drawFence" />
+
+        <TextView
+            android:id="@+id/mSelectShopsTextView"
+            style="@style/general_buttonMinDefault"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:text="@string/selectShops" />
+
+        <TextView
+            android:id="@+id/mDeleteTextView"
+            style="@style/general_buttonMinRed"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:text="@string/delete" />
+    </LinearLayout>
+</LinearLayout>

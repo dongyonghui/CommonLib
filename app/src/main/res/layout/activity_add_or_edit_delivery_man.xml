@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.delivery_address.AddOrEditDeliveryAddressActivity">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        app:centerText="@string/addNewDeliveryMan"
+        app:rightText="@string/save"
+        app:rightType="textView" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/general_item_margin_min"
+        app:cardBackgroundColor="@color/color_general_background_white"
+        app:cardCornerRadius="@dimen/common_radius"
+        app:cardElevation="@dimen/general_item_margin_min">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/general_item_padding">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/general_item_margin">
+
+                <TextView
+                    style="@style/general_textStyle_blackDefaultSize"
+                    android:text="@string/personName" />
+
+                <EditText
+                    android:id="@+id/mNameEditText"
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/inputPersonNamePlease"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/general_item_margin">
+
+                <TextView
+                    style="@style/general_textStyle_blackDefaultSize"
+                    android:text="@string/account" />
+
+                <EditText
+                    android:id="@+id/mAccountEditText"
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_accountInputInfo"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:maxLines="1" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/general_item_margin">
+
+                <TextView
+                    style="@style/general_textStyle_blackDefaultSize"
+                    android:text="@string/callPhone" />
+
+                <EditText
+                    android:id="@+id/mPhoneEditText"
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/inputPhonePlease"
+                    android:inputType="phone"
+                    android:maxLines="1" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/mShopsRootView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/general_textStyle_blackDefaultSize"
+                    android:layout_marginTop="@dimen/general_item_margin"
+                    android:text="@string/deliveryAddress" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/mSelectDeliveryAddressTextView"
+                        style="@style/general_textStyle_blackDefaultSize"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/bg_white_selector"
+                        android:drawableRight="@mipmap/more_right"
+                        android:drawablePadding="@dimen/general_item_padding_min"
+                        android:padding="@dimen/general_item_padding"
+                        android:text="@string/selectDeliveryAddress"
+                        android:textColor="@color/text_blue" />
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/mDeliverAddressRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </TableRow>
+
+
+        </TableLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/general_textStyle_blackMax1"
+        android:layout_marginTop="@dimen/general_item_margin"
+        android:paddingLeft="@dimen/general_item_padding"
+        android:text="@string/stop2Date" />
+
+    <com.dyh.common.lib.weigit.calendar_picker.CalendarPickerView
+        android:id="@+id/mCalendarPickerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

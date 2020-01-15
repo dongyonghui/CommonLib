@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/general_titleColor</item>
+        <item name="colorPrimaryDark">@color/general_titleColorPressed</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="imageViewStyle_banner">
+        <item name="android:layout_width">@dimen/imageWidth_banner</item>
+        <item name="android:layout_height">@dimen/imageHeight_banner</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+</resources>

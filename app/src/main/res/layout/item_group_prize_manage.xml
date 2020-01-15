@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/general_item_padding_min"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/common_radius"
+    app:cardElevation="@dimen/general_item_padding_min">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/general_item_padding">
+
+        <TextView
+            style="@style/general_textStyle_grayMax2"
+            android:text="@string/groupPrize" />
+
+        <TextView
+            android:id="@+id/mPrizeInfoTextView"
+            style="@style/general_textStyle_blackDefaultSize" />
+
+        <TextView
+            style="@style/general_textStyle_grayMax2"
+            android:layout_marginTop="@dimen/general_item_margin"
+            android:text="@string/deliveryAddress" />
+
+        <TextView
+            android:id="@+id/mNotInputDeliverAddressTextView"
+            style="@style/general_textStyle_blackDefaultSize"
+            android:layout_marginTop="@dimen/general_item_margin_min"
+            android:background="@drawable/shape_box_round_corners_white_blueline"
+            android:paddingLeft="@dimen/general_item_padding_min"
+            android:paddingRight="@dimen/general_item_padding_min"
+            android:text="@string/useNotInputAddress"
+            android:textColor="@color/text_red"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mDeliverAddressTextView"
+            style="@style/general_textStyle_blackDefaultSize"
+            android:layout_marginTop="@dimen/general_item_margin_min"
+            android:ellipsize="end"
+            android:maxLines="2" />
+
+        <LinearLayout
+            android:id="@+id/mOptionButtonRootView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_item_margin_min"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mEditTextView"
+                style="@style/general_buttonMinDefault"
+                android:layout_marginLeft="@dimen/general_item_margin"
+                android:text="@string/edit" />
+
+            <TextView
+                android:id="@+id/mDeleteTextView"
+                style="@style/general_buttonMinRed"
+                android:layout_marginLeft="@dimen/general_item_margin"
+                android:text="@string/delete" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

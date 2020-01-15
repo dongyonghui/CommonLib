@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.delivery_address.AddOrEditDeliveryAddressActivity">
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        app:centerText="@string/addNewCityTime"
+        app:rightText="@string/save"
+        app:rightType="textView" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/general_item_margin_min"
+        app:cardBackgroundColor="@color/color_general_background_white"
+        app:cardCornerRadius="@dimen/common_radius"
+        app:cardElevation="@dimen/general_item_margin_min">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/general_item_padding">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/general_item_margin">
+
+                <TextView
+                    style="@style/general_textStyle_grayDefaultSize"
+                    android:text="@string/notifyShopsTime" />
+
+                <Spinner
+                    android:id="@+id/mStartTimeHourSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/hours24"
+                    android:padding="@dimen/general_item_padding" />
+
+                <TextView
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:text="@string/splitHoursAndMinutes" />
+
+                <Spinner
+                    android:id="@+id/mStartTimeMinuetSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/minutes"
+                    android:padding="@dimen/general_item_padding" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/general_item_margin">
+
+                <TextView
+                    style="@style/general_textStyle_grayDefaultSize"
+                    android:text="@string/goodsArrivedTime" />
+
+                <Spinner
+                    android:id="@+id/mEndTimeHourSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/hours24"
+                    android:padding="@dimen/general_item_padding" />
+
+                <TextView
+                    style="@style/style_generalEditTextDefault_blackText"
+                    android:text="@string/splitHoursAndMinutes" />
+
+                <Spinner
+                    android:id="@+id/mEndTimeMinuetSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/minutes"
+                    android:padding="@dimen/general_item_padding" />
+            </TableRow>
+
+
+        </TableLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

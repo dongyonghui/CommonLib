@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/up_down_margin"
+    android:layout_marginBottom="@dimen/up_down_margin"
+    android:gravity="center"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:id="@+id/dialog_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_weight="0.93"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/header_pattern"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/pattern_height"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/pattern_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/logo_height"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/header_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/general_item_padding"
+                android:textColor="@color/panter_title_color"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_fake_margin"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/mContentRootView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <com.dyh.common.lib.weigit.dialog_default.views.MaxHeightScrollView
+                    android:id="@+id/scroll_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:maxHeight="@dimen/scrollview_max_height">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/message"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:padding="@dimen/text_padding"
+                            android:textColor="@color/text_color"
+                            android:textSize="@dimen/message_text_size" />
+
+                        <EditText
+                            android:id="@+id/input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:gravity="top|left"
+                            android:inputType="textMultiLine"
+                            android:minHeight="@dimen/input_min_height"
+                            android:padding="@dimen/text_padding"
+                            android:textColor="@color/panter_input_text_color"
+                            android:textColorHint="@color/text_color"
+                            android:textSize="@dimen/message_text_size" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbarStyle="outsideOverlay"
+                            android:scrollbars="vertical" />
+
+                    </LinearLayout>
+
+
+                </com.dyh.common.lib.weigit.dialog_default.views.MaxHeightScrollView>
+            </FrameLayout>
+
+            <View
+                android:id="@+id/vertical_divider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_stroke"
+                android:background="@color/panter_divider_color" />
+
+            <LinearLayout
+                android:id="@+id/button_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/negative"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/button_padding"
+                    android:paddingBottom="@dimen/button_padding"
+                    android:textColor="@color/panter_negative_button_color"
+                    android:textSize="@dimen/message_text_size" />
+
+                <View
+                    android:id="@+id/button_divider"
+                    android:layout_width="@dimen/divider_stroke"
+                    android:layout_height="match_parent"
+                    android:background="@color/panter_divider_color" />
+
+                <TextView
+                    android:id="@+id/positive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/button_padding"
+                    android:paddingBottom="@dimen/button_padding"
+                    android:textColor="@color/panter_positive_button_color"
+                    android:textSize="@dimen/message_text_size" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

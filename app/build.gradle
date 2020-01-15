@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "com.dyh.commonlib"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.compileSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlin_version"
+    implementation rootProject.ext.recyclerview
+    implementation rootProject.ext.appCompat
+    implementation rootProject.ext.cardview
+    implementation rootProject.ext.glide
+    implementation rootProject.ext.butterknife
+    implementation rootProject.ext.gson
+    implementation 'com.github.dongyonghui:BothProgressBar:1.2'
+    implementation 'com.github.dongyonghui:BluetoothPrinter:1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:multidex:1.0.3'
+    annotationProcessor rootProject.ext.butterknifeAnnotationProcessor
+    implementation project(path: ':lib')
+    implementation files('libs/AMap2DMap_6.0.0_AMapSearch_7.1.0_AMapLocation_4.7.2_20191106.jar')
+}
