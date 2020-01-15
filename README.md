@@ -1,27 +1,18 @@
-# EasyAndroid [![](https://jitpack.io/v/yjfnypeu/EasyAndroid.svg)](https://jitpack.io/#yjfnypeu/EasyAndroid)
+# gradle引入方法
+Add it in your root build.gradle at the end of repositories:
 
-在平时的开发过程中，我们经常会需要使用到一些基础功能组件，比如Toast,比如Log等。
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. Add the dependency
 
-而这些功能组件，在开发时需要使用到的功能点其实相当有限，所以这也意味着，我们对此类组件的要求是：**简单、轻量、易用**！相对应的，此类组件的封装库，也应该尽量实现得**轻巧精练**
-
-**EasyAndroid**即是专门针对此种需求所设计的一款`基础组件集成库`
-
-### 宗旨
-
-#### 1. 设计独立
-> 组件间独立存在，不相互依赖，且若只需要集成库中的部分组件。也可以很方便的`只copy对应的组件文件`进行使用
-
-#### 2. 设计轻巧
-
-> 因为是组件集成库，所以要求每个组件的设计尽量精练、轻巧。避免因为一个小功能而引入大量无用代码.
->
-> 每个组件的方法数均`不超过100`. 大部分组件方法数甚至`不超过50`。
-
-### 添加依赖
-
-1. 添加jitpack仓库依赖
-2. 添加依赖
-3. 初始化
+	dependencies {
+	        implementation 'com.github.dongyonghui:CommonLib:1.0'
+	}
+# 初始化
 
 在Application继承BaseApplication，并复写重新登录方法：
 ```
