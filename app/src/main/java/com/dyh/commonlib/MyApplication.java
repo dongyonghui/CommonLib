@@ -32,8 +32,6 @@ public class MyApplication extends BaseApplication {
         myApplication = this;
         MultiDex.install(this);
 
-        //是否使用测试环境的API
-        HttpHostUtil.IS_TEST_SERVICE = true;
         //是否启用日志
         EasyLog.Companion.getDEFAULT().setEnable(true);
 
