@@ -4,7 +4,7 @@ Android slanted TextView . [中文版](https://github.com/HeZaiJin/SlantedTextVi
 ![预览](https://github.com/HeZaiJin/SlantedTextView/blob/master/screen_shot/screenshot.png)
 ## XML Layout
 ```java
-<com.dyh.common.lib.weigit.SlantedTextView
+<com.inscloudtech.easyandroid.weigit.SlantedTextView
     android:layout_width="80dp"
     android:layout_height="80dp"
     android:gravity="center"

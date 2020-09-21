@@ -1,8 +1,8 @@
 package com.dyh.common.lib.recyclerview_helper;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +28,7 @@ public abstract class MultipleItemRvAdapter<T, V extends BaseViewHolder> extends
     protected ProviderDelegate mProviderDelegate;
     private MultiTypeDelegate<T> mMultiTypeDelegate;
 
-    public MultipleItemRvAdapter( List<T> data) {
+    public MultipleItemRvAdapter(@Nullable List<T> data) {
         super(data);
     }
 

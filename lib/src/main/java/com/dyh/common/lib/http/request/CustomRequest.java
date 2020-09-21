@@ -26,7 +26,7 @@ import com.dyh.common.lib.http.func.CacheResultFunc;
 import com.dyh.common.lib.http.func.HandleFuc;
 import com.dyh.common.lib.http.func.RetryExceptionFunc;
 import com.dyh.common.lib.http.model.ApiResult;
-import com.dyh.common.lib.http.model.Optional;
+import com.dyh.common.lib.http.model.ResponseOptional;
 import com.dyh.common.lib.http.subsciber.CallBackSubsciber;
 import com.dyh.common.lib.http.transformer.HandleErrTransformer;
 import com.dyh.common.lib.http.utils.RxUtil;
@@ -96,11 +96,11 @@ public class CustomRequest extends BaseRequest<CustomRequest> {
      * 调用call返回一个Observable,针对ApiResult的业务<T>
      * 举例：如果你给的是一个Observable<ApiResult<AuthModel>> 那么返回的<T>是AuthModel
      */
-    public <T> Observable<Optional<T>> apiCall(Observable<ApiResult<T>> observable) {
+    public <T> Observable<ResponseOptional<T>> apiCall(Observable<ApiResult<T>> observable) {
         checkvalidate();
         return observable
                 .map(new HandleFuc<T>())
-                .compose(RxUtil.<Optional<T>>io_main())
+                .compose(RxUtil.<ResponseOptional<T>>io_main())
                 .compose(new HandleErrTransformer<T>())
                 .retryWhen(new RetryExceptionFunc(retryCount, retryDelay, retryIncreaseDelay));
     }

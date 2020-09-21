@@ -1,83 +1,96 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:titlebar="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/match_all"
+    android:padding="@dimen/general_item_padding_max">
 
-    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
-        style="@style/titleBar_default"
-        titlebar:centerText="@string/login" />
+    <TextView
+        android:id="@+id/mTitleTextView"
+        style="@style/text_warp_black"
+        android:layout_marginTop="@dimen/login_marginTop"
+        android:text="@string/phoneLogin"
+        android:textSize="@dimen/login_titleTextSize"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <com.dyh.android.winehall.weigit.ContainsEmojiEditText
+        android:id="@+id/mLoginNameEditText"
+        style="@style/text_wrap_black16"
+        android:layout_width="0dp"
+        android:layout_marginTop="40dp"
+        android:background="@null"
+        android:hint="@string/inputPhoneNumber"
+        android:inputType="phone"
+        android:lines="1"
+        android:maxLines="1"
+        android:padding="@dimen/general_item_padding"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTitleTextView">
 
-        <LinearLayout
-            android:id="@+id/email_login_form"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="@dimen/general_item_padding">
+        <requestFocus />
 
-            <TextView
-                style="@style/general_textStyle_blackMax2"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:text="@string/app_name" />
+    </com.dyh.android.winehall.weigit.ContainsEmojiEditText>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@drawable/shape_box_round_corners_white"
-                android:orientation="horizontal">
 
-                <TextView
-                    style="@style/general_textStyle_blackDefaultSize"
-                    android:padding="@dimen/general_item_padding"
-                    android:text="@string/pre_loginNo" />
+    <View
+        android:id="@+id/mLineCenter"
+        style="@style/horizontalLine"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mLoginNameEditText" />
 
-                <EditText
-                    android:id="@+id/mLoginNoEditText"
-                    style="@style/style_generalEditTextDefault_blackText"
-                    android:background="@null"
-                    android:hint="@string/inputLoginName"
-                    android:maxLines="1"
-                    android:padding="@dimen/general_item_padding" />
 
-            </LinearLayout>
+    <com.dyh.android.winehall.weigit.ContainsEmojiEditText
+        android:id="@+id/mLoginCodeEditText"
+        style="@style/text_wrap_black16"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/general_item_margin"
+        android:background="@null"
+        android:hint="@string/inputValidateCode"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:padding="@dimen/general_item_padding"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/mLoginGetCodeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/mLineCenter" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@drawable/shape_box_round_corners_white"
-                android:orientation="horizontal">
 
-                <TextView
-                    style="@style/general_textStyle_blackDefaultSize"
-                    android:padding="@dimen/general_item_padding"
-                    android:text="@string/pre_loginPwd" />
+    <TextView
+        android:id="@+id/mLoginGetCodeTextView"
+        style="@style/wrap_all"
+        android:layout_marginTop="@dimen/general_item_margin"
+        android:background="@drawable/bg_translate_selector"
+        android:padding="@dimen/general_item_padding"
+        android:text="@string/getValidateCode"
+        android:textColor="@color/text_444c"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mLineCenter" />
 
-                <EditText
-                    android:id="@+id/mPwdEditText"
-                    style="@style/style_generalEditTextDefault_blackText"
-                    android:background="@null"
-                    android:hint="@string/inputLoginPassword"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:padding="@dimen/general_item_padding" />
+    <View
+        android:id="@+id/mLineBottom"
+        style="@style/horizontalLine"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mLoginCodeEditText" />
 
-            </LinearLayout>
+    <TextView
+        android:id="@+id/mLoginTextView"
+        style="@style/general_button"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/login_marginItem"
+        android:text="@string/login"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mLineBottom" />
 
-            <TextView
-                android:id="@+id/mLoginTextView"
-                style="@style/general_button"
-                android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:text="@string/login" />
 
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    <TextView
+        android:id="@+id/mUserAgreementTextView"
+        style="@style/text_wrap_14"
+        android:layout_marginBottom="@dimen/general_item_margin_max"
+        android:text="@string/userAgreement"
+        android:textColor="@color/text_58e"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

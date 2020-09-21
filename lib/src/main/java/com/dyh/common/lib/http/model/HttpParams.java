@@ -63,8 +63,10 @@ public class HttpParams implements Serializable {
 
     public void put(HttpParams params) {
         if (params != null) {
-            if (params.urlParamsMap != null && !params.urlParamsMap.isEmpty())
+            if (params.urlParamsMap != null && !params.urlParamsMap.isEmpty()) {
                 urlParamsMap.putAll(params.urlParamsMap);
+                removeNullValues(urlParamsMap);
+            }
 
             if (params.fileParamsMap != null && !params.fileParamsMap.isEmpty()) {
                 fileParamsMap.putAll(params.fileParamsMap);
@@ -72,13 +74,28 @@ public class HttpParams implements Serializable {
         }
     }
 
+    private void removeNullValues(Map<String, String> map) {
+        if (null == map || map.isEmpty()) return;
+        List<String> removedKeyList = new ArrayList<>();
+        for (String key : map.keySet()) {
+            if (map.get(key) == null) {
+                removedKeyList.add(key);
+            }
+        }
+        for (String s : removedKeyList) {
+            map.remove(s);
+        }
+    }
+
     public void put(Map<String, String> params) {
         if (params == null || params.isEmpty()) return;
         urlParamsMap.putAll(params);
+        removeNullValues(urlParamsMap);
     }
 
     public void put(String key, String value) {
         urlParamsMap.put(key, value);
+        removeNullValues(urlParamsMap);
     }
 
     public <T extends File> void put(String key, T file, ProgressResponseCallBack responseCallBack) {

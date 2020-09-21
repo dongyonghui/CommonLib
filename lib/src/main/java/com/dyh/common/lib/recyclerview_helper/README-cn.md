@@ -422,7 +422,7 @@ protected K createBaseViewHolder(View view) {
 ```java
 public class DiffDemoCallback extends BaseQuickDiffCallback<DiffUtilDemoEntity> {
 
-    public DiffDemoCallback( List<DiffUtilDemoEntity> newList) {
+    public DiffDemoCallback(@Nullable List<DiffUtilDemoEntity> newList) {
         super(newList);
     }
 

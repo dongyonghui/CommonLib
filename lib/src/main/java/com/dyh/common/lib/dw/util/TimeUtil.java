@@ -205,7 +205,7 @@ public final class TimeUtil {
      * 将时间戳转为时间字符串
      * <p>格式为pattern</p>
      *
-     * @param millis 毫秒时间戳
+     * @param millis  毫秒时间戳
      * @param pattern 时间格式
      * @return 时间字符串
      */
@@ -230,7 +230,7 @@ public final class TimeUtil {
      * 将时间字符串转为时间戳
      * <p>time格式为pattern</p>
      *
-     * @param time 时间字符串
+     * @param time    时间字符串
      * @param pattern 时间格式
      * @return 毫秒时间戳
      */
@@ -260,7 +260,7 @@ public final class TimeUtil {
      * 将时间字符串转为Date类型
      * <p>time格式为pattern</p>
      *
-     * @param time 时间字符串
+     * @param time    时间字符串
      * @param pattern 时间格式
      * @return Date类型
      */
@@ -285,7 +285,7 @@ public final class TimeUtil {
      * 将Date类型转为时间字符串
      * <p>格式为pattern</p>
      *
-     * @param date Date类型时间
+     * @param date    Date类型时间
      * @param pattern 时间格式
      * @return 时间字符串
      */
@@ -374,7 +374,7 @@ public final class TimeUtil {
      * 判断是否闰年
      * <p>time格式为pattern</p>
      *
-     * @param time 时间字符串
+     * @param time    时间字符串
      * @param pattern 时间格式
      * @return {@code true}: 闰年<br>{@code false}: 平年
      */
@@ -435,7 +435,7 @@ public final class TimeUtil {
      * 获取星期
      * <p>time格式为pattern</p>
      *
-     * @param time 时间字符串
+     * @param time    时间字符串
      * @param pattern 时间格式
      * @return 星期
      */
@@ -484,7 +484,7 @@ public final class TimeUtil {
      * <p>注意：周日的Index才是1，周六为7</p>
      * <p>time格式为pattern</p>
      *
-     * @param time 时间字符串
+     * @param time    时间字符串
      * @param pattern 时间格式
      * @return 1...7
      */
@@ -537,7 +537,7 @@ public final class TimeUtil {
      * <p>注意：国外周日才是新的一周的开始</p>
      * <p>time格式为pattern</p>
      *
-     * @param time 时间字符串
+     * @param time    时间字符串
      * @param pattern 时间格式
      * @return 1...5
      */
@@ -590,7 +590,7 @@ public final class TimeUtil {
      * <p>注意：国外周日才是新的一周的开始</p>
      * <p>time格式为pattern</p>
      *
-     * @param time 时间字符串
+     * @param time    时间字符串
      * @param pattern 时间格式
      * @return 1...54
      */
@@ -625,8 +625,8 @@ public final class TimeUtil {
     }
 
 
-    private static final String[] CHINESE_ZODIAC = { "猴", "鸡", "狗", "猪", "鼠", "牛", "虎", "兔", "龙",
-            "蛇", "马", "羊" };
+    private static final String[] CHINESE_ZODIAC = {"猴", "鸡", "狗", "猪", "鼠", "牛", "虎", "兔", "龙",
+            "蛇", "马", "羊"};
 
 
     /**
@@ -645,7 +645,7 @@ public final class TimeUtil {
      * 获取生肖
      * <p>time格式为pattern</p>
      *
-     * @param time 时间字符串
+     * @param time    时间字符串
      * @param pattern 时间格式
      * @return 生肖
      */
@@ -689,9 +689,9 @@ public final class TimeUtil {
     }
 
 
-    private static final String[] ZODIAC = { "水瓶座", "双鱼座", "白羊座", "金牛座", "双子座", "巨蟹座", "狮子座", "处女座",
-            "天秤座", "天蝎座", "射手座", "魔羯座" };
-    private static final int[] ZODIAC_FLAGS = { 20, 19, 21, 21, 21, 22, 23, 23, 23, 24, 23, 22 };
+    private static final String[] ZODIAC = {"水瓶座", "双鱼座", "白羊座", "金牛座", "双子座", "巨蟹座", "狮子座", "处女座",
+            "天秤座", "天蝎座", "射手座", "魔羯座"};
+    private static final int[] ZODIAC_FLAGS = {20, 19, 21, 21, 21, 22, 23, 23, 23, 24, 23, 22};
 
 
     /**
@@ -710,7 +710,7 @@ public final class TimeUtil {
      * 获取星座
      * <p>time格式为pattern</p>
      *
-     * @param time 时间字符串
+     * @param time    时间字符串
      * @param pattern 时间格式
      * @return 生肖
      */
@@ -749,7 +749,7 @@ public final class TimeUtil {
      * 获取星座
      *
      * @param month 月
-     * @param day 日
+     * @param day   日
      * @return 星座
      */
     public static String getZodiac(int month, int day) {
@@ -884,7 +884,7 @@ public final class TimeUtil {
     /**
      * 获取某年某月的天数
      *
-     * @param year int
+     * @param year  int
      * @param month int 月份[1-12]
      * @return int
      */

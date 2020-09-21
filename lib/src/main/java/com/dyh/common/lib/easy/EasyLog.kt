@@ -24,7 +24,7 @@ import java.util.concurrent.Executors
 import java.util.regex.Pattern
 
 /**
- * @author haoge on 2018/5/10
+ * 日志帮助类
  */
 class EasyLog private constructor(
         private val upperName: String,
@@ -32,15 +32,15 @@ class EasyLog private constructor(
         private val rules: Map<String, (StackTraceElement, Thread) -> String>,
         private val formatStyle: Format,// 多行显示时的样式
         private val singleStyle: Format?,// 单行显示时的样式
-        private val formatter: EasyFormatter){
-    private var tag:String = ""
-    private var immediate:Boolean = false
+        private val formatter: EasyFormatter) {
+    private var tag: String = ""
+    private var immediate: Boolean = false
     /**
      * 设置一个临时的tag值。在下次调用d/i/v/w/e/wtf方法进行日志输出时。进行使用。
      *
      * 使用后将自动置空。所以此tag的作用域 -> 只在下一次打印
      */
-    fun tag(tag:String):EasyLog {
+    fun tag(tag: String): EasyLog {
         this.tag = tag
         return this
     }
@@ -50,12 +50,12 @@ class EasyLog private constructor(
      *
      * 使用后将自动置空。所以此immediate的作用域 -> 只在下一次打印
      */
-    fun immediate(immediate:Boolean): EasyLog {
+    fun immediate(immediate: Boolean): EasyLog {
         this.immediate = immediate
         return this
     }
 
-    fun d(message:String, vararg args:Any) {
+    fun d(message: String, vararg args: Any) {
         d(StringCombine(message, *args))
     }
 
@@ -69,7 +69,7 @@ class EasyLog private constructor(
         dispatchToLogPrinterThread { thread, trace, TAG -> print(format(any), trace, "d", TAG, thread) }
     }
 
-    fun i(message:String, vararg args:Any) {
+    fun i(message: String, vararg args: Any) {
         i(StringCombine(message, *args))
     }
 
@@ -80,10 +80,10 @@ class EasyLog private constructor(
         if (!enable) {
             return
         }
-        dispatchToLogPrinterThread { thread, trace, TAG -> print(format(any), trace, "i",TAG, thread) }
+        dispatchToLogPrinterThread { thread, trace, TAG -> print(format(any), trace, "i", TAG, thread) }
     }
 
-    fun v(message:String, vararg args:Any) {
+    fun v(message: String, vararg args: Any) {
         v(StringCombine(message, *args))
     }
 
@@ -94,10 +94,10 @@ class EasyLog private constructor(
         if (!enable) {
             return
         }
-        dispatchToLogPrinterThread { thread, trace, TAG -> print(format(any), trace, "v",TAG, thread) }
+        dispatchToLogPrinterThread { thread, trace, TAG -> print(format(any), trace, "v", TAG, thread) }
     }
 
-    fun w(message:String, vararg args:Any) {
+    fun w(message: String, vararg args: Any) {
         w(StringCombine(message, *args))
     }
 
@@ -108,10 +108,10 @@ class EasyLog private constructor(
         if (!enable) {
             return
         }
-        dispatchToLogPrinterThread { thread, trace, TAG -> print(format(any), trace, "w",TAG, thread) }
+        dispatchToLogPrinterThread { thread, trace, TAG -> print(format(any), trace, "w", TAG, thread) }
     }
 
-    fun e(message:String, vararg args:Any) {
+    fun e(message: String, vararg args: Any) {
         e(StringCombine(message, *args))
     }
 
@@ -122,10 +122,10 @@ class EasyLog private constructor(
         if (!enable) {
             return
         }
-        dispatchToLogPrinterThread { thread, trace, TAG-> print(format(any), trace, "e",TAG, thread) }
+        dispatchToLogPrinterThread { thread, trace, TAG -> print(format(any), trace, "e", TAG, thread) }
     }
 
-    fun wtf(message:String, vararg args:Any) {
+    fun wtf(message: String, vararg args: Any) {
         wtf(StringCombine(message, *args))
     }
 
@@ -136,14 +136,14 @@ class EasyLog private constructor(
         if (!enable) {
             return
         }
-        dispatchToLogPrinterThread { thread, trace, TAG -> print(format(any), trace, "wtf",TAG, thread) }
+        dispatchToLogPrinterThread { thread, trace, TAG -> print(format(any), trace, "wtf", TAG, thread) }
     }
 
     // 将待打印数据传递到指定任务线程中去进行打印，避免出现阻塞UI线程的情况
-    private fun dispatchToLogPrinterThread(invoke:(Thread, StackTraceElement, String) -> Unit) {
+    private fun dispatchToLogPrinterThread(invoke: (Thread, StackTraceElement, String) -> Unit) {
         val trace = findTrace()
         val current = Thread.currentThread()
-        val tag = if (tag.isEmpty()) trace.fileName?:trace.className?:"unknown tag" else tag
+        val tag = if (tag.isEmpty()) trace.fileName ?: trace.className ?: "unknown tag" else tag
         this.tag = ""
         if (immediate) {
             invoke.invoke(current, trace, tag)
@@ -153,20 +153,20 @@ class EasyLog private constructor(
         }
     }
 
-    private fun format(any:Any?):String {
-        return when(any) {
-            null ->  ""
+    private fun format(any: Any?): String {
+        return when (any) {
+            null -> ""
             is StringCombine -> formatter.formatWithArgs(any.message, *any.args)
             else -> formatter.format(any)
         }
     }
 
-    private fun print(message:String, trace: StackTraceElement, type:String, tag:String, callThread:Thread) {
+    private fun print(message: String, trace: StackTraceElement, type: String, tag: String, callThread: Thread) {
         val lines = message.lines()
         val copyLineRules = ArrayList<LineRules>()
         var format = formatStyle
         if (lines.size == 1) {
-            format = singleStyle?:formatStyle
+            format = singleStyle ?: formatStyle
         }
 
         for (lineRule in format.lineRules) {
@@ -184,7 +184,7 @@ class EasyLog private constructor(
         val cacheRules = mutableMapOf<String, String>()
         var start = 0
         for ((index, lineRule) in copyLineRules.withIndex()) {
-            val lineMessage:String = if (lineRule.isMessage) {
+            val lineMessage: String = if (lineRule.isMessage) {
                 lines[index - start]
             } else {
                 start++
@@ -193,7 +193,7 @@ class EasyLog private constructor(
             result.append(parseLine(lineMessage, lineRule, trace, cacheRules, callThread)).append("\n")
         }
 
-        when(type) {
+        when (type) {
             "d" -> Log.d(tag, result.toString())
             "v" -> Log.v(tag, result.toString())
             "i" -> Log.i(tag, result.toString())
@@ -225,9 +225,9 @@ class EasyLog private constructor(
         return result
     }
 
-    private fun findTrace():StackTraceElement {
+    private fun findTrace(): StackTraceElement {
         val traces = Exception().stackTrace
-        var trace:StackTraceElement? = null
+        var trace: StackTraceElement? = null
         var matched = false
         for (item in traces) {
             if (!matched && item.className.startsWith(upperName)) {
@@ -262,13 +262,14 @@ class EasyLog private constructor(
                 return@newSingleThreadExecutor thread
             }
         }
+
         @JvmStatic
         fun newBuilder(upper: String = EasyLog::class.java.canonicalName): Builder {
             return Builder(upper)
         }
     }
 
-    class Builder internal constructor(val upperName:String) {
+    class Builder internal constructor(val upperName: String) {
         /**
          * 是否开启日志输出？当为true时。才进行日志输出
          */
@@ -288,10 +289,13 @@ class EasyLog private constructor(
          */
         var singleStyle = "[EasyLog]#f ==> #M"
 
-        private val rules:MutableMap<String, (StackTraceElement, Thread)->String> = mutableMapOf(
-                Pair("#T", { _, thread -> "[${thread.name}]"}),
-                Pair("#F", { trace, _ -> "${trace.className.substringAfterLast('.')}.${trace.methodName}(${trace.fileName?:"unknown"}:${trace.lineNumber})"}),
-                Pair("#f", { trace, _ -> "(${trace.fileName?:"unknown"}:${trace.lineNumber})"})
+        private val rules: MutableMap<String, (StackTraceElement, Thread) -> String> = mutableMapOf(
+                Pair("#T", { _, thread -> "[${thread.name}]" }),
+                Pair("#F", { trace, _ ->
+                    "${trace.className.substringAfterLast('.')}.${trace.methodName}(${trace.fileName
+                            ?: "unknown"}:${trace.lineNumber})"
+                }),
+                Pair("#f", { trace, _ -> "(${trace.fileName ?: "unknown"}:${trace.lineNumber})" })
         )
 
         /**
@@ -299,7 +303,7 @@ class EasyLog private constructor(
          */
         val formatter = DEFAULT_FORMATTER
 
-        fun addRule(name:String, rule:(StackTraceElement, Thread) -> String) {
+        fun addRule(name: String, rule: (StackTraceElement, Thread) -> String) {
             rules["#$name"] = rule
         }
 
@@ -327,13 +331,13 @@ class EasyLog private constructor(
 
     private class Format(format: String, regex: String) {
 
-        val lineRules:ArrayList<LineRules> = ArrayList()
+        val lineRules: ArrayList<LineRules> = ArrayList()
 
         init {
             var msgIndex = -1
             val lines = format.lines()
             for (index in lines.indices) {
-                if (!lines[index].contains("#M"))  {
+                if (!lines[index].contains("#M")) {
                     continue
                 }
 
@@ -353,7 +357,7 @@ class EasyLog private constructor(
                 val ruleSet = mutableSetOf<Pair<Int, String>>()
                 val pattern = Pattern.compile(regex)
                 val matcher = pattern.matcher(origin)
-                while(matcher.find()) {
+                while (matcher.find()) {
                     val name = matcher.group()
                     val indexOf = origin.indexOf(name)
                     ruleSet.add(Pair(indexOf, name))
@@ -363,7 +367,7 @@ class EasyLog private constructor(
         }
     }
 
-    private class StringCombine(val message:String, vararg val args:Any)
-    private class LineRules(val origin:String, val names:Set<Pair<Int, String>>, val isMessage:Boolean)
+    private class StringCombine(val message: String, vararg val args: Any)
+    private class LineRules(val origin: String, val names: Set<Pair<Int, String>>, val isMessage: Boolean)
 }
 

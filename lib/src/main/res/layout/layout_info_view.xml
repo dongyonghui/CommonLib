@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/mInfoTextView"
-        android:text="@string/app_name"
-        style="@style/general_textStyle_grayMax2" />
+        android:text="@string/lib_app_name"
+        style="@style/general_textStyle_gray18" />
 
 </LinearLayout>

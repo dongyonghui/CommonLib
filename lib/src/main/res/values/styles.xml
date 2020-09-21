@@ -3,108 +3,30 @@
     <!--=====================TagGroup start========================-->
     <style name="TagGroup">
         <item name="android:layout_width">match_parent</item>
+        <item name="background">@color/bg_white</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="atg_isAppendMode">false</item>
-        <item name="atg_inputHint">@string/add_tag</item>
-        <item name="atg_borderColor">@color/text_blue</item>
-        <item name="atg_textColor">@color/text_blue</item>
-        <item name="atg_backgroundColor">@color/color_general_background_white</item>
+        <item name="atg_inputHint">@string/lib_add_tag</item>
+        <item name="atg_borderColor">@color/text_aaa</item>
+        <item name="atg_textColor">@color/text_333</item>
+        <item name="atg_backgroundColor">@color/bg_white</item>
         <item name="atg_dashBorderColor">#AAAAAA</item>
         <item name="atg_inputHintColor">@color/text_gray</item>
         <item name="atg_inputTextColor">@color/text_black</item>
-        <item name="atg_checkedBorderColor">@color/text_blue</item>
-        <item name="atg_checkedTextColor">#FFFFFF</item>
+        <item name="atg_checkedBorderColor">@color/text_0bb</item>
+        <item name="atg_checkedTextColor">@color/text_0bb</item>
         <item name="atg_checkedMarkerColor">#FFFFFF</item>
-        <item name="atg_checkedBackgroundColor">@color/text_blue</item>
+        <item name="atg_checkedBackgroundColor">@color/bg_white</item>
         <item name="atg_pressedBackgroundColor">#EDEDED</item>
         <item name="atg_borderStrokeWidth">0.5dp</item>
-        <item name="atg_textSize">13sp</item>
+        <item name="atg_textSize">@dimen/general_textSize_12</item>
         <item name="atg_horizontalSpacing">8dp</item>
         <item name="atg_verticalSpacing">4dp</item>
-        <item name="atg_horizontalPadding">12dp</item>
-        <item name="atg_verticalPadding">3dp</item>
+        <item name="atg_horizontalPadding">15dp</item>
+        <item name="atg_verticalPadding">@dimen/general_item_padding_min</item>
     </style>
 
-    <style name="TagGroup.Small" parent="TagGroup">
-        <item name="atg_textSize">10sp</item>
-        <item name="atg_horizontalSpacing">6dp</item>
-        <item name="atg_verticalSpacing">3dp</item>
-        <item name="atg_horizontalPadding">8dp</item>
-        <item name="atg_verticalPadding">2dp</item>
-    </style>
-
-    <style name="TagGroup.Large" parent="TagGroup">
-        <item name="atg_borderStrokeWidth">0.7dp</item>
-        <item name="atg_textSize">15sp</item>
-        <item name="atg_horizontalSpacing">9dp</item>
-        <item name="atg_verticalSpacing">5dp</item>
-        <item name="atg_horizontalPadding">14dp</item>
-        <item name="atg_verticalPadding">4dp</item>
-    </style>
-
-    <style name="TagGroup.Beauty_Red" parent="TagGroup">
-        <item name="atg_borderColor">#FF3D7F</item>
-        <item name="atg_textColor">#FF3D7F</item>
-        <item name="atg_checkedBorderColor">#FF3D7F</item>
-        <item name="atg_checkedBackgroundColor">#FF3D7F</item>
-    </style>
-
-    <style name="TagGroup.Beauty_Red.Inverse" parent="TagGroup">
-        <item name="atg_borderColor">#FF3D7F</item>
-        <item name="atg_textColor">#FFFFFF</item>
-        <item name="atg_backgroundColor">#FF3D7F</item>
-        <item name="atg_inputHintColor">#80FFFFFF</item>
-        <item name="atg_inputTextColor">#DEFFFFFF</item>
-        <item name="atg_checkedBorderColor">#FF3D7F</item>
-        <item name="atg_checkedTextColor">#FF3D7F</item>
-        <item name="atg_checkedMarkerColor">#FF3D7F</item>
-        <item name="atg_checkedBackgroundColor">#FFFFFF</item>
-        <item name="atg_pressedBackgroundColor">#FF99B1</item>
-    </style>
     <!--=====================TagGroup end========================-->
-
-    <!--=====================ucrop start========================-->
-    <style name="ucrop_ImageViewWidgetIcon">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:scaleType">fitCenter</item>
-        <item name="android:duplicateParentState">true</item>
-    </style>
-
-    <style name="ucrop_WrapperIconState">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">?attr/selectableItemBackground</item>
-        <item name="android:clickable">true</item>
-    </style>
-
-    <style name="ucrop_WrapperRotateButton">
-        <item name="android:layout_width">@dimen/ucrop_size_wrapper_rotate_button</item>
-        <item name="android:layout_height">@dimen/ucrop_size_wrapper_rotate_button</item>
-        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
-        <item name="android:clickable">true</item>
-    </style>
-
-    <style name="ucrop_TextViewCropAspectRatio">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/ucrop_height_crop_aspect_ratio_text</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:duplicateParentState">true</item>
-        <item name="android:textColor">@color/ucrop_scale_text_view_selector</item>
-    </style>
-
-    <style name="ucrop_TextViewWidgetText">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:layout_marginTop">@dimen/ucrop_margit_top_widget_text</item>
-        <item name="android:textColor">@color/ucrop_color_widget_text</item>
-        <item name="android:textSize">@dimen/ucrop_text_size_widget_text</item>
-    </style>
-    <!--=====================ucrop end========================-->
-
 
     <style name="alert_dialog" parent="android:Theme.Dialog">
         <item name="android:windowIsFloating">true</item>
@@ -156,12 +78,83 @@
 
 
     <!-- =======================app 公用属性 start=======================. -->
-    <style name="general_textStyle_black">
+    <style name="wrap_all">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/text_black</item>
-        <item name="android:textColorHint">@color/text_gray</item>
     </style>
+
+    <style name="match_height">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="match_all">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="match_width">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="text_warp_color666" parent="wrap_all">
+        <item name="android:textColor">@color/text_666</item>
+    </style>
+
+    <style name="text_warp_black" parent="wrap_all">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+    <style name="text_wrap_black12" parent="text_warp_black">
+        <item name="android:textSize">@dimen/general_textSize_12</item>
+    </style>
+
+    <style name="text_wrap_black14" parent="text_warp_black">
+        <item name="android:textSize">@dimen/general_textSize_14</item>
+    </style>
+
+    <style name="text_wrap_black16" parent="text_warp_black">
+        <item name="android:textSize">@dimen/general_textSize_16</item>
+    </style>
+
+    <style name="text_wrap_black18" parent="text_warp_black">
+        <item name="android:textSize">@dimen/general_textSize_18</item>
+    </style>
+
+    <style name="text_wrap_black20" parent="text_warp_black">
+        <item name="android:textSize">@dimen/general_textSize_20</item>
+    </style>
+
+    <style name="text_wrap_10" parent="wrap_all">
+        <item name="android:textSize">@dimen/general_textSize_10</item>
+    </style>
+
+    <style name="text_wrap_12" parent="wrap_all">
+        <item name="android:textSize">@dimen/general_textSize_12</item>
+    </style>
+
+    <style name="text_wrap_14" parent="wrap_all">
+        <item name="android:textSize">@dimen/general_textSize_14</item>
+    </style>
+
+    <style name="text_wrap_16" parent="wrap_all">
+        <item name="android:textSize">@dimen/general_textSize_16</item>
+    </style>
+
+    <style name="text_wrap_18" parent="wrap_all">
+        <item name="android:textSize">@dimen/general_textSize_18</item>
+    </style>
+
+    <style name="text_wrap_20" parent="wrap_all">
+        <item name="android:textSize">@dimen/general_textSize_20</item>
+    </style>
+
+    <style name="text_wrap_24" parent="wrap_all">
+        <item name="android:textSize">@dimen/general_textSize_24</item>
+    </style>
+
 
     <style name="general_textStyle_gray">
         <item name="android:layout_width">wrap_content</item>
@@ -169,40 +162,8 @@
         <item name="android:textColor">@color/text_gray</item>
     </style>
 
-    <style name="general_textStyle_blackDefaultSize" parent="general_textStyle_black">
-        <item name="android:textSize">@dimen/general_textSize</item>
-    </style>
-
-    <style name="general_textStyle_blackMinSize" parent="general_textStyle_black">
-        <item name="android:textSize">@dimen/general_textSize_min</item>
-    </style>
-
-    <style name="general_textStyle_grayDefaultSize" parent="general_textStyle_gray">
-        <item name="android:textSize">@dimen/general_textSize</item>
-    </style>
-
-    <style name="general_textStyle_grayMin" parent="general_textStyle_gray">
-        <item name="android:textSize">@dimen/general_textSize_min</item>
-    </style>
-
-    <style name="general_textStyle_grayMax1" parent="general_textStyle_gray">
-        <item name="android:textSize">@dimen/general_textSize_max1</item>
-    </style>
-
-    <style name="general_textStyle_grayMax2" parent="general_textStyle_gray">
-        <item name="android:textSize">@dimen/general_textSize_max2</item>
-    </style>
-
-    <style name="general_textStyle_blackMax1" parent="general_textStyle_black">
-        <item name="android:textSize">@dimen/general_textSize_max1</item>
-    </style>
-
-    <style name="general_textStyle_blackMax2" parent="general_textStyle_black">
-        <item name="android:textSize">@dimen/general_textSize_max2</item>
-    </style>
-
-    <style name="general_textStyle_blackMax3" parent="general_textStyle_black">
-        <item name="android:textSize">@dimen/general_textSize_max3</item>
+    <style name="general_textStyle_gray18" parent="general_textStyle_gray">
+        <item name="android:textSize">@dimen/general_textSize_18</item>
     </style>
 
 
@@ -212,31 +173,10 @@
         <item name="android:background">@color/dividing_line</item>
     </style>
 
-    <style name="verticalLine">
-        <item name="android:layout_width">@dimen/dividing_line</item>
-        <item name="android:layout_height">match_parent</item>
+    <style name="horizontalLine_min">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dividing_line_min</item>
         <item name="android:background">@color/dividing_line</item>
-    </style>
-
-    <style name="general_imageViewStyle_wrap">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:scaleType">centerCrop</item>
-    </style>
-
-    <style name="general_imageViewStyle_match">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:scaleType">centerCrop</item>
-    </style>
-
-    <style name="style_generalEditTextDefault_blackText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColorHint">@color/text_gray</item>
-        <item name="android:textSize">@dimen/general_textSize</item>
-        <item name="android:textColor">@color/text_black</item>
-        <item name="android:textCursorDrawable">@null</item>
     </style>
 
     <!--默认标题样式，无返回按钮-->
@@ -244,28 +184,14 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="statusBarColor">@color/general_titleColor</item>
-        <item name="statusBarMode">light</item>
+        <item name="statusBarMode">dark</item>
         <item name="titleBarColor">@color/general_titleColor</item>
-        <item name="centerTextColor">@color/text_white</item>
+        <item name="showBottomLine">false</item>
+        <item name="centerTextColor">@color/text_333</item>
         <item name="centerType">textView</item>
-        <item name="leftTextColor">@color/text_white</item>
-        <item name="rightTextColor">@color/text_white</item>
-    </style>
-
-    <!--带返回按钮的标题样式-->
-    <style name="titleBar_back">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="statusBarColor">@color/general_titleColor</item>
-        <item name="statusBarMode">light</item>
-        <item name="titleBarColor">@color/general_titleColor</item>
-        <item name="centerTextColor">@color/text_white</item>
-        <item name="centerType">textView</item>
-        <item name="leftTextColor">@color/text_white</item>
-        <item name="rightTextColor">@color/text_white</item>
-        <item name="leftDrawable">@mipmap/titlebar_back_white</item>
-        <item name="leftText">@string/titlebar_back</item>
-        <item name="leftType">textView</item>
+        <item name="centerTextSize">@dimen/general_textSize_20</item>
+        <item name="leftTextColor">@color/text_333</item>
+        <item name="rightTextColor">@color/text_333</item>
     </style>
 
     <!-- 可点击大按钮样式 -->
@@ -277,18 +203,21 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/text_black</item>
         <item name="android:clickable">true</item>
-        <item name="android:textSize">@dimen/general_textSize_max1</item>
+        <item name="android:textSize">@dimen/general_textSize_18</item>
     </style>
     <!-- 可点击大按钮样式 -->
     <style name="general_button">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:padding">@dimen/general_item_padding</item>
+        <item name="android:paddingTop">@dimen/general_item_padding</item>
+        <item name="android:paddingBottom">@dimen/general_item_padding</item>
+        <item name="android:paddingLeft">@dimen/general_item_padding_max</item>
+        <item name="android:paddingRight">@dimen/general_item_padding_max</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/btn_common</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/text_white</item>
         <item name="android:clickable">true</item>
-        <item name="android:textSize">@dimen/general_textSize_max1</item>
+        <item name="android:textSize">@dimen/general_textSize_18</item>
     </style>
 
     <style name="general_buttonMin_noBackground">
@@ -301,7 +230,7 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/text_white</item>
         <item name="android:clickable">true</item>
-        <item name="android:textSize">@dimen/general_textSize</item>
+        <item name="android:textSize">@dimen/general_textSize_default</item>
     </style>
 
     <!-- 可点击小按钮样式 -->
@@ -309,128 +238,9 @@
         <item name="android:background">@drawable/btn_common</item>
     </style>
     <!-- 可点击小按钮样式 -->
-    <style name="general_buttonMinRed" parent="general_buttonMin_noBackground">
-        <item name="android:background">@drawable/btn_red</item>
-    </style>
 
-    <style name="general_buttonRed" parent="general_button">
-        <item name="android:background">@drawable/btn_red</item>
-    </style>
     <!-- 可点击小按钮样式 -->
-    <style name="general_buttonMinGray" parent="general_buttonMin_noBackground">
-        <item name="android:background">@drawable/btn_gray_selector</item>
-    </style>
     <!-- =======================app 公用属性 end=======================. -->
-    <!-- =======================picture start=======================. -->
-    <style name="WindowStyle">
-        <item name="android:windowEnterAnimation">@anim/fade_in</item>
-        <item name="android:windowExitAnimation">@anim/fade_out</item>
-    </style>
-
-    <style name="DialogWindowStyle">
-        <item name="android:windowEnterAnimation">@anim/modal_in</item>
-        <item name="android:windowExitAnimation">@anim/modal_out</item>
-    </style>
-
-    <style name="Dialog_Audio_StyleAnim">
-        <item name="android:windowEnterAnimation">@anim/a5</item>
-        <item name="android:windowExitAnimation">@anim/a3</item>
-    </style>
-
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/bar_grey</item>
-        <item name="colorPrimaryDark">@color/bar_grey</item>
-        <item name="colorAccent">@color/bar_grey</item>
-    </style>
-
-    <style name="picture_alert_dialog" parent="android:Theme.Dialog">
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowIsTranslucent">false</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowBackground">@color/transparent</item>
-        <item name="android:windowAnimationStyle">@null</item>
-        <item name="android:backgroundDimEnabled">false</item>
-        <item name="android:backgroundDimAmount">0.4</item>
-    </style>
-
-
-    <style name="Theme_dialog" parent="@android:style/Theme.Dialog">
-
-        <!-- 边框 -->
-        <item name="android:windowFrame">@android:color/transparent</item>
-        <!-- 是否浮现在activity之上 -->
-        <item name="android:windowIsFloating">true</item>
-        <!-- 半透明 -->
-        <item name="android:windowIsTranslucent">false</item>
-        <!-- 无标题 -->
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
-        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
-
-        <!-- 自己想要的背景 -->
-        <item name="android:windowBackground">@android:color/transparent</item>
-    </style>
-
-
-    <!--默认样式-->
-    <style name="picture.default.style" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <!--标题栏背景色-->
-        <item name="colorPrimary">@color/bar_grey</item>
-        <!--状态栏背景色-->
-        <item name="colorPrimaryDark">@color/bar_grey</item>
-        <!--是否改变图片列表界面状态栏字体颜色为黑色-->
-        <item name="picture.statusFontColor">false</item>
-        <!--返回键图标-->
-        <item name="picture.leftBack.icon">@drawable/picture_back</item>
-        <!--标题下拉箭头-->
-        <item name="picture.arrow_down.icon">@drawable/arrow_down</item>
-        <!--标题上拉箭头-->
-        <item name="picture.arrow_up.icon">@drawable/arrow_up</item>
-        <!--标题文字颜色-->
-        <item name="picture.title.textColor">@color/white</item>
-        <!--标题栏右边文字-->
-        <item name="picture.right.textColor">@color/white</item>
-        <!--图片列表勾选样式-->
-        <item name="picture.checked.style">@drawable/picture_checkbox_selector</item>
-        <!--开启图片列表勾选数字模式-->
-        <item name="picture.style.checkNumMode">false</item>
-        <!--选择图片样式0/9-->
-        <item name="picture.style.numComplete">false</item>
-        <!--图片列表底部背景色-->
-        <item name="picture.bottom.bg">@color/color_fa</item>
-        <!--图片列表预览文字颜色-->
-        <item name="picture.preview.textColor">@color/picture_list_text_color</item>
-        <!--图片列表已完成文字颜色-->
-        <item name="picture.complete.textColor">@color/picture_list_text_color</item>
-        <!--图片已选数量圆点背景色-->
-        <item name="picture.num.style">@drawable/num_oval</item>
-        <!--预览界面标题文字颜色-->
-        <item name="picture.ac_preview.title.textColor">@color/white</item>
-        <!--预览界面已完成文字颜色-->
-        <item name="picture.ac_preview.complete.textColor">@color/picture_preview_text_color</item>
-        <!--预览界面标题栏背景色-->
-        <item name="picture.ac_preview.title.bg">@color/bar_grey</item>
-        <!--预览界面底部背景色-->
-        <item name="picture.ac_preview.bottom.bg">@color/bar_grey_90</item>
-        <!--预览界面返回箭头-->
-        <item name="picture.preview.leftBack.icon">@drawable/picture_back</item>
-        <!--裁剪页面标题背景色-->
-        <item name="picture.crop.toolbar.bg">@color/bar_grey</item>
-        <!--裁剪页面状态栏颜色-->
-        <item name="picture.crop.status.color">@color/bar_grey</item>
-        <!--裁剪页面标题文字颜色-->
-        <item name="picture.crop.title.color">@color/white</item>
-        <!--相册文件夹列表选中图标-->
-        <item name="picture.folder_checked_dot">@drawable/orange_oval</item>
-    </style>
-    <!-- =======================picture end=======================. -->
-
     <!-- =======================dialog start=======================. -->
     <!-- Define Slide Animation for Dialog -->
     <style name="SlideAnimation">

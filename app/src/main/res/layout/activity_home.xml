@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v4.view.ViewPager
+    <com.dyh.android.winehall.weigit.CustomViewPagerAddCache
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -15,18 +15,16 @@
         android:id="@+id/mBottomCommonTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_general_background_white"
-        app:tl_iconHeight="20dp"
-        app:tl_iconWidth="20dp"
-        app:tl_indicator_anim_enable="true"
-        app:tl_indicator_color="@color/general_mainLightColor"
-        app:tl_indicator_gravity="TOP"
-        app:tl_indicator_height="@dimen/dividing_line"
-        app:tl_textSelectColor="@color/general_mainLightColor"
-        app:tl_textUnselectColor="@color/text_gray"
-        app:tl_textsize="@dimen/general_textSize"
-        app:tl_underline_color="@color/dividing_line"
-        app:tl_underline_gravity="TOP"
-        app:tl_underline_height="@dimen/dividing_line" />
+        android:background="@color/bg_white"
+        android:paddingTop="@dimen/home_tab_padding"
+        android:paddingBottom="@dimen/home_tab_padding"
+        app:tl_iconHeight="@dimen/home_tab_icon_size"
+        app:tl_iconWidth="@dimen/home_tab_icon_size"
+        app:tl_indicator_anim_enable="false"
+        app:tl_indicator_height="0dp"
+        app:tl_textSelectColor="@color/text_000"
+        app:tl_textUnselectColor="@color/text_666"
+        app:tl_textsize="@dimen/general_textSize_10"
+        app:tl_underline_height="0dp" />
 
 </LinearLayout>

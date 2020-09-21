@@ -1,8 +1,8 @@
 package com.dyh.common.lib.glide.progress;
 
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.widget.ImageView;
 
 import com.bumptech.glide.request.target.DrawableImageViewTarget;
@@ -22,7 +22,7 @@ public class GlideImageViewTarget extends DrawableImageViewTarget {
     }
 
     @Override
-    public void onLoadFailed( Drawable errorDrawable) {
+    public void onLoadFailed(@Nullable Drawable errorDrawable) {
         OnProgressListener onProgressListener = ProgressManager.getProgressListener(url);
         if (onProgressListener != null) {
             onProgressListener.onProgress(false, 100, 0, 0);
@@ -32,7 +32,7 @@ public class GlideImageViewTarget extends DrawableImageViewTarget {
     }
 
     @Override
-    public void onResourceReady(@NonNull Drawable resource,  Transition<? super Drawable> transition) {
+    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
         OnProgressListener onProgressListener = ProgressManager.getProgressListener(url);
         if (onProgressListener != null) {
             onProgressListener.onProgress(true, 100, 0, 0);

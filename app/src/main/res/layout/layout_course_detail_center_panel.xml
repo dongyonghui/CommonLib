@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_dark"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/general_panelPadding"
+    android:paddingRight="@dimen/general_panelPadding">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mFlagRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/general_panelPadding" />
+
+    <TextView
+        android:id="@+id/mTitleTextView"
+        style="@style/text_wrap_24"
+        android:layout_marginTop="@dimen/general_item_margin_max"
+        android:textColor="@color/text_white" />
+
+    <TextView
+        android:id="@+id/mRemarkTextView"
+        style="@style/text_wrap_14"
+        android:layout_marginTop="@dimen/general_item_margin"
+        android:textColor="@color/text_white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/courseDetail_centerPanelTableMarginTop"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/text_wrap_12"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/courseDetail_centerPanelCourseTableTitle1"
+            android:textColor="@color/text_white_tran50" />
+
+        <TextView
+            style="@style/text_wrap_12"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/courseDetail_centerPanelCourseTableTitle2"
+            android:textColor="@color/text_white_tran50" />
+
+        <TextView
+            style="@style/text_wrap_12"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/courseDetail_centerPanelCourseTableTitle3"
+            android:textColor="@color/text_white_tran50" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/general_item_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mCourseLanguageTextView"
+            style="@style/text_wrap_18"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/text_white" />
+
+        <TextView
+            android:id="@+id/mCourseDurationTextView"
+            style="@style/text_wrap_18"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/text_white" />
+
+        <TextView
+            android:id="@+id/mCourseTeacherCountTextView"
+            style="@style/text_wrap_18"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/text_white" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/text_wrap_18"
+        android:layout_marginTop="@dimen/courseDetail_speakerTitleMarginTop"
+        android:layout_marginBottom="@dimen/courseDetail_speakerTitleMarginBottom"
+        android:layout_weight="1"
+        android:text="@string/speaker"
+        android:textColor="@color/text_white_tran50" />
+</LinearLayout>

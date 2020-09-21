@@ -38,6 +38,38 @@
 ![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_3.gif)
 
 
+>## Change Log
+
+ > v2.0.0(2016-03-01)
+   - 删除了对FlycoRoundView库的依赖
+   - 新增方法getIconView和getTitleView(为了某些情况需要动态更新icon之类的)
+
+ > v2.0.2(2016-04-23)
+   - 删除了对NineOldAnimation库依赖(仅支持3.0+)
+
+## Gradle
+
+```groovy
+dependencies{
+    compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.flyco.roundview:FlycoRoundView_Lib:1.1.2@aar'
+    compile com.inscloudtech.easyandroid.weigit.tablayout.0@aar'
+}
+
+After v2.0.0(support 2.2+)
+dependencies{
+    compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.nineoldandroids:library:2.4.0'
+    ccom.inscloudtech.easyandroid.weigit.tablayoutLib:2.0.0@aar'
+}
+
+After v2.0.2(support 3.0+)
+dependencies{
+    compile 'com.android.support:support-v4:23.1.1com.inscloudtech.easyandroid.weigit.tablayoutLayout_Lib:2.1.2@aar'
+}
+```
+
 ## Attributes
 
 |name|format|description|

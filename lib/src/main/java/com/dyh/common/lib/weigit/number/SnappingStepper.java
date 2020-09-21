@@ -247,7 +247,7 @@ public class SnappingStepper extends RelativeLayout implements View.OnTouchListe
      * @param x
      */
     private void moveStepperContent(float x) {
-        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.leftMargin = (int) x;
         //限制子控件移动必须在视图范围内
         if (params.leftMargin < 0 || (params.leftMargin + tvStepperContent.getWidth()) > getWidth())

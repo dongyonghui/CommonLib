@@ -1,6 +1,7 @@
 package com.dyh.common.lib.picture.widget.longimage;
 
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * Compatibility factory to instantiate decoders with empty public constructors.

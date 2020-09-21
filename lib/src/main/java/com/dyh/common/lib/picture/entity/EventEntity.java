@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * author：luck
  * project：PictureSelector
- * package：com.dyh.common.lib.picture.model
+ * package：com.inscloudtech.easyandroid.picture.model
  * email：893855882@qq.com
  * data：2017/4/28
  */

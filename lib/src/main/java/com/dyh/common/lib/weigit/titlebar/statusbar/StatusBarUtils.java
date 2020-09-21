@@ -27,18 +27,26 @@ public class StatusBarUtils {
      *
      * @param window
      */
-    public static void transparentStatusBar(Window window) {
+    public static boolean transparentStatusBar(Window window) {
         if (OSUtils.isMiui() || OSUtils.isFlyme()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 transparentStatusBarAbove21(window);
+                return true;
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                return true;
             }
-        } else if ((OSUtils.isOppo() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)) {
-            transparentStatusBarAbove21(window);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            transparentStatusBarAbove21(window);
+            return false;
         }
+        if ((OSUtils.isOppo() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)) {
+            transparentStatusBarAbove21(window);
+            return true;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            transparentStatusBarAbove21(window);
+            return true;
+        }
+        return false;
     }
 
     @TargetApi(21)
@@ -174,6 +182,7 @@ public class StatusBarUtils {
      * @return
      */
     public static int getStatusBarHeight(Context context) {
+        if (null == context) return 0;
         int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
         return context.getResources().getDimensionPixelSize(resourceId);
     }

@@ -17,6 +17,7 @@ package com.dyh.common.lib.mvp
 
 import android.content.Intent
 import android.os.Bundle
+import com.trello.rxlifecycle2.LifecycleProvider
 
 /**
  * Presenter层：连接View与Model的中间件桥梁，处理一些Model相关逻辑。比如API访问等
@@ -30,6 +31,13 @@ open class MVPPresenter<T : MVPView>(private var view: T?) {
 
     fun detach() {
         this.view = null
+    }
+
+    fun getLifecycleProvider(): LifecycleProvider<*>? {
+        if (view is LifecycleProvider<*>) {
+            return view as LifecycleProvider<*>;
+        }
+        return null;
     }
 
     fun getView() = view as T

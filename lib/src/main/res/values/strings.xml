@@ -1,19 +1,27 @@
 <resources>
-    <string name="app_name">utils</string>
-    <string name="add_tag">添加</string>
+    <string name="lib_app_name">utils</string>
+    <string name="lib_add_tag">添加</string>
 
-    <string name="LOADING">Loading...</string>
-    <string name="dialog_cancel">Cancel</string>
+    <string name="empty_view_hint">暂无数据</string>
+    <string name="error_view_hint">加载失败</string>
+    <string name="no_network_view_hint">网络异常</string>
+    <string name="lib_loading">加载中…</string>
+
+    <string name="x_recycler_data_empty">暂时没有数据</string>
+    <string name="x_recycler_more_not">没有更多数据啦</string>
+    <string name="x_recycler_click_load_more">点击加载更多</string>
+    <string name="x_recycler_load_error">加载出错啦，请稍后重试</string>
+    <string name="x_recycler_load_more_message">正在加载更多数据，请稍后</string>
+
+    <string name="dialog_cancel">取消</string>
     <string name="dialog_default_title">Here\'s a message!</string>
     <string name="dialog_ok">OK</string>
     <string name="titlebar_search_hint">Search</string>
-    <string name="titlebar_back">返回</string>
 
     <string name="easy_glide_save_succss">保存图片成功</string>
     <string name="easy_glide_save_failed">保存失败</string>
 
     <!-- recyclerViewHelper start -->
-    <string name="brvah_app_name">Library</string>
     <string name="brvah_loading">正在加载中...</string>
     <string name="brvah_load_failed">加载失败，请点我重试</string>
     <string name="brvah_load_end">没有更多数据</string>
@@ -21,40 +29,41 @@
 
     <string name="noDataClick2Refresh">暂无数据，点击刷新</string>
 
-    <string name="ucrop_label_original">Original</string>
-    <string name="ucrop_label_edit_photo">Edit Photo</string>
-
-    <string name="ucrop_menu_crop">Crop</string>
-
+    <string name="ucrop_label_original">原始比例</string>
+    <string name="ucrop_label_edit_photo">裁剪</string>
+    <string name="ucrop_menu_crop">裁剪</string>
+    <string name="ucrop_gif_tag">动图</string>
+    <string name="ucrop_crop">Crop</string>
+    <string name="ucrop_rotate">Rotate</string>
+    <string name="ucrop_scale">Scale</string>
     <string name="ucrop_error_input_data_is_absent">Both input and output Uri must be specified</string>
     <string name="ucrop_mutate_exception_hint">Therefore, override color resource (ucrop_color_toolbar_widget) in your app to make it work on pre-L devices</string>
     <string name="picture_camera_roll">相机胶卷</string>
+    <string name="picture_camera_roll_num">%1$s (%2$d)</string>
     <string name="picture_cancel">取消</string>
     <string name="picture_take_picture">拍摄</string>
     <string name="picture_rule">不能同时选择图片或视频</string>
-    <string name="picture_message_max_num">你最多可以选择%1$s张图片</string>
+    <string name="picture_message_max_num">你最多只能选择%1$s张照片</string>
     <string name="picture_min_video_num">视频最低选择不能少于%1$s个</string>
-    <string name="picture_message_video_max_num">你最多可以选择%1$s个视频</string>
+    <string name="picture_message_video_max_num">你最多只能选择%1$s个视频</string>
+    <string name="picture_message_audio_max_num">你最多只能选择%1$s个音频</string>
     <string name="picture_preview">预览</string>
-    <string name="picture_please">请稍候...</string>
     <string name="picture_done_front_num">%1$d/%2$d 完成</string>
     <string name="picture_completed">已完成</string>
-    <string name="picture_done">完成</string>
+    <string name="picture_done">完 成</string>
     <string name="picture_please_select">请选择</string>
     <string name="picture_empty_title">无视频或照片\n</string>
     <string name="picture_empty_audio_title">无音频文件\n</string>
     <string name="picture_empty">你可以使用相机拍摄照片或视频</string>
     <string name="picture_audio_empty">你可以使用系统录音录制音频</string>
     <string name="picture_min_img_num">图片最低选择不能少于%1$s张</string>
-    <string name="gif_tag">动图</string>
+    <string name="picture_gif_tag">动图</string>
     <string name="picture_jurisdiction">读取内存卡权限被拒绝</string>
     <string name="picture_camera">获取系统相机权限被拒绝</string>
     <string name="picture_audio">获取系统录音权限被拒绝</string>
-    <string name="picture_video_toast">视频不可预览</string>
     <string name="picture_record_video">录视频</string>
     <string name="picture_photograph">拍照</string>
     <string name="picture_long_chart">长图</string>
-    <string name="picture_warning">暂无媒体文件！</string>
     <string name="picture_prompt">提示</string>
     <string name="picture_prompt_content">是否保存图片至手机？</string>
     <string name="picture_save_error">图片保存失败</string>
@@ -68,18 +77,59 @@
     <string name="picture_error">图片已损坏</string>
     <string name="picture_video_error">视频已损坏</string>
     <string name="picture_audio_error">音频已损坏</string>
+    <string name="picture_confirm">确定</string>
+    <string name="picture_preview_image_num">%1$d/%2$d</string>
+    <string name="picture_not_crop_data">无可用裁剪数据</string>
+    <string name="picture_original_image">原图</string>
+    <string name="picture_send">完成</string>
+    <string name="picture_send_num">完成(%1$d/%2$d)</string>
+    <string name="picture_preview_num">预览(%1$d)</string>
+    <string name="picture_select">选择</string>
+    <string name="picture_data_exception">获取相册数据异常...</string>
+    <string name="picture_recording_time_is_short">录制时间过短</string>
+    <string name="picture_photo_camera">单击拍照，长按摄像</string>
+    <string name="picture_photo_pictures">单击拍照</string>
+    <string name="picture_photo_recording">长按摄像</string>
+    <string name="picture_choose_max_seconds">最大只能选择 %1$ds 以内的视频</string>
+    <string name="picture_choose_min_seconds">不能选择低于 %1$ds 内的视频</string>
+    <string name="picture_choose_limit_seconds">只能选择 %1$ds 至 %2$ds内的视频</string>
+    <string name="picture_go_setting">去设置</string>
+    <string name="picture_know">我知道了</string>
+    <string name="picture_data_null">这里空空如也…</string>
     <string name="common_confirm">确定</string>
     <string name="common_clear">清空</string>
 
     <string name="dialog_positive">确认</string>
-    <string name="dialog_negative">取消</string>
     <string name="dialog_positive_single_selection_default">选择</string>
-    <string name="error_empty_input">输入不能为空</string>
 
     <string name="day_name_format">EEE</string>
     <string name="invalid_date">日期可选范围 %1$s —— %2$s.</string>
-    <string name="month_name_format">MMMM yyyy</string>
     <string name="month_only_name_format">MMMM</string>
     <string name="year_only_format">yyyy</string>
+
+
+    <string name="srl_header_pulling">下拉可以刷新</string>
+    <string name="srl_header_refreshing">正在刷新…</string>
+    <string name="srl_header_loading">等待底部加载完成…</string>
+    <string name="srl_header_release">释放立即刷新</string>
+    <string name="srl_header_finish">刷新完成</string>
+    <string name="srl_header_failed">刷新失败</string>
+    <string name="srl_header_update">上次更新 M-d HH:mm</string>
+    <string name="srl_header_secondary">释放进入二楼</string>
+
+    <string name="srl_footer_pulling">上拉加载更多</string>
+    <string name="srl_footer_release">释放立即加载</string>
+    <string name="srl_footer_loading">正在加载…</string>
+    <string name="srl_footer_refreshing">等待头部刷新完成…</string>
+    <string name="srl_footer_finish">加载完成</string>
+    <string name="srl_footer_failed">加载失败</string>
+    <string name="srl_footer_nothing">没有更多数据了</string>
+
+    <string name="srl_content_empty">SmartRefreshLayout中没有找到内容视图。您是否忘记在xml布局文件中添加？</string>
+    <string name="srl_component_falsify" formatted="false">%s 虚假区域\n代表运行时拖动的高度【%.1fdp】 \n而不会显示任何东西</string>
+
+    <string name="indicator_null_error">请先调用setIndicator()方法来设置指示器</string>
+    <string name="banner_adapter_null_error">Banner setAdapter() 参数不能为空</string>
+    <string name="banner_adapter_use_error">你还没有调用 setAdapter() 方法</string>
 
 </resources>

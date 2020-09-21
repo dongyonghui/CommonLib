@@ -18,7 +18,7 @@ package com.dyh.common.lib.http.func;
 
 
 import com.dyh.common.lib.http.exception.ApiException;
-import com.dyh.common.lib.http.model.Optional;
+import com.dyh.common.lib.http.model.ResponseOptional;
 
 import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
@@ -30,9 +30,10 @@ import io.reactivex.functions.Function;
  * 日期： 2017/5/15 16:55 <br>
  * 版本： v1.0<br>
  */
-public class HttpResponseFunc<T> implements Function<Throwable, Observable<Optional<T>>> {
+public class HttpResponseFunc<T> implements Function<Throwable, Observable<ResponseOptional<T>>> {
     @Override
-    public Observable<Optional<T>> apply(@NonNull Throwable throwable) throws Exception {
+    public Observable<ResponseOptional<T>> apply(@NonNull Throwable throwable) throws Exception {
+//        EasyLog.Companion.getDEFAULT().e(throwable);
         return Observable.error(ApiException.handleException(throwable));
     }
 }

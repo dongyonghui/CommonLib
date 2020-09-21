@@ -17,7 +17,6 @@
 package com.dyh.common.lib.http.request;
 
 
-import com.google.gson.reflect.TypeToken;
 import com.dyh.common.lib.http.cache.model.CacheResult;
 import com.dyh.common.lib.http.callback.CallBack;
 import com.dyh.common.lib.http.callback.CallBackProxy;
@@ -28,6 +27,8 @@ import com.dyh.common.lib.http.func.RetryExceptionFunc;
 import com.dyh.common.lib.http.model.ApiResult;
 import com.dyh.common.lib.http.subsciber.CallBackSubsciber;
 import com.dyh.common.lib.http.utils.RxUtil;
+import com.google.gson.reflect.TypeToken;
+import com.trello.rxlifecycle2.LifecycleProvider;
 
 import java.lang.reflect.Type;
 
@@ -44,7 +45,7 @@ import okhttp3.ResponseBody;
  * 日期： 2017/4/28 14:28 <br>
  * 版本： v1.0<br>
  */
-@SuppressWarnings(value={"unchecked", "deprecation"})
+@SuppressWarnings(value = {"unchecked", "deprecation"})
 public class GetRequest extends BaseRequest<GetRequest> {
     public GetRequest(String url) {
         super(url);
@@ -75,12 +76,16 @@ public class GetRequest extends BaseRequest<GetRequest> {
     }
 
     public <T> Disposable execute(CallBack<T> callBack) {
-        return execute(new CallBackProxy<ApiResult<T>, T>(callBack) {
-        });
+        return execute(callBack, null);
     }
 
-    public <T> Disposable execute(CallBackProxy<? extends ApiResult<T>, T> proxy) {
-        Observable<CacheResult<T>> observable = build().toObservable(apiManager.get(url, params.urlParamsMap), proxy);
+    public <T> Disposable execute(CallBack<T> callBack, LifecycleProvider lifecycleProvider) {
+        return execute(new CallBackProxy<ApiResult<T>, T>(callBack) {
+        }, lifecycleProvider);
+    }
+
+    public <T> Disposable execute(CallBackProxy<? extends ApiResult<T>, T> proxy, LifecycleProvider lifecycleProvider) {
+        Observable<CacheResult<T>> observable = build().toObservable(apiManager.get(url, params.urlParamsMap), proxy, lifecycleProvider);
         if (CacheResult.class != proxy.getCallBack().getRawType()) {
             return observable.compose(new ObservableTransformer<CacheResult<T>, T>() {
                 @Override
@@ -93,11 +98,20 @@ public class GetRequest extends BaseRequest<GetRequest> {
         }
     }
 
-    private <T> Observable<CacheResult<T>> toObservable(Observable observable, CallBackProxy<? extends ApiResult<T>, T> proxy) {
+    private <T> Observable<CacheResult<T>> toObservable(Observable observable, CallBackProxy<? extends ApiResult<T>, T> proxy, LifecycleProvider lifecycleProvider) {
+        if (null == lifecycleProvider) {
+            return observable.map(new ApiResultFunc(proxy != null ? proxy.getType() : new TypeToken<ResponseBody>() {
+            }.getType()))
+                    .compose(isSyncRequest ? RxUtil._main() : RxUtil._io_main())
+                    .compose(rxCache.transformer(cacheMode, proxy.getCallBack().getType()))
+                    .retryWhen(new RetryExceptionFunc(retryCount, retryDelay, retryIncreaseDelay));
+        }
+
         return observable.map(new ApiResultFunc(proxy != null ? proxy.getType() : new TypeToken<ResponseBody>() {
         }.getType()))
                 .compose(isSyncRequest ? RxUtil._main() : RxUtil._io_main())
                 .compose(rxCache.transformer(cacheMode, proxy.getCallBack().getType()))
+                .compose(RxUtil.applySchedulers(lifecycleProvider))
                 .retryWhen(new RetryExceptionFunc(retryCount, retryDelay, retryIncreaseDelay));
     }
 

@@ -25,15 +25,17 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 /**
@@ -46,7 +48,7 @@ public class FileUtils {
     /**
      * TAG for log messages.
      */
-    static final String TAG = "FileUtils";
+    private static final String TAG = "FileUtils";
 
     private FileUtils() {
     }
@@ -92,8 +94,8 @@ public class FileUtils {
      *
      * @param context       The context.
      * @param uri           The Uri to query.
-     * @param selection     (Optional) Filter used in the query.
-     * @param selectionArgs (Optional) Selection arguments used in the query.
+     * @param selection     (ResponseOptional) Filter used in the query.
+     * @param selectionArgs (ResponseOptional) Selection arguments used in the query.
      * @return The value of the _data column, which is typically a file path.
      * @author paulburke
      */
@@ -147,8 +149,7 @@ public class FileUtils {
                 final String type = split[0];
 
                 if ("primary".equalsIgnoreCase(type)) {
-                    return context
-                            .getExternalFilesDir(Environment.DIRECTORY_PICTURES) + "/" + split[1];
+                    return Environment.getExternalStorageDirectory() + "/" + split[1];
                 }
 
                 // TODO handle non-primary volumes
@@ -157,10 +158,17 @@ public class FileUtils {
             else if (isDownloadsDocument(uri)) {
 
                 final String id = DocumentsContract.getDocumentId(uri);
-                final Uri contentUri = ContentUris.withAppendedId(
-                        Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+                if (!TextUtils.isEmpty(id)) {
+                    try {
+                        final Uri contentUri = ContentUris.withAppendedId(
+                                Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+                        return getDataColumn(context, contentUri, null, null);
+                    } catch (NumberFormatException e) {
+                        Log.i(TAG, e.getMessage());
+                        return null;
+                    }
+                }
 
-                return getDataColumn(context, contentUri, null, null);
             }
             // MediaProvider
             else if (isMediaDocument(uri)) {
@@ -209,6 +217,33 @@ public class FileUtils {
      * will cause both files to become null.
      * Simply skipping this step if the paths are identical.
      */
+    public static boolean copyFile(FileInputStream fileInputStream, String outFilePath) throws IOException {
+        if (fileInputStream == null) {
+            return false;
+        }
+        FileChannel inputChannel = null;
+        FileChannel outputChannel = null;
+        try {
+            inputChannel = fileInputStream.getChannel();
+            outputChannel = new FileOutputStream(new File(outFilePath)).getChannel();
+            inputChannel.transferTo(0, inputChannel.size(), outputChannel);
+            inputChannel.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        } finally {
+            if (fileInputStream != null) fileInputStream.close();
+            if (inputChannel != null) inputChannel.close();
+            if (outputChannel != null) outputChannel.close();
+        }
+    }
+
+    /**
+     * Copies one file into the other with the given paths.
+     * In the event that the paths are the same, trying to copy one file to the other
+     * will cause both files to become null.
+     * Simply skipping this step if the paths are identical.
+     */
     public static void copyFile(@NonNull String pathFrom, @NonNull String pathTo) throws IOException {
         if (pathFrom.equalsIgnoreCase(pathTo)) {
             return;
@@ -227,75 +262,40 @@ public class FileUtils {
         }
     }
 
-    public static boolean isGif(String path) {
-        String imageType = createImageType(path);
-        switch (imageType) {
-            case "image/gif":
-            case "image/GIF":
-                return true;
-        }
-        return false;
-    }
 
-    public static boolean isWebp(String path) {
-        String imageType = createImageType(path);
-        switch (imageType) {
-            case "image/webp":
-            case "image/WEBP":
-                return true;
-        }
-        return false;
-    }
+    private static SimpleDateFormat sf = new SimpleDateFormat("yyyyMMdd_HHmmssSS");
 
-    public static boolean isEnable(String path) {
-        try {
-            if (isGif(path) || isWebp(path)) {
-                return true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public static String createImageType(String path) {
-        try {
-            if (!TextUtils.isEmpty(path)) {
-                File file = new File(path);
-                String fileName = file.getName();
-                int last = fileName.lastIndexOf(".") + 1;
-                String temp = fileName.substring(last, fileName.length());
-                return "image/" + temp;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "image/jpeg";
-        }
-        return "image/jpeg";
+    /**
+     * 根据时间戳创建文件名
+     *
+     * @param prefix 前缀名
+     * @return
+     */
+    public static String getCreateFileName(String prefix) {
+        long millis = System.currentTimeMillis();
+        return prefix + sf.format(millis);
     }
 
     /**
-     * 是否是网络图片
+     * 根据时间戳创建文件名
      *
-     * @param path
      * @return
      */
-    public static boolean isHttp(String path) {
-        if (!TextUtils.isEmpty(path)) {
-            if (path.startsWith("http")
-                    || path.startsWith("https")) {
-                return true;
-            }
-        }
-        return false;
+    public static String getCreateFileName() {
+        long millis = System.currentTimeMillis();
+        return sf.format(millis);
     }
 
-    public static String getDirName(String filePath) {
-        if (TextUtils.isEmpty(filePath)) {
-            return filePath;
-        } else {
-            int lastSep = filePath.lastIndexOf(File.separator);
-            return lastSep == -1 ? "" : filePath.substring(0, lastSep + 1);
-        }
+
+    /**
+     * 重命名相册拍照
+     *
+     * @param fileName
+     * @return
+     */
+    public static String rename(String fileName) {
+        String temp = fileName.substring(0, fileName.lastIndexOf("."));
+        String suffix = fileName.substring(fileName.lastIndexOf("."));
+        return new StringBuffer().append(temp).append("_").append(getCreateFileName()).append(suffix).toString();
     }
 }

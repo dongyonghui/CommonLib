@@ -6,10 +6,11 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.dyh.common.lib.R;
 import com.dyh.common.lib.ucrop.callback.BitmapCropCallback;
@@ -22,6 +23,7 @@ import com.dyh.common.lib.ucrop.util.RectUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Oleksii Shliama (https://github.com/shliama).
@@ -69,7 +71,7 @@ public class CropImageView extends TransformImageView {
      * Then creates and executes {@link BitmapCropTask} with proper parameters.
      */
     public void cropAndSaveImage(@NonNull Bitmap.CompressFormat compressFormat, int compressQuality,
-                                  BitmapCropCallback cropCallback) {
+                                 @Nullable BitmapCropCallback cropCallback) {
         cancelAllAnimations();
         setImageToWrapCropBounds(false);
 
@@ -80,9 +82,10 @@ public class CropImageView extends TransformImageView {
         final CropParameters cropParameters = new CropParameters(
                 mMaxResultImageSizeX, mMaxResultImageSizeY,
                 compressFormat, compressQuality,
-                getImageInputUri(), getImageOutputPath(), getExifInfo());
+                getImageInputPath(), getImageOutputPath(), getExifInfo());
 
-        new BitmapCropTask(getContext(), getViewBitmap(), imageState, cropParameters, cropCallback).execute();
+        new BitmapCropTask(getContext(), getViewBitmap(), imageState, cropParameters, cropCallback)
+                .executeOnExecutor(Executors.newCachedThreadPool());
     }
 
     /**
@@ -145,12 +148,12 @@ public class CropImageView extends TransformImageView {
         }
     }
 
-
+    @Nullable
     public CropBoundsChangeListener getCropBoundsChangeListener() {
         return mCropBoundsChangeListener;
     }
 
-    public void setCropBoundsChangeListener( CropBoundsChangeListener cropBoundsChangeListener) {
+    public void setCropBoundsChangeListener(@Nullable CropBoundsChangeListener cropBoundsChangeListener) {
         mCropBoundsChangeListener = cropBoundsChangeListener;
     }
 

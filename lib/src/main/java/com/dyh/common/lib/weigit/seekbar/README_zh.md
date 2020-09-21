@@ -16,18 +16,18 @@ The **LATEST_VERSION**：[![Download](https://api.bintray.com/packages/woxingxia
 ```groovy
   dependencies {
      // lite version 轻量版（推荐）
-     // 例如：implementation 'com.dyh.common.lib.weigit.seekbar:bubbleseekbar:3.20-lite'
-        implementation 'com.dyh.common.lib.weigit.seekbar:bubbleseekbar:${LATEST_VERSION}-lite'
+     // 例如：implementation 'com.inscloudtech.easyandroid.weigit.seekbar:bubbleseekbar:3.20-lite'
+        implementation 'com.inscloudtech.easyandroid.weigit.seekbar:bubbleseekbar:${LATEST_VERSION}-lite'
      
      // enhanced version 增强版
-     // 例如：implementation 'com.dyh.common.lib.weigit.seekbar:bubbleseekbar:3.20'
-     // implementation 'com.dyh.common.lib.weigit.seekbar:bubbleseekbar:${LATEST_VERSION}'
+     // 例如：implementation 'com.inscloudtech.easyandroid.weigit.seekbar:bubbleseekbar:3.20'
+     // implementation 'com.inscloudtech.easyandroid.weigit.seekbar:bubbleseekbar:${LATEST_VERSION}'
   }
 ```
 ## Usage  
 ### Init in xml
 ```xml
-<com.dyh.common.lib.weigit.seekbar.BubbleSeekBar
+<com.inscloudtech.easyandroid.weigit.seekbar.BubbleSeekBar
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:bsb_bubble_color="@color/color_red_light"
@@ -45,7 +45,7 @@ The **LATEST_VERSION**：[![Download](https://api.bintray.com/packages/woxingxia
     app:bsb_track_color="@color/color_red_light"/>
 ```
 ```xml
-<com.dyh.common.lib.weigit.seekbar.BubbleSeekBar
+<com.inscloudtech.easyandroid.weigit.seekbar.BubbleSeekBar
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:bsb_auto_adjust_section_mark="true"

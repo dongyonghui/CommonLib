@@ -4,66 +4,56 @@
     <dimen name="common_circle_width">3dp</dimen>
     <dimen name="progress_circle_radius">34dp</dimen>
     <!-- recyclerViewHelper start -->
-    <dimen name="def_height">50dp</dimen>
     <dimen name="dp_4">4dp</dimen>
-    <dimen name="dp_10">10dp</dimen>
     <dimen name="dp_40">40dp</dimen>
     <dimen name="sp_14">14sp</dimen>
     <!-- recyclerViewHelper end -->
 
 
     <!-- dialog panter start -->
-    <dimen name="up_down_margin">30dp</dimen>
-    <dimen name="pattern_height">69dp</dimen>
-    <dimen name="input_min_height">175dp</dimen>
-    <dimen name="logo_height">42dp</dimen>
-    <dimen name="text_padding">16dp</dimen>
-    <dimen name="button_padding">18dp</dimen>
+    <dimen name="dialog_up_down_margin">30dp</dimen>
+    <dimen name="dialog_pattern_height">69dp</dimen>
+    <dimen name="dialog_input_min_height">175dp</dimen>
+    <dimen name="dialog_logo_height">42dp</dimen>
+    <dimen name="dialog_text_padding">16dp</dimen>
+    <dimen name="dialog_button_padding">10dp</dimen>
     <dimen name="divider_stroke">0.5dp</dimen>
-    <dimen name="content_fake_margin">-5dp</dimen>
     <dimen name="single_choice_text_padding">12dp</dimen>
-    <dimen name="scrollview_max_height">350dp</dimen>
+    <dimen name="dialog_scrollview_max_height">350dp</dimen>
 
-    <dimen name="message_text_size">14sp</dimen>
-    <dimen name="title_text_size">18sp</dimen>
-    <dimen name="single_choice_text_size">16sp</dimen>
+    <dimen name="dialog_message_text_size">14dp</dimen>
+    <dimen name="dialog_title_text_size">18dp</dimen>
+    <dimen name="dialog_button_text_size">18dp</dimen>
+    <dimen name="dialog_single_choice_text_size">16dp</dimen>
     <!-- dialog panter end -->
 
 
     <!-- =======================app 公用属性 start=======================. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="general_textSize_default">14dp</dimen>
+    <dimen name="general_textSize_10">10dp</dimen>
+    <dimen name="general_textSize_12">12dp</dimen>
+    <dimen name="general_textSize_14">14dp</dimen>
+    <dimen name="general_textSize_16">16dp</dimen>
+    <dimen name="general_textSize_18">18dp</dimen>
+    <dimen name="general_textSize_20">20dp</dimen>
+    <dimen name="general_textSize_24">24dp</dimen>
 
-    <!--小字体大小-->
-    <dimen name="general_textSize_min">12sp</dimen>
-    <!--默认字体大小-->
-    <dimen name="general_textSize">14sp</dimen>
-    <dimen name="general_textSize_max1">16sp</dimen>
-    <dimen name="general_textSize_max2">18sp</dimen>
-    <dimen name="general_textSize_max3">22sp</dimen>
     <!-- 布局间距 -->
     <dimen name="general_item_padding_min">5dp</dimen>
     <dimen name="general_item_padding">10dp</dimen>
     <dimen name="general_item_padding_max">20dp</dimen>
     <dimen name="general_item_margin">10dp</dimen>
-    <dimen name="general_item_margin_min">5dp</dimen>
     <dimen name="general_item_margin_max">20dp</dimen>
-
-
-    <!-- 文字上下或者左右间距 -->
-    <dimen name="general_text_padding">5dp</dimen>
-    <!-- 页面内容简介 -->
+    <dimen name="general_item_margin_min">5dp</dimen>
     <dimen name="general_page_padding">15dp</dimen>
-    <dimen name="general_content_padding">10dp</dimen>
 
     <!-- 分割线宽高 -->
     <dimen name="dividing_line">1dp</dimen>
-    <dimen name="tabUnderlineHeight">3dp</dimen>
-    <!-- Toolbar的高度 -->
-    <!--圆角大小-->
-    <dimen name="common_radius">3dp</dimen>
-    <!--圆角面板大小-->
-    <dimen name="general_cornerRadius">6dp</dimen>
+    <dimen name="dividing_line_min">0.5dp</dimen>
+    <!--按钮圆角大小-->
+    <dimen name="general_cornerRadius_button">4dp</dimen>
+    <!--面板圆角大小-->
+    <dimen name="general_cornerRadius_panel">6dp</dimen>
     <!-- =======================app 公用属性 end=======================. -->
 
 
@@ -72,23 +62,25 @@
     <dimen name="ucrop_size_dot_scale_text_view">8dp</dimen>
     <dimen name="ucrop_height_horizontal_wheel_progress_line">20dp</dimen>
     <dimen name="ucrop_width_horizontal_wheel_progress_line">2dp</dimen>
+    <dimen name="ucrop_width_middle_wheel_progress_line">4dp</dimen>
     <dimen name="ucrop_margin_horizontal_wheel_progress_line">10dp</dimen>
     <dimen name="ucrop_height_wrapper_controls">64dp</dimen>
     <dimen name="ucrop_height_wrapper_states">72dp</dimen>
-    <dimen name="ucrop_height_divider_shadow">3dp</dimen>
     <dimen name="ucrop_text_size_widget_text">13sp</dimen>
-    <dimen name="ucrop_margit_top_widget_text">10sp</dimen>
+    <dimen name="ucrop_text_size_controls_text">11sp</dimen>
+    <dimen name="ucrop_margin_top_widget_text">10dp</dimen>
+    <dimen name="ucrop_margin_top_controls_text">4dp</dimen>
     <dimen name="ucrop_size_wrapper_rotate_button">50dp</dimen>
     <dimen name="ucrop_height_crop_aspect_ratio_text">40dp</dimen>
     <dimen name="ucrop_progress_size">30dp</dimen>
 
     <!--Crop View-->
+    <dimen name="ucrop_default_crop_logo_size">200dp</dimen>
     <dimen name="ucrop_default_crop_grid_stoke_width">1dp</dimen>
     <dimen name="ucrop_default_crop_frame_stoke_width">1dp</dimen>
     <dimen name="ucrop_default_crop_rect_corner_touch_threshold">30dp</dimen>
     <dimen name="ucrop_default_crop_rect_min_size">100dp</dimen>
     <dimen name="ucrop_default_crop_rect_corner_touch_area_line_length">10dp</dimen>
-    <dimen name="margin_top">8dp</dimen>
 
     <dimen name="calendar_day_headers_paddingbottom">4dp</dimen>
     <dimen name="calendar_month_topmargin">16dp</dimen>

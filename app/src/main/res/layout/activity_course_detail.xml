@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mLoadingContentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/mAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCollapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="@color/bg_white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="none">
+
+                <com.dyh.common.lib.weigit.banner.Banner
+                    android:id="@+id/mBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:banner_indicator_gravity="center"
+                    app:banner_indicator_height="@dimen/courseDetail_bannerIndicatorHeight"
+                    app:banner_indicator_marginBottom="@dimen/general_page_padding"
+                    app:banner_indicator_normal_color="@color/text_white_tran50"
+                    app:banner_indicator_normal_width="@dimen/courseDetail_bannerIndicatorWidth"
+                    app:banner_indicator_radius="0dp"
+                    app:banner_indicator_selected_color="@color/bg_white"
+                    app:banner_indicator_selected_width="@dimen/courseDetail_bannerIndicatorWidth"
+                    app:banner_indicator_space="@dimen/general_item_padding_min"
+                    app:layout_constraintDimensionRatio="H,414:320"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
+                    android:id="@+id/mCenterPanelLayout"
+                    layout="@layout/layout_course_detail_center_panel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/mBanner" />
+
+                <View
+                    android:id="@+id/mBottomTempView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/courseDetail_speakerBottomPanelHeight"
+                    android:background="@color/bg_white"
+                    app:layout_constraintTop_toBottomOf="@+id/mCenterPanelLayout" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/mTeacherPanelCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/courseDetail_centerPanelTeacherPanelHeight"
+                    android:layout_marginLeft="@dimen/general_panelPadding"
+                    android:layout_marginRight="@dimen/general_panelPadding"
+                    android:layout_marginBottom="@dimen/general_item_padding"
+                    android:background="@color/bg_white"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/general_panelRadius"
+                    app:cardElevation="@dimen/general_item_padding_min"
+                    app:layout_constraintBottom_toBottomOf="@+id/mBottomTempView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/mHeaderImageView"
+                            android:layout_width="@dimen/courseDetail_headerImageWidthHeight"
+                            android:layout_height="@dimen/courseDetail_headerImageWidthHeight"
+                            android:layout_marginLeft="@dimen/general_panelPadding"
+                            android:src="@mipmap/person_head_default"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/mTeacherNameTextView"
+                            style="@style/text_wrap_18"
+                            android:layout_width="0dp"
+                            android:layout_marginLeft="@dimen/general_item_margin_max"
+                            android:textColor="@color/text_333C"
+                            app:layout_constraintLeft_toRightOf="@+id/mHeaderImageView"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/mHeaderImageView" />
+
+                        <TextView
+                            android:id="@+id/mTeacherRemarkTextView"
+                            style="@style/text_wrap_12"
+                            android:layout_width="0dp"
+                            android:layout_marginTop="@dimen/general_item_margin_min"
+                            android:layout_marginRight="@dimen/general_panelPadding"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textColor="@color/text_black_tran50"
+                            app:layout_constraintLeft_toLeftOf="@+id/mTeacherNameTextView"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/mTeacherNameTextView" />
+
+                        <TextView
+                            android:id="@+id/mTeacherRemark2TextView"
+                            style="@style/text_wrap_12"
+                            android:layout_width="0dp"
+                            android:layout_marginRight="@dimen/general_panelPadding"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textColor="@color/text_333C"
+                            app:layout_constraintLeft_toLeftOf="@+id/mTeacherRemarkTextView"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/mTeacherRemarkTextView" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/mToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/general_topTabHeight"
+                app:layout_collapseMode="pin"
+                app:menu="@menu/menu_share_collection"
+                app:navigationIcon="@mipmap/icon_title_back_black"
+                app:titleTextColor="@color/text_2228" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/general_topTabHeight"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mRecyclerTab"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/general_page_padding"
+                android:paddingRight="@dimen/general_page_padding" />
+
+            <TextView
+                android:id="@+id/mBack2TopTextView"
+                style="@style/text_wrap_black14"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_translate_selector"
+                android:gravity="center_vertical"
+                android:padding="@dimen/general_item_padding"
+                android:text="@string/back2Top" />
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/mLineBottom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/mLineBottom"
+            style="@style/horizontalLine_min"
+            android:layout_marginBottom="@dimen/general_item_margin_max"
+            app:layout_constraintBottom_toTopOf="@+id/mSignUpTextView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/mFreeGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="mStatusInfoTextView,mStatusSubInfoTextView" />
+
+        <TextView
+            android:id="@+id/mStatusInfoTextView"
+            style="@style/text_wrap_20"
+            android:layout_marginLeft="@dimen/general_panelPadding"
+            android:text="@string/memberFree"
+            android:textColor="@color/text_222D"
+            app:layout_constraintBottom_toBottomOf="@+id/mSignUpTextView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mSignUpTextView" />
+
+        <TextView
+            android:id="@+id/mStatusSubInfoTextView"
+            style="@style/text_wrap_10"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:textColor="@color/text_black_tran50"
+            app:layout_constraintBaseline_toBaselineOf="@+id/mStatusInfoTextView"
+            app:layout_constraintLeft_toRightOf="@+id/mStatusInfoTextView" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/mPriceGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="mPriceTotalTextView,mPriceVerifyTextView,mPriceTotalUnitTextView,mGetVipTextView" />
+
+
+        <TextView
+            android:id="@+id/mPriceTotalUnitTextView"
+            style="@style/text_wrap_18"
+            android:layout_marginLeft="@dimen/general_panelPadding"
+            android:layout_marginTop="@dimen/general_item_margin_min"
+            android:text="@string/priceUnit"
+            android:textColor="@color/text_d35"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mSignUpTextView" />
+
+        <TextView
+            android:id="@+id/mPriceTotalTextView"
+            style="@style/text_wrap_24"
+            android:textColor="@color/text_d35"
+            app:layout_constraintBaseline_toBaselineOf="@+id/mPriceTotalUnitTextView"
+            app:layout_constraintLeft_toRightOf="@+id/mPriceTotalUnitTextView" />
+
+        <TextView
+            android:id="@+id/mPriceVerifyTextView"
+            style="@style/text_wrap_10"
+            android:layout_marginTop="@dimen/general_item_margin_min"
+            android:textColor="@color/text_black_tran50"
+            app:layout_constraintLeft_toLeftOf="@+id/mPriceTotalUnitTextView"
+            app:layout_constraintTop_toBottomOf="@+id/mPriceTotalUnitTextView" />
+
+
+        <TextView
+            android:id="@+id/mGetVipTextView"
+            style="@style/button_getVip"
+            android:layout_width="@dimen/courseDetail_buttonWidth"
+            android:layout_height="0dp"
+            android:layout_marginRight="@dimen/general_item_margin"
+            android:text="@string/free2Vip"
+            app:layout_constraintBottom_toBottomOf="@+id/mSignUpTextView"
+            app:layout_constraintRight_toLeftOf="@+id/mSignUpTextView"
+            app:layout_constraintTop_toTopOf="@+id/mSignUpTextView" />
+
+        <TextView
+            android:id="@+id/mSignUpTextView"
+            style="@style/general_button"
+            android:layout_width="@dimen/courseDetail_buttonWidth"
+            android:layout_marginRight="@dimen/general_panelPadding"
+            android:layout_marginBottom="@dimen/general_item_margin_max"
+            android:text="@string/courseDetail_signUp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

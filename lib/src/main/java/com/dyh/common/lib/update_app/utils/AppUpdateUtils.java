@@ -16,10 +16,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.FileProvider;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.FileProvider;
+
 import android.util.DisplayMetrics;
 
 import com.dyh.common.lib.update_app.UpdateAppBean;

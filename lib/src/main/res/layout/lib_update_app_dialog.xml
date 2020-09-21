@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center"
-              android:orientation="vertical"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
 
 
     <LinearLayout
-        android:id="@+id/ll_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -17,7 +15,7 @@
             android:id="@+id/iv_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/lib_update_app_top_bg"/>
+            android:src="@mipmap/lib_update_app_top_bg" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,14 +31,14 @@
                 android:layout_height="wrap_content"
                 android:text="是否升级到4.1.1版本？"
                 android:textColor="@android:color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:paddingBottom="10dp"
                 android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:scrollbars="none">
 
                 <TextView
@@ -49,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:text="1，xxxxxxxx\n2，ooooooooo"
                     android:textColor="#666"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
             </ScrollView>
 
 
@@ -59,9 +57,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:minHeight="40dp"
-                android:text="升级"
+                android:text="立即升级"
                 android:textColor="@android:color/white"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_ignore"
@@ -72,14 +70,14 @@
                 android:text="忽略此版本"
                 android:textColor="#666"
                 android:textSize="14sp"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <com.dyh.common.lib.update_app.view.NumberProgressBar
                 android:id="@+id/npb"
                 style="@style/UpdateAppNumberProgressBar_Red"
-                android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:visibility="gone"/>
+                android:paddingBottom="10dp"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -92,18 +90,16 @@
             android:orientation="vertical">
 
             <View
-                android:id="@+id/line"
                 android:layout_width="1dp"
-                android:layout_height="50dp"
-                android:background="#d8d8d8"
-                android:visibility="visible"/>
+                android:layout_height="20dp"
+                android:background="@color/transparent"
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/iv_close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/lib_update_app_close"
-                />
+                android:src="@mipmap/lib_update_app_close" />
 
 
         </LinearLayout>

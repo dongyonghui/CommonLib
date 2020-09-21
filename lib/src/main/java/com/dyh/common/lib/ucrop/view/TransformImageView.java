@@ -6,12 +6,13 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.ImageView;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.dyh.common.lib.ucrop.callback.BitmapLoadCallback;
 import com.dyh.common.lib.ucrop.model.ExifInfo;
@@ -25,7 +26,7 @@ import com.dyh.common.lib.ucrop.util.RectUtils;
  * This class provides base logic to setup the image, transform it with matrix (move, scale, rotate),
  * and methods to get current matrix state.
  */
-public class TransformImageView extends ImageView {
+public class TransformImageView extends AppCompatImageView {
 
     private static final String TAG = "TransformImageView";
 
@@ -51,8 +52,7 @@ public class TransformImageView extends ImageView {
 
     private int mMaxBitmapSize = 0;
 
-    private Uri mImageInputUri;
-    private String mImageOutputPath;
+    private String mImageInputPath, mImageOutputPath;
     private ExifInfo mExifInfo;
 
     /**
@@ -118,8 +118,8 @@ public class TransformImageView extends ImageView {
         setImageDrawable(new FastBitmapDrawable(bitmap));
     }
 
-    public Uri getImageInputUri() {
-        return mImageInputUri;
+    public String getImageInputPath() {
+        return mImageInputPath;
     }
 
     public String getImageOutputPath() {
@@ -136,16 +136,16 @@ public class TransformImageView extends ImageView {
      * @param imageUri - image Uri
      * @throws Exception - can throw exception if having problems with decoding Uri or OOM.
      */
-    public void setImageUri(@NonNull Uri imageUri,  Uri outputUri) throws Exception {
+    public void setImageUri(@NonNull Uri imageUri, @Nullable Uri outputUri) throws Exception {
         int maxBitmapSize = getMaxBitmapSize();
 
         BitmapLoadUtils.decodeBitmapInBackground(getContext(), imageUri, outputUri, maxBitmapSize, maxBitmapSize,
                 new BitmapLoadCallback() {
 
                     @Override
-                    public void onBitmapLoaded(@NonNull Bitmap bitmap, @NonNull ExifInfo exifInfo, @NonNull Uri imageInputUri,  Uri imageOutputUri) {
-                        mImageInputUri = imageInputUri;
-                        mImageOutputPath = imageOutputUri.getPath();
+                    public void onBitmapLoaded(@NonNull Bitmap bitmap, @NonNull ExifInfo exifInfo, @NonNull String imageInputPath, @Nullable String imageOutputPath) {
+                        mImageInputPath = imageInputPath;
+                        mImageOutputPath = imageOutputPath;
                         mExifInfo = exifInfo;
 
                         mBitmapDecoded = true;
@@ -200,7 +200,7 @@ public class TransformImageView extends ImageView {
         updateCurrentImagePoints();
     }
 
-
+    @Nullable
     public Bitmap getViewBitmap() {
         if (getDrawable() == null || !(getDrawable() instanceof FastBitmapDrawable)) {
             return null;

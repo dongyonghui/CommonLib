@@ -1,8 +1,7 @@
 package com.dyh.common.lib.dw.listview;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
-import com.dyh.common.lib.recyclerview_helper.BaseQuickAdapter;
 import com.dyh.common.lib.recyclerview_helper.BaseSectionQuickAdapter;
 import com.dyh.common.lib.recyclerview_helper.BaseViewHolder;
 import com.dyh.common.lib.recyclerview_helper.entity.SectionEntity;
@@ -31,7 +30,7 @@ public abstract class BaseSectionQuickRecyclerViewAdapter<T extends SectionEntit
     }
 
     @Override
-    public void setNewData( List<T> data) {
+    public void setNewData(@Nullable List<T> data) {
         super.setNewData(data);
         refreshLoadMoreStatus(getItemCount());
     }

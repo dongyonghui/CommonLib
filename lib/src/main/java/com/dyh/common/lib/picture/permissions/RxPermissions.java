@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import io.reactivex.subjects.PublishSubject;
 /**
  * author：luck
  * project：PictureSelector
- * package：com.dyh.common.lib.picture.permissions
+ * package：com.inscloudtech.easyandroid.picture.permissions
  * email：893855882@qq.com
  * data：2017/5/31
  */

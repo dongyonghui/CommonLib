@@ -1,5 +1,7 @@
 package com.dyh.common.lib.picture.compress;
 
+import com.dyh.common.lib.picture.entity.LocalMedia;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -15,4 +17,7 @@ public interface InputStreamProvider {
     void close();
 
     String getPath();
+
+    LocalMedia getMedia();
+
 }

@@ -5,7 +5,7 @@ import android.app.Fragment;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 
 import java.util.HashMap;
@@ -16,7 +16,7 @@ import io.reactivex.subjects.PublishSubject;
 /**
  * author：luck
  * project：PictureSelector
- * package：com.dyh.common.lib.picture.permissions
+ * package：com.inscloudtech.easyandroid.picture.permissions
  * email：893855882@qq.com
  * data：2017/5/31
  */

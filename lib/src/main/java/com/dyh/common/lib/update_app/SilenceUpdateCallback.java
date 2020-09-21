@@ -1,6 +1,6 @@
 package com.dyh.common.lib.update_app;
 
-import com.dyh.common.lib.update_app.service.DownloadService;
+import com.dyh.common.lib.update_app.service.UpdateAppVersionDownloadService;
 import com.dyh.common.lib.update_app.utils.AppUpdateUtils;
 
 import java.io.File;
@@ -26,7 +26,7 @@ public class SilenceUpdateCallback extends UpdateCallback {
                 //要求是wifi下，且当前不是wifi环境
                 return;
             }
-            updateAppManager.download(new DownloadService.DownloadCallback() {
+            updateAppManager.download(new UpdateAppVersionDownloadService.DownloadCallback() {
                 @Override
                 public void onStart() {
 

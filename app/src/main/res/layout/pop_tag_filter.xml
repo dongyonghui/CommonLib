@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View style="@style/horizontalLine_min" />
+
+    <com.dyh.common.lib.weigit.WrapLayout
+        android:id="@+id/mWarpLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_white"
+        android:padding="@dimen/general_page_padding"
+        app:wrapLayout_Gravity="top"
+        app:wrapLayout_HorizontalSpacing="@dimen/general_item_margin"
+        app:wrapLayout_VerticalSpacing="@dimen/general_item_margin" />
+
+    <View
+        android:id="@+id/mEmptyView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bg_000_tran70"
+        android:clickable="true"
+        android:focusable="true" />
+</LinearLayout>

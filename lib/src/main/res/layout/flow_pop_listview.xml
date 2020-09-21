@@ -34,12 +34,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/bg_white_selector"
+            android:background="@drawable/bg_translate_selector"
             android:gravity="center"
             android:padding="@dimen/general_item_padding_min"
             android:text="@string/common_clear"
             android:textColor="@color/black"
-            android:textSize="@dimen/general_textSize" />
+            android:textSize="@dimen/general_textSize_default" />
 
         <TextView
             android:id="@+id/tv_confirm"
@@ -51,7 +51,7 @@
             android:padding="@dimen/general_item_padding_min"
             android:text="@string/common_confirm"
             android:textColor="@color/text_white"
-            android:textSize="@dimen/general_textSize" />
+            android:textSize="@dimen/general_textSize_default" />
     </LinearLayout>
 
     <View

@@ -1,8 +1,8 @@
 package com.dyh.common.lib.weigit.picker.picker;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -57,7 +57,7 @@ public class AddressPicker extends LinkagePicker<Province, City, County> {
         return provinces.get(selectedFirstIndex);
     }
 
-
+    @Nullable
     public City getSelectedCity() {
         List<City> cities = getSelectedProvince().getCities();
         if (cities.size() == 0) {
@@ -66,7 +66,7 @@ public class AddressPicker extends LinkagePicker<Province, City, County> {
         return cities.get(selectedSecondIndex);
     }
 
-
+    @Nullable
     public County getSelectedCounty() {
         City selectedCity = getSelectedCity();
         if (selectedCity == null) {

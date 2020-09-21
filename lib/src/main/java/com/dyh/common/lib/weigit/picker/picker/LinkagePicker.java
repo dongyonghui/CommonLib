@@ -1,9 +1,9 @@
 package com.dyh.common.lib.weigit.picker.picker;
 
 import android.app.Activity;
-import android.support.annotation.FloatRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -566,7 +566,7 @@ public class LinkagePicker<Fst extends LinkageFirst<Snd>, Snd extends LinkageSec
         @NonNull
         public abstract List<String> provideSecondData(int firstIndex);
 
-
+        @Nullable
         public abstract List<String> provideThirdData(int firstIndex, int secondIndex);
 
         @NonNull

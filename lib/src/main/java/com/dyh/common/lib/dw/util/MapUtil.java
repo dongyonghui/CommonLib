@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 作者：DongYonghui
+ * 作者：Allan
  * 时间：2019/11/4/004
  * 邮箱：648731994@qq.com
  * 描述：地图工具类
@@ -52,7 +52,7 @@ public class MapUtil {
         if (isAvilible(context, GAODE_PACKAGENAME)) {
             try {
                 Intent intent = Intent.getIntent("androidamap://navi?sourceApplication=" +
-                        context.getResources().getString(R.string.app_name) +
+                        context.getResources().getString(R.string.lib_app_name) +
                         "&poiname=我的目的地" +
                         "&lat=" + location[0] +
                         "&lon=" + location[1] +
@@ -87,7 +87,7 @@ public class MapUtil {
                         "&mode=driving" +          //导航路线方式
                         "&region=" +           //
                         "&src=" +
-                        context.getResources().getString(R.string.app_name) +
+                        context.getResources().getString(R.string.lib_app_name) +
                         "#Intent;scheme=bdapp;package=com.baidu.BaiduMap;end");
                 context.startActivity(intent); //启动调用
             } catch (URISyntaxException e) {
@@ -117,7 +117,7 @@ public class MapUtil {
         String busPlan = "routeplan?type=bus&from=我的家&fromcoord=39.980683,116.302&to=柳巷&tocoord=39.9836,116.3164&policy=2";
         String drivePlan = "routeplan?type=drive&from=&fromcoord=&to=&tocoord=" + location[0] + "," + location[1] + "&policy=1";
 
-        String tencnetUri = baseUrl + drivePlan + "&referer=" + context.getResources().getString(R.string.app_name);
+        String tencnetUri = baseUrl + drivePlan + "&referer=" + context.getResources().getString(R.string.lib_app_name);
 
         if (isAvilible(context, TENCENT_PACKAGENAME)) {
             Intent intent;

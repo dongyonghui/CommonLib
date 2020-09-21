@@ -13,6 +13,10 @@ import java.util.Arrays;
 enum Checker {
     SINGLE;
 
+    public final static String MIME_TYPE_JPEG = "image/jpeg";
+
+    public final static String MIME_TYPE_JPG = "image/jpg";
+
     private static final String TAG = "Luban";
 
     private static final String JPG = ".jpg";
@@ -26,6 +30,18 @@ enum Checker {
      */
     boolean isJPG(InputStream is) {
         return isJPG(toByteArray(is));
+    }
+
+    /**
+     * Determine if it is JPG.
+     *
+     * @param is image file mimeType
+     */
+    boolean isJPG(String mimeType) {
+        if (TextUtils.isEmpty(mimeType)) {
+            return false;
+        }
+        return mimeType.startsWith(MIME_TYPE_JPEG) || mimeType.startsWith(MIME_TYPE_JPG);
     }
 
     /**
@@ -150,7 +166,27 @@ enum Checker {
         }
     }
 
+    String extSuffix(String mimeType) {
+        try {
+            if (TextUtils.isEmpty(mimeType)) {
+                return JPG;
+            }
+            return mimeType.startsWith("video") ? mimeType.replace("video/", ".")
+                    : mimeType.replace("image/", ".");
+        } catch (Exception e) {
+            return JPG;
+        }
+    }
+
     boolean needCompress(int leastCompressSize, String path) {
+        if (leastCompressSize > 0) {
+            File source = new File(path);
+            return source.exists() && source.length() > (leastCompressSize << 10);
+        }
+        return true;
+    }
+
+    boolean needCompressToLocalMedia(int leastCompressSize, String path) {
         if (leastCompressSize > 0 && !TextUtils.isEmpty(path)) {
             File source = new File(path);
             return source.exists() && source.length() > (leastCompressSize << 10);

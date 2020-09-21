@@ -2,10 +2,10 @@ package com.dyh.common.lib.weigit.picker.picker;
 
 import android.app.Activity;
 import android.graphics.Typeface;
-import android.support.annotation.ColorInt;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntRange;
-import android.support.annotation.Nullable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntRange;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -164,7 +164,7 @@ public abstract class WheelPicker extends ConfirmPopup<View> {
     /**
      * 设置分隔线配置项，设置null将隐藏分割线及阴影
      */
-    public void setDividerConfig( WheelView.DividerConfig config) {
+    public void setDividerConfig(@Nullable WheelView.DividerConfig config) {
         if (null == config) {
             dividerConfig = new WheelView.DividerConfig();
             dividerConfig.setVisible(false);

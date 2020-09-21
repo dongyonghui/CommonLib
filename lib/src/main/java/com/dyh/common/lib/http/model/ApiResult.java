@@ -16,6 +16,8 @@
 
 package com.dyh.common.lib.http.model;
 
+import com.dyh.common.lib.http.EasyHttp;
+
 /**
  * <p>描述：提供的默认的标注返回api</p>
  * 作者： zhouyou<br>
@@ -23,43 +25,53 @@ package com.dyh.common.lib.http.model;
  * 版本： v1.0<br>
  */
 public class ApiResult<T> {
-    private int errCode;
-    private String errMessage;
-    private T data;
-    public int getErrCode() {
-        return errCode;
+    private String error_code;
+    private String status;
+    private String error_msg;
+    private T result;
+
+    public String getStatus() {
+        return status;
     }
 
-    public void setErrCode(int errCode) {
-        this.errCode = errCode;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getErrMessage() {
-        return errMessage;
+    public String getError_code() {
+        return error_code;
     }
 
-    public void setErrMessage(String errMessage) {
-        this.errMessage = errMessage;
+    public void setError_code(String error_code) {
+        this.error_code = error_code;
     }
 
-    public T getData() {
-        return data;
+    public String getError_msg() {
+        return error_msg;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setError_msg(String error_msg) {
+        this.error_msg = error_msg;
+    }
+
+    public T getResult() {
+        return result;
+    }
+
+    public void setResult(T result) {
+        this.result = result;
     }
 
     public boolean isOk() {
-        return errCode == 0;
+        return EasyHttp.STATUS_SUCCESS.equalsIgnoreCase(getStatus());
     }
 
     @Override
     public String toString() {
         return "ApiResult{" +
-                "errCode='" + errCode + '\'' +
-                ", errMessage='" + errMessage + '\'' +
-                ", data=" + data +
+                "errCode='" + error_code + '\'' +
+                ", errMessage='" + error_msg + '\'' +
+                ", data=" + result +
                 '}';
     }
 }

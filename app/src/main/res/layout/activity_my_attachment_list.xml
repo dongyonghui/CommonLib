@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    android:orientation="vertical">
+
+
+    <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        style="@style/titleBar_back"
+        app:centerText="@string/mine_item_attachment" />
+
+    <com.dyh.common.lib.weigit.refresh_layout.SmartRefreshLayout
+        android:id="@+id/mSmartRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.dyh.common.lib.weigit.refresh_layout.SmartRefreshLayout>
+
+
+</LinearLayout>

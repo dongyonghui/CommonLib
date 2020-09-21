@@ -16,21 +16,18 @@
 
 package com.dyh.common.lib.http.callback;
 
-import com.dyh.common.lib.easy.EasyToast;
 import com.dyh.common.lib.http.exception.ApiException;
-import com.dyh.common.lib.http.model.Optional;
+import com.dyh.common.lib.http.model.ResponseOptional;
 import com.dyh.common.lib.mvp.MVPView;
 
 /**
- * <p>描述：简单的回调,默认可以使用该回调，不用关注其他回调方法</p>
+ * <p>描述：处理了网络请求加载框自动展示隐藏,不用关注其他回调方法</p>
  * 使用该回调默认只需要处理onError，onSuccess两个方法既成功失败<br>
- * 作者： zhouyou<br>
- * 日期： 2016/12/29 10:06<br>
- * 版本： v2.0<br>
+ * 作者： Allan<br>
  */
-public abstract class MyHttpCallBack<T> extends CallBack<Optional<T>> {
+public abstract class MyHttpCallBack<T> extends CallBack<ResponseOptional<T>> {
 
-    private MVPView mView;
+    protected MVPView mView;
 
     public MyHttpCallBack(MVPView mView) {
         this.mView = mView;
@@ -38,17 +35,21 @@ public abstract class MyHttpCallBack<T> extends CallBack<Optional<T>> {
 
     @Override
     public void onStart() {
-        mView.showLoadingDialog();
+        mView.showLoadingView(null);
     }
 
     @Override
     public void onError(ApiException e) {
-        mView.hideLoadingDialog();
-        EasyToast.getDEFAULT().show(e.getMessage());
+        mView.showErrorView(e.getMessage());
+    }
+
+    @Override
+    public void onSuccess(ResponseOptional<T> tResponseOptional) {
+        mView.hideLoadingView();
     }
 
     @Override
     public void onCompleted() {
-        mView.hideLoadingDialog();
+        mView.hideLoadingView();
     }
 }

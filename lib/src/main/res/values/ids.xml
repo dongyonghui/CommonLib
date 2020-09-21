@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <item name="BaseQuickAdapter_viewholder_support" type="id"/>
     <item name="BaseQuickAdapter_swiping_support" type="id"/>
     <item name="BaseQuickAdapter_dragging_support" type="id"/>
-    <item name="BaseQuickAdapter_databinding_support" type="id"/>
 
     <item type="id" name="day_view_adapter_class"/>
+    <item type="id" name="common_view_pager_item_tag"/>
+
+    <item name="view_tag" type="id" />
+    <item name="view_count_tag" type="id" />
+    <item name="view_index_tag" type="id" />
+    <item name="id_recycler" type="id" tools:ignore="ResourceName" />
+
+    <!--MultipleStatusView start-->
+    <item name="status_hint_content" type="id"/>
+
+    <item name="empty_retry_view" type="id"/>
+    <item name="error_retry_view" type="id"/>
+    <item name="no_network_retry_view" type="id"/>
+    <!--MultipleStatusView end-->
 </resources>

@@ -1,8 +1,8 @@
 package com.dyh.common.lib.weigit.picker.picker;
 
 import android.app.Activity;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -600,7 +600,7 @@ public class DateTimePicker extends WheelPicker {
                 rhsStr = rhsStr.startsWith("0") ? rhsStr.substring(1) : rhsStr;
                 try {
                     return Integer.parseInt(lhsStr) - Integer.parseInt(rhsStr);
-                } catch (NumberFormatException e) {
+                } catch (java.lang.NumberFormatException e) {
                     e.printStackTrace();
                     return 0;
                 }

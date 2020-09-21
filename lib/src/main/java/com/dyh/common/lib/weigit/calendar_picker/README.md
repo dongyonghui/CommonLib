@@ -12,7 +12,7 @@ Usage
 Include `CalendarPickerView` in your layout XML.
 
 ```xml
-<com.dyh.common.lib.weigit.timessquare.CalendarPickerView
+<com.inscloudtech.easyandroid.weigit.timessquare.CalendarPickerView
     android:id="@+id/calendar_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

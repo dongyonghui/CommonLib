@@ -25,6 +25,7 @@ package com.dyh.common.lib.http.exception;
 public class ServerException extends RuntimeException {
     private int errCode;
     private String message;
+    private String status;
 
     public ServerException(int errCode, String msg) {
         super(msg);
@@ -32,8 +33,22 @@ public class ServerException extends RuntimeException {
         this.message = msg;
     }
 
+    public ServerException(String status, int errCode, String message) {
+        this.errCode = errCode;
+        this.message = message;
+        this.status = status;
+    }
+
     public int getErrCode() {
         return errCode;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

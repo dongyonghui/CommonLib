@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingRight="@dimen/courseDetail_flagSpace">
+
+    <TextView
+        android:id="@+id/mTitleTextView"
+        style="@style/text_wrap_10"
+        android:background="@drawable/bg_course_detail_flag"
+        android:paddingLeft="@dimen/general_item_padding_min"
+        android:paddingRight="@dimen/general_item_padding_min"
+        android:textColor="@color/text_white" />
+
+</LinearLayout>

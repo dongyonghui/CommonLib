@@ -40,7 +40,7 @@ dependencies {
 
 布局中引入控件
 ```xml
-<com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
+<com.inscloudtech.easyandroid.weigit.titlebar.widget.CommonTitleBar
     xmlns:titlebar="http://schemas.android.com/apk/res-auto"
     android:id="@+id/titlebar"                     
     android:layout_width="match_parent"

@@ -24,7 +24,7 @@ import org.json.JSONObject;
 /**
  * <p>描述：简单的回调,默认可以使用该回调，不用关注其他回调方法</p>
  * 使用该回调默认只需要处理onError，onSuccess两个方法既成功失败<br>
- * 作者： DongYonghui<br>
+ * 作者： Allan<br>
  * 日期： 2019年6月22日23:04:37<br>
  */
 public abstract class CommonHttpCallBack<T> extends CallBack<T> {

@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.dyh.common.lib.weigit.number.SnappingStepper
+        <com.inscloudtech.easyandroid.weigit.number.SnappingStepper
             android:id="@+id/stepper"
             android:layout_width="120dp"
             android:layout_height="30dp"/>
@@ -79,7 +79,7 @@
 
 > 支持更多的自定义属性XML表示
 
-    <com.dyh.common.lib.weigit.number.SnappingStepper
+    <com.inscloudtech.easyandroid.weigit.number.SnappingStepper
 	  android:id="@+id/stepperCustom2"
 	  stepper:max="200"
 	  stepper:min="50"

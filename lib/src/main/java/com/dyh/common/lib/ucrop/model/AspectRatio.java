@@ -2,19 +2,20 @@ package com.dyh.common.lib.ucrop.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 /**
  * Created by Oleksii Shliama [https://github.com/shliama] on 6/24/16.
  */
 public class AspectRatio implements Parcelable {
 
-
+    @Nullable
     private final String mAspectRatioTitle;
     private final float mAspectRatioX;
     private final float mAspectRatioY;
 
-    public AspectRatio( String aspectRatioTitle, float aspectRatioX, float aspectRatioY) {
+    public AspectRatio(@Nullable String aspectRatioTitle, float aspectRatioX, float aspectRatioY) {
         mAspectRatioTitle = aspectRatioTitle;
         mAspectRatioX = aspectRatioX;
         mAspectRatioY = aspectRatioY;
@@ -50,7 +51,7 @@ public class AspectRatio implements Parcelable {
         }
     };
 
-
+    @Nullable
     public String getAspectRatioTitle() {
         return mAspectRatioTitle;
     }

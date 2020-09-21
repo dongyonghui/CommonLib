@@ -1,6 +1,6 @@
 package com.dyh.common.lib.recyclerview_helper;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.ViewGroup;
 
 import com.dyh.common.lib.recyclerview_helper.entity.SectionEntity;

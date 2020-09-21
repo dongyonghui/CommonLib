@@ -4,7 +4,7 @@ package com.dyh.common.lib.picture.observable;
 /**
  * author：luck
  * project：PictureSelector
- * package：com.dyh.common.lib.picture.observable
+ * package：com.inscloudtech.easyandroid.picture.observable
  * email：893855882@qq.com
  * data：17/1/16
  */

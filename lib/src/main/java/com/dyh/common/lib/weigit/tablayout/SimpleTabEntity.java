@@ -13,6 +13,10 @@ public class SimpleTabEntity implements CustomTabEntity {
         this.unSelectedIcon = unSelectedIcon;
     }
 
+    public SimpleTabEntity(String title) {
+        this.title = title;
+    }
+
     @Override
     public String getTabTitle() {
         return title;

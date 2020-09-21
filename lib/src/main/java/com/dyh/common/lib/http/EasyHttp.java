@@ -101,6 +101,8 @@ public final class EasyHttp {
     private RxCache.Builder rxCacheBuilder;                           //RxCache请求的Builder
     private CookieManger cookieJar;                                   //Cookie管理
     private volatile static EasyHttp singleton = null;
+    public static final int CODE_SUCCESS = 0;//服务器返回的成功code数值
+    public static final String STATUS_SUCCESS = "success";//服务器返回的成功status值
 
     private EasyHttp() {
         okHttpClientBuilder = new OkHttpClient.Builder();
@@ -193,8 +195,8 @@ public final class EasyHttp {
      * 并不是框架错误,如果不想每次打印,这里可以关闭异常显示
      */
     public EasyHttp debug(String tag, boolean isPrintException) {
-        String tempTag = TextUtils.isEmpty(tag)?"RxEasyHttp_":tag;
-        if(isPrintException){
+        String tempTag = TextUtils.isEmpty(tag) ? "RxEasyHttp_" : tag;
+        if (isPrintException) {
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(tempTag, isPrintException);
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             okHttpClientBuilder.addInterceptor(loggingInterceptor);
@@ -625,7 +627,7 @@ public final class EasyHttp {
         }, new Consumer<Throwable>() {
             @Override
             public void accept(@NonNull Throwable throwable) throws Exception {
-                    HttpLog.i("removeCache err!!!");
+                HttpLog.i("removeCache err!!!");
             }
         });
     }

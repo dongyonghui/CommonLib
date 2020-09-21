@@ -5,10 +5,12 @@ import android.content.res.ColorStateList;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.ColorInt;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.dyh.common.lib.weigit.picker.util.ConvertUtils;
 
@@ -21,7 +23,7 @@ import java.lang.reflect.Field;
  * DateTime:2017/01/04 00:23
  * Builder:Android Studio
  */
-public class StrokeTextView extends android.support.v7.widget.AppCompatTextView {
+public class StrokeTextView extends AppCompatTextView {
     private TextPaint textPaint;
     private boolean isStroke = false;
     private int borderWidth = 3;//dp

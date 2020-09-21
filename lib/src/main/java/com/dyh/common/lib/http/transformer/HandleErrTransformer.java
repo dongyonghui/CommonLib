@@ -18,7 +18,7 @@ package com.dyh.common.lib.http.transformer;
 
 
 import com.dyh.common.lib.http.func.HttpResponseFunc;
-import com.dyh.common.lib.http.model.Optional;
+import com.dyh.common.lib.http.model.ResponseOptional;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -31,9 +31,9 @@ import io.reactivex.annotations.NonNull;
  * 日期： 2017/5/15 17:09 <br>
  * 版本： v1.0<br>
  */
-public class HandleErrTransformer<T> implements ObservableTransformer<Optional<T>, Optional<T>> {
+public class HandleErrTransformer<T> implements ObservableTransformer<ResponseOptional<T>, ResponseOptional<T>> {
     @Override
-    public ObservableSource<Optional<T>> apply(@NonNull Observable<Optional<T>> upstream) {
+    public ObservableSource<ResponseOptional<T>> apply(@NonNull Observable<ResponseOptional<T>> upstream) {
         return upstream.onErrorResumeNext(new HttpResponseFunc<T>());
     }
 }

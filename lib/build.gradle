@@ -4,17 +4,13 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion "29.0.0"
-
-
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.compileSdkVersion
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -32,31 +28,53 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlin_version"
-    implementation  'com.qianwen:okhttp-utils:3.8.0'
-    implementation  rootProject.ext.butterknife
+
+    def androidDependencies = androidDependencies
+    annotationProcessor androidDependencies.annotationx
+    /*recyclerViewHelper使用*/
+    implementation androidDependencies.recyclerView
+    implementation androidDependencies.supportFragment
+
+    implementation appcompat
 
     /*picture使用*/
-    implementation rootProject.ext.appCompat
-    implementation rootProject.ext.glide
-    implementation rootProject.ext.rxJava
-    implementation rootProject.ext.rxandroid
-    annotationProcessor rootProject.ext.glideCompiler
+    implementation androidDependencies.design
+    implementation glide
+    implementation rxjava
+    implementation rxandroid
+    annotationProcessor glideCompiler
 
-    /*recyclerViewHelper使用*/
-    implementation rootProject.ext.recyclerview
+    implementation kotlinStdlibJdk7
+    implementation okhttpUtils
 
-    /*tablayou使用*/
-    implementation rootProject.ext.supportFragment
-    implementation rootProject.ext.gson
+    implementation futures
+    implementation okio
+    implementation camera_lifecycle
+    implementation localbroadcastmanager
+    implementation camerax_view
+    implementation exifinterface
+    implementation transition
 
+    implementation viewpager2
+
+    //Gif 图
+    implementation gif
+
+    //Gson
+    implementation gson
+
+    //组件初始化
+    api butterknife
     //EasyHttp第三方依赖库
-    api rootProject.ext.okhttp3LoggingInterceptor//'com.squareup.okhttp3:logging-interceptor:3.1.2'
-    api  rootProject.ext.okhttp3//'com.squareup.okhttp3:okhttp:3.4.1'
-    api  rootProject.ext.disklrucache//'com.jakewharton:disklrucache:2.0.2'
-    api  rootProject.ext.rxjava//'io.reactivex.rxjava2:rxjava:2.1.1'
-    api  rootProject.ext.rxandroid//'io.reactivex.rxjava2:rxandroid:2.0.1'
-    api  rootProject.ext.retrofit//'com.squareup.retrofit2:retrofit:2.3.0'
-    api  rootProject.ext.retrofit2ConverterGson//'com.squareup.retrofit2:converter-gson:2.3.0'
-    api  rootProject.ext.retrofit2adapter//'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    api okhttp3LoggingInterceptor
+    api okhttp3
+    api disklrucache
+    api rxjava
+    api rxandroid
+    api retrofit
+    api retrofit2ConverterGson
+    api retrofit2adapter//'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    //生命周期管理
+    api rxlifecycleComponents
+    api rxlifecycleNavi
 }

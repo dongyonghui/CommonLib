@@ -2,12 +2,13 @@ package com.dyh.common.lib.recyclerview_helper;
 
 import android.annotation.SuppressLint;
 import android.graphics.Canvas;
-import android.support.annotation.NonNull;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.core.view.MotionEventCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.dyh.common.lib.R;
 import com.dyh.common.lib.recyclerview_helper.callback.ItemDragAndSwipeCallback;
@@ -17,7 +18,6 @@ import com.dyh.common.lib.recyclerview_helper.listener.OnItemSwipeListener;
 
 import java.util.Collections;
 
-import static com.dyh.common.lib.recyclerview_helper.BaseQuickAdapter.*;
 import static com.dyh.common.lib.recyclerview_helper.BaseQuickAdapter.EMPTY_VIEW;
 import static com.dyh.common.lib.recyclerview_helper.BaseQuickAdapter.FOOTER_VIEW;
 import static com.dyh.common.lib.recyclerview_helper.BaseQuickAdapter.HEADER_VIEW;

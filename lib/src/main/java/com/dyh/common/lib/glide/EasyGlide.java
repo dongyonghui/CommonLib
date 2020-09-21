@@ -7,10 +7,12 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.MediaScannerConnection;
 import android.os.Environment;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
-import android.support.annotation.RawRes;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
+
 import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -24,16 +26,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.bumptech.glide.util.Preconditions;
 import com.dyh.common.lib.R;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-
+import com.dyh.common.lib.dw.util.DensityUtils;
 import com.dyh.common.lib.glide.config.GlideConfigImpl;
 import com.dyh.common.lib.glide.progress.EasyGlideApp;
 import com.dyh.common.lib.glide.progress.GlideImageViewTarget;
@@ -43,9 +36,17 @@ import com.dyh.common.lib.glide.progress.OnProgressListener;
 import com.dyh.common.lib.glide.progress.ProgressManager;
 import com.dyh.common.lib.glide.transformation.BlurTransformation;
 import com.dyh.common.lib.glide.transformation.BorderTransformation;
-import com.dyh.common.lib.glide.transformation.CircleWithBorderTransformation;
+import com.dyh.common.lib.glide.transformation.GlideRoundTransform;
 import com.dyh.common.lib.glide.transformation.GrayscaleTransformation;
-import com.dyh.common.lib.glide.transformation.RoundedCornersTransformation;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
@@ -57,20 +58,17 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
  * @date : 2019/3/18 21:01
  */
 public class EasyGlide {
-    public static int placeHolderImageView = R.mipmap.image_default;
-    public static int circlePlaceholderImageView = R.color.transparent;
-
 
     public static void loadImage(Context context, String url, ImageView imageView) {
-        loadImage(context, url, imageView, placeHolderImageView, null, null);
+        loadImage(context, url, imageView, 0, null, null);
     }
 
     public static void loadImage(Context context, String url, ImageView imageView, RequestListener requestListener) {
-        loadImage(context, url, imageView, placeHolderImageView, null, requestListener);
+        loadImage(context, url, imageView, 0, null, requestListener);
     }
 
     public static void loadImage(Context context, String url, ImageView imageView, OnProgressListener onProgressListener) {
-        loadImage(context, url, imageView, placeHolderImageView, onProgressListener, null);
+        loadImage(context, url, imageView, 0, onProgressListener, null);
     }
 
     public static void loadImage(Context context, String url, ImageView imageView, @DrawableRes int placeHolder) {
@@ -92,7 +90,7 @@ public class EasyGlide {
     }
 
     public static void loadResizeXYImage(Context context, String url, int resizeX, int resizeY, ImageView imageView) {
-        loadResizeXYImage(context, url, resizeX, resizeY, imageView, placeHolderImageView);
+        loadResizeXYImage(context, url, resizeX, resizeY, imageView, 0);
     }
 
     /**
@@ -104,7 +102,7 @@ public class EasyGlide {
      * @param resizeY
      * @param imageView
      */
-    public static void loadResizeXYImage(Context context, @RawRes @DrawableRes  Integer drawableId, int resizeX, int resizeY, ImageView imageView) {
+    public static void loadResizeXYImage(Context context, @RawRes @DrawableRes @Nullable Integer drawableId, int resizeX, int resizeY, ImageView imageView) {
         loadImage(context,
                 GlideConfigImpl
                         .builder()
@@ -131,7 +129,17 @@ public class EasyGlide {
 
 
     public static void loadCircleImage(Context context, String url, ImageView imageView) {
-        loadCircleImage(context, url, imageView, circlePlaceholderImageView);
+        loadCircleImage(context, url, imageView, 0);
+    }
+
+    public static void loadCircleImage(Context context, File file, ImageView imageView) {
+        loadImage(context,
+                GlideConfigImpl
+                        .builder()
+                        .isCropCircle(true)
+                        .isCrossFade(true)
+                        .imageView(imageView)
+                        .build());
     }
 
     public static void loadCircleImage(Context context, String url, ImageView imageView, @DrawableRes int placeHolder) {
@@ -148,7 +156,7 @@ public class EasyGlide {
     }
 
     public static void loadGrayImage(Context context, String url, ImageView imageView) {
-        loadGrayImage(context, url, imageView, placeHolderImageView);
+        loadGrayImage(context, url, imageView, 0);
     }
 
     public static void loadGrayImage(Context context, String url, ImageView imageView, @DrawableRes int placeHolder) {
@@ -164,43 +172,22 @@ public class EasyGlide {
                         .build());
     }
 
-
-    public static void loadBlurImage(Context context, String url, ImageView imageView) {
-        loadBlurImage(context, url, 10, imageView, placeHolderImageView);
-    }
-
-    public static void loadBlurImage(Context context, String url, int radius, ImageView imageView) {
-        loadBlurImage(context, url, radius, imageView, placeHolderImageView);
-    }
-
-    public static void loadBlurImage(Context context, String url, int radius, ImageView imageView, @DrawableRes int placeHolder) {
-        loadImage(context,
-                GlideConfigImpl
-                        .builder()
-                        .url(url)
-                        .transformation(new CenterCrop(), new BlurTransformation(context, radius))
-                        .isCrossFade(true)
-                        .errorPic(placeHolder)
-                        .placeholder(placeHolder)
-                        .imageView(imageView)
-                        .build());
-    }
-
-
     public static void loadRoundCornerImage(Context context, String url, ImageView imageView) {
-        loadRoundCornerImage(context, url, 40, 0, imageView, placeHolderImageView);
+        int radius = DensityUtils.dip2px(context, 4);
+        loadRoundCornerImage(context, url, radius, imageView, 0);
     }
 
-    public static void loadRoundCornerImage(Context context, String url, int radius, int margin, ImageView imageView) {
-        loadRoundCornerImage(context, url, radius, margin, imageView, placeHolderImageView);
+    public static void loadRoundCornerImage(Context context, String url, int radius, ImageView imageView) {
+        radius = DensityUtils.dip2px(context, radius);
+        loadRoundCornerImage(context, url, radius, imageView, 0);
     }
 
-    public static void loadRoundCornerImage(Context context, String url, int radius, int margin, ImageView imageView, @DrawableRes int placeHolder) {
+    public static void loadRoundCornerImage(Context context, String url, int radius, ImageView imageView, @DrawableRes int placeHolder) {
         loadImage(context,
                 GlideConfigImpl
                         .builder()
                         .url(url)
-                        .transformation(new CenterCrop(), new RoundedCornersTransformation(radius, margin))
+                        .transformation(new CenterCrop(), new GlideRoundTransform(context, radius))
                         .isCrossFade(true)
                         .errorPic(placeHolder)
                         .placeholder(placeHolder)
@@ -209,11 +196,11 @@ public class EasyGlide {
     }
 
     public static void loadCircleWithBorderImage(Context context, String url, ImageView imageView) {
-        loadCircleWithBorderImage(context, url, 2, Color.parseColor("#ACACAC"), imageView, placeHolderImageView);
+        loadCircleWithBorderImage(context, url, 2, Color.parseColor("#ACACAC"), imageView, 0);
     }
 
     public static void loadCircleWithBorderImage(Context context, String url, int borderWidth, @ColorInt int borderColor, ImageView imageView) {
-        loadCircleWithBorderImage(context, url, borderWidth, borderColor, imageView, placeHolderImageView);
+        loadCircleWithBorderImage(context, url, borderWidth, borderColor, imageView, 0);
     }
 
     public static void loadCircleWithBorderImage(Context context, String url, int borderWidth, @ColorInt int borderColor, ImageView imageView, @DrawableRes int placeHolder) {
@@ -221,8 +208,8 @@ public class EasyGlide {
                 GlideConfigImpl
                         .builder()
                         .url(url)
-                        .transformation(new CircleWithBorderTransformation(borderWidth, borderColor))
-                        .isCrossFade(true)
+                        .isCrossFade(false)
+                        .isCropCircle(true)
                         .errorPic(placeHolder)
                         .placeholder(placeHolder)
                         .imageView(imageView)
@@ -231,11 +218,11 @@ public class EasyGlide {
 
 
     public static void loadBorderImage(Context context, String url, ImageView imageView) {
-        loadBorderImage(context, url, 2, Color.parseColor("#ACACAC"), imageView, placeHolderImageView);
+        loadBorderImage(context, url, 2, Color.parseColor("#ACACAC"), imageView, 0);
     }
 
     public static void loadBorderImage(Context context, String url, int borderWidth, @ColorInt int borderColor, ImageView imageView) {
-        loadBorderImage(context, url, borderWidth, borderColor, imageView, placeHolderImageView);
+        loadBorderImage(context, url, borderWidth, borderColor, imageView, 0);
     }
 
     public static void loadBorderImage(Context context, String url, int borderWidth, @ColorInt int borderColor, ImageView imageView, @DrawableRes int placeHolder) {
@@ -284,7 +271,7 @@ public class EasyGlide {
      * @param drawableId
      * @param imageView
      */
-    public static void loadImage(Context context, @RawRes @DrawableRes  Integer drawableId, ImageView imageView) {
+    public static void loadImage(Context context, @RawRes @DrawableRes @Nullable Integer drawableId, ImageView imageView) {
         loadImage(context, GlideConfigImpl
                 .builder()
                 .drawableId(drawableId)

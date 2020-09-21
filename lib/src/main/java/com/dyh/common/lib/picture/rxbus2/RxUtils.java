@@ -2,7 +2,7 @@
 
 package com.dyh.common.lib.picture.rxbus2;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,11 +13,11 @@ import io.reactivex.schedulers.Schedulers;
 
 public class RxUtils {
 
-    public static <T> DisposableObserver computation(final RxSimpleTask task, Object... objects) {
+    public static <T> DisposableObserver computation(final RxUtils.RxSimpleTask task, Object... objects) {
         return computation(0, task, objects);
     }
 
-    public static <T> DisposableObserver computation(long delayMilliseconds, final RxSimpleTask task, Object... objects) {
+    public static <T> DisposableObserver computation(long delayMilliseconds, final RxUtils.RxSimpleTask task, Object... objects) {
         Observable observable = Observable.create((e) -> {
             Object obj = task.doSth(objects);
             if (obj == null) {
@@ -55,11 +55,11 @@ public class RxUtils {
     }
 
 
-    public static <T> void newThread(final RxSimpleTask task, Object... objects) {
+    public static <T> void newThread(final RxUtils.RxSimpleTask task, Object... objects) {
         newThread(0, task, objects);
     }
 
-    public static <T> void newThread(long delayMilliseconds, final RxSimpleTask task, Object... objects) {
+    public static <T> void newThread(long delayMilliseconds, final RxUtils.RxSimpleTask task, Object... objects) {
         Observable observable = Observable.create((e) -> {
 //            LogUtils.i("newThread subscribe");
             Object obj = task.doSth(objects);
@@ -95,11 +95,11 @@ public class RxUtils {
         });
     }
 
-    public static <T> void io(final RxSimpleTask task) {
+    public static <T> void io(final RxUtils.RxSimpleTask task) {
         io(0, task);
     }
 
-    public static <T> void io(long delayMilliseconds, final RxSimpleTask task) {
+    public static <T> void io(long delayMilliseconds, final RxUtils.RxSimpleTask task) {
 
         Observable observable = Observable.create((e) -> {
             Object obj = task.doSth(new Object[0]);

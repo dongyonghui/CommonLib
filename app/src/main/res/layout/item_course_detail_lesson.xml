@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_translate_selector"
+    android:paddingLeft="@dimen/general_panelPadding"
+    android:paddingRight="@dimen/general_panelPadding">
+
+    <com.dyh.common.lib.weigit.powertext.LabelTextView
+        android:id="@+id/mTitleLabelTextView"
+        style="@style/text_wrap_black18"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/general_item_margin"
+        android:drawableRight="@mipmap/icon_more_right"
+        app:labelFillColor="@color/bg_fc6"
+        app:labelMargin="@dimen/general_item_margin_min"
+        app:labelPaddingHorizontal="@dimen/general_item_margin_min"
+        app:labelPaddingVertical="2dp"
+        app:labelStrokeColor="@color/bg_fc6"
+        app:labelStrokeRadius="@dimen/general_labelRadius"
+        app:labelStrokeWidth="1dp"
+        app:labelTextColor="@color/text_white"
+        app:labelTextSize="@dimen/general_textSize_10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mCourseDurationTextView"
+        style="@style/text_wrap_12"
+        android:layout_marginTop="@dimen/general_item_margin_min"
+        android:layout_marginBottom="@dimen/general_item_margin"
+        android:textColor="@color/text_444c"
+        app:layout_constraintBottom_toTopOf="@+id/mLineBottom"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTitleLabelTextView" />
+
+    <View
+        android:id="@+id/mLineBottom"
+        style="@style/horizontalLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

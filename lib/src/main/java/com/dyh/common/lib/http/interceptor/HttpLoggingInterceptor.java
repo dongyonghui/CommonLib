@@ -213,7 +213,7 @@ public class HttpLoggingInterceptor implements Interceptor {
                 charset = contentType.charset(UTF8);
             }
             String result = buffer.readString(charset);
-            log("\tbody:" + URLDecoder.decode(replacer(result),UTF8.name()));
+            log("\tbody:" + URLDecoder.decode(result,UTF8.name()));
         } catch (Exception e) {
             e.printStackTrace();
         }

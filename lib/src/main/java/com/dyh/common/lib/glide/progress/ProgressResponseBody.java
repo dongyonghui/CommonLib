@@ -2,7 +2,7 @@ package com.dyh.common.lib.glide.progress;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.io.IOException;
 
@@ -23,12 +23,12 @@ public class ProgressResponseBody extends ResponseBody {
     private static final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
 
     private String url;
-    private InternalProgressListener internalProgressListener;
+    private ProgressResponseBody.InternalProgressListener internalProgressListener;
 
     private ResponseBody responseBody;
     private BufferedSource bufferedSource;
 
-    ProgressResponseBody(String url, InternalProgressListener internalProgressListener, ResponseBody responseBody) {
+    ProgressResponseBody(String url, ProgressResponseBody.InternalProgressListener internalProgressListener, ResponseBody responseBody) {
         this.url = url;
         this.internalProgressListener = internalProgressListener;
         this.responseBody = responseBody;

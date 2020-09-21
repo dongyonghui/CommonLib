@@ -9,10 +9,12 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -20,7 +22,7 @@ import android.widget.Toast;
 import com.dyh.common.lib.update_app.listener.ExceptionHandler;
 import com.dyh.common.lib.update_app.listener.ExceptionHandlerHelper;
 import com.dyh.common.lib.update_app.listener.IUpdateDialogFragmentListener;
-import com.dyh.common.lib.update_app.service.DownloadService;
+import com.dyh.common.lib.update_app.service.UpdateAppVersionDownloadService;
 import com.dyh.common.lib.update_app.utils.AppUpdateUtils;
 
 import java.util.HashMap;
@@ -100,16 +102,16 @@ public class UpdateAppManager {
      * @param updateAppBean    下载信息配置
      * @param downloadCallback 下载回调
      */
-    public void download(final Context context, @NonNull final UpdateAppBean updateAppBean,  final DownloadService.DownloadCallback downloadCallback) {
+    public void download(final Context context, @NonNull final UpdateAppBean updateAppBean, @Nullable final UpdateAppVersionDownloadService.DownloadCallback downloadCallback) {
 
         if (updateAppBean == null) {
             throw new NullPointerException("updateApp 不能为空");
         }
 
-        DownloadService.bindService(context.getApplicationContext(), new ServiceConnection() {
+        UpdateAppVersionDownloadService.bindService(context.getApplicationContext(), new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                ((DownloadService.DownloadBinder) service).start(updateAppBean, mHeaders, downloadCallback);
+                ((UpdateAppVersionDownloadService.DownloadBinder) service).start(updateAppBean, mHeaders, downloadCallback);
             }
 
             @Override
@@ -227,6 +229,30 @@ public class UpdateAppManager {
     }
 
     /**
+     * 使用查询结果检查更新
+     *
+     * @param updateAppBean
+     */
+    public void updateByResult(UpdateAppBean updateAppBean) {
+        if (null == updateAppBean) {
+            return;
+        }
+        mUpdateApp = updateAppBean;
+        UpdateCallback callback = new UpdateCallback();
+        mUpdateApp.setCurrentVersion(getVersionCode(mActivity));
+        if (mUpdateApp.isUpdate()) {
+            callback.hasNewApp(mUpdateApp, this);
+            //假如是静默下载，可能需要判断，
+            //是否wifi,
+            //是否已经下载，如果已经下载直接提示安装
+            //没有则进行下载，监听下载完成，弹出安装对话框
+
+        } else {
+            callback.noNewApp("没有新版本");
+        }
+    }
+
+    /**
      * 检测是否有新版本
      *
      * @param callback 更新回调
@@ -237,7 +263,7 @@ public class UpdateAppManager {
         }
         callback.onBefore();
 
-        if (DownloadService.isRunning || UpdateDialogFragment.isShow) {
+        if (UpdateAppVersionDownloadService.isRunning || UpdateDialogFragment.isShow) {
             callback.onAfter();
             Toast.makeText(mActivity, "app正在更新", Toast.LENGTH_SHORT).show();
             return;
@@ -307,16 +333,16 @@ public class UpdateAppManager {
      *
      * @param downloadCallback 后台下载回调
      */
-    public void download( final DownloadService.DownloadCallback downloadCallback) {
+    public void download(@Nullable final UpdateAppVersionDownloadService.DownloadCallback downloadCallback) {
         if (mUpdateApp == null) {
             throw new NullPointerException("updateApp 不能为空");
         }
         mUpdateApp.setTargetPath(mTargetPath);
         mUpdateApp.setHttpManager(mHttpManager);
-        DownloadService.bindService(mActivity.getApplicationContext(), new ServiceConnection() {
+        UpdateAppVersionDownloadService.bindService(mActivity.getApplicationContext(), new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                ((DownloadService.DownloadBinder) service).start(mUpdateApp, mHeaders, downloadCallback);
+                ((UpdateAppVersionDownloadService.DownloadBinder) service).start(mUpdateApp, mHeaders, downloadCallback);
             }
 
             @Override
@@ -570,7 +596,7 @@ public class UpdateAppManager {
          */
         public UpdateAppManager build() {
             //校验
-            if (getActivity() == null || getHttpManager() == null || TextUtils.isEmpty(getUpdateUrl())) {
+            if (getActivity() == null || getHttpManager() == null) {
                 throw new NullPointerException("必要参数不能为空");
             }
             if (TextUtils.isEmpty(getTargetPath())) {

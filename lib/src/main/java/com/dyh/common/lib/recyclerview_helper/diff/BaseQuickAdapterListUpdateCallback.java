@@ -1,8 +1,8 @@
 package com.dyh.common.lib.recyclerview_helper.diff;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.util.ListUpdateCallback;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.ListUpdateCallback;
 
 import com.dyh.common.lib.recyclerview_helper.BaseQuickAdapter;
 
@@ -28,7 +28,7 @@ public final class BaseQuickAdapterListUpdateCallback implements ListUpdateCallb
     }
 
     @Override
-    public void onChanged(int position, int count,  Object payload) {
+    public void onChanged(int position, int count, @Nullable Object payload) {
         this.mAdapter.notifyItemRangeChanged(position + mAdapter.getHeaderLayoutCount(), count, payload);
     }
 }

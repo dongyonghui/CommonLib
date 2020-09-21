@@ -16,10 +16,11 @@
 
 package com.dyh.common.lib.http.func;
 
+import com.dyh.common.lib.dw.util.MathUtil;
 import com.dyh.common.lib.http.exception.ApiException;
 import com.dyh.common.lib.http.exception.ServerException;
 import com.dyh.common.lib.http.model.ApiResult;
-import com.dyh.common.lib.http.model.Optional;
+import com.dyh.common.lib.http.model.ResponseOptional;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
@@ -31,13 +32,13 @@ import io.reactivex.functions.Function;
  * 日期： 2017/5/15 16:54 <br>
  * 版本： v1.0<br>
  */
-public class HandleFuc<T> implements Function<ApiResult<T>, Optional<T>> {
+public class HandleFuc<T> implements Function<ApiResult<T>, ResponseOptional<T>> {
     @Override
-    public Optional<T> apply(@NonNull ApiResult<T> tApiResult) throws Exception {
+    public ResponseOptional<T> apply(@NonNull ApiResult<T> tApiResult) throws Exception {
         if (ApiException.isOk(tApiResult)) {
-            return new Optional<>(tApiResult.getData());// == null ? Optional.ofNullable(tApiResult.getData()).orElse(null) : tApiResult.getData();
+            return new ResponseOptional<>(tApiResult.getResult());// == null ? ResponseOptional.ofNullable(tApiResult.getData()).orElse(null) : tApiResult.getData();
         } else {
-            throw new ServerException(tApiResult.getErrCode(), tApiResult.getErrMessage());
+            throw new ServerException(tApiResult.getStatus(), MathUtil.getIntegerNumber(tApiResult.getError_code()), tApiResult.getError_msg());
         }
     }
 }

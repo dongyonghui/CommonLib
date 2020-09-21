@@ -19,7 +19,7 @@ import com.dyh.common.lib.R;
 /**
  * author：luck
  * project：PictureSelector
- * package：com.dyh.common.lib.picture.widget
+ * package：com.inscloudtech.easyandroid.picture.widget
  * email：893855882@qq.com
  * data：2017/6/2
  */

@@ -1,7 +1,7 @@
 package com.dyh.common.lib.recyclerview_helper.provider;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.dyh.common.lib.recyclerview_helper.BaseViewHolder;
 

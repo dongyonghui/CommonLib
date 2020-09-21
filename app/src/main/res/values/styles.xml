@@ -1,20 +1,73 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="colorPrimary">@color/general_titleColor</item>
-        <item name="colorPrimaryDark">@color/general_titleColorPressed</item>
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyTransparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/transparent</item> <!-- 背景色透明度 -->
+        <item name="android:windowNoTitle">true</item><!-- 无标题 -->
+        <item name="android:windowIsTranslucent">true</item><!-- 半透明,设置为false无透明效果 -->
+        <item name="android:backgroundDimEnabled">true</item><!-- 模糊 -->
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
+    </style>
 
-    <style name="imageViewStyle_banner">
-        <item name="android:layout_width">@dimen/imageWidth_banner</item>
-        <item name="android:layout_height">@dimen/imageHeight_banner</item>
-        <item name="android:scaleType">centerInside</item>
+    <!--带返回按钮的标题样式-->
+    <style name="titleBar_back" parent="titleBar_default">
+        <item name="leftImageResource">@mipmap/icon_title_back_black</item>
+        <item name="leftType">imageButton</item>
+    </style>
+
+
+    <style name="general_filterItemUnselected_textView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@drawable/question_item_type_bg</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lines">1</item>
+        <item name="android:minWidth">70dp</item>
+        <item name="android:paddingLeft">@dimen/general_item_padding</item>
+        <item name="android:paddingTop">@dimen/general_item_padding_min</item>
+        <item name="android:paddingRight">@dimen/general_item_padding</item>
+        <item name="android:paddingBottom">@dimen/general_item_padding_min</item>
+        <item name="android:textColor">@color/text_333</item>
+        <item name="android:textSize">@dimen/general_textSize_12</item>
+    </style>
+
+    <!--我的-文字-->
+    <style name="mine_head_text_type" parent="match_width">
+        <item name="android:paddingTop">@dimen/general_item_padding_max</item>
+        <item name="android:paddingBottom">@dimen/general_item_padding_max</item>
+        <item name="android:textSize">@dimen/general_textSize_16</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:background">@drawable/bg_translate_selector</item>
+        <item name="android:drawableRight">@mipmap/icon_more_right</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- 可点击大按钮样式 -->
+    <style name="button_getVip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingTop">@dimen/general_item_padding</item>
+        <item name="android:paddingBottom">@dimen/general_item_padding</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_get_vip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFDB4053</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textSize">@dimen/general_textSize_12</item>
     </style>
 
 </resources>

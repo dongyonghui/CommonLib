@@ -5,9 +5,6 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.ArrayRes;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
@@ -15,9 +12,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.ArrayRes;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.dyh.common.lib.R;
 import com.dyh.common.lib.weigit.dialog_default.adapters.SingleChoiceAdapter;
@@ -42,7 +41,6 @@ public class MyAppDialog extends Dialog {
     private ImageView headerImageView;
     private ImageView headerLogoImageView;
     private View customerView;
-    private RelativeLayout header;
     private FrameLayout mContentRootView;
     private RecyclerView recyclerView;
     private View divider;
@@ -57,7 +55,7 @@ public class MyAppDialog extends Dialog {
     private String emptyErrorText;
     private int titleSize = Constants.DEFAULT_TITLE_SIZE;
     private int titleColor = Constants.DEFAULT_COLOR;
-    private int headerPattern = R.drawable.dialog_title_bg_shape;
+    private int headerPattern = Constants.NO_BACKGROUND;
     private Drawable headerPatternDrawable;
     private int headerLogo = Constants.NO_LOGO;
     private Drawable headerLogoDrawable;
@@ -102,8 +100,6 @@ public class MyAppDialog extends Dialog {
         setAnimation();
         setContentView(R.layout.dialog_panter);
 
-        // This is RelativeLayout for header
-        header = (RelativeLayout) findViewById(R.id.header);
         mContentRootView = findViewById(R.id.mContentRootView);
         // This is divider between buttons
         divider = (View) findViewById(R.id.button_divider);
@@ -195,13 +191,11 @@ public class MyAppDialog extends Dialog {
      * According them it shows or hide views
      */
     private void setHeaderAndLogo() {
-        boolean showLogo = true;
-        boolean showPattern = true;
         // If header was not set , set it's visibility to gone
         if (headerPattern == Constants.NO_BACKGROUND && headerPatternDrawable == null) {
-            header.setVisibility(View.GONE);
-            showPattern = false;
+            headerImageView.setVisibility(View.GONE);
         } else if (headerPattern != Constants.NO_BACKGROUND) {
+            headerImageView.setVisibility(View.VISIBLE);
             headerImageView.setImageResource(headerPattern);
         } else {
             headerImageView.setImageDrawable(headerPatternDrawable);
@@ -209,13 +203,12 @@ public class MyAppDialog extends Dialog {
         // If header logo was not set , set it's visibility to gone
         if (headerLogo == Constants.NO_LOGO && headerLogoDrawable == null) {
             headerLogoImageView.setVisibility(View.GONE);
-            showLogo = false;
         } else if (headerLogo != Constants.NO_LOGO) {
             headerLogoImageView.setImageResource(headerLogo);
         } else {
             headerLogoImageView.setImageDrawable(headerLogoDrawable);
         }
-        if (!showLogo && showPattern && !TextUtils.isEmpty(titleText)) {
+        if (!TextUtils.isEmpty(titleText)) {
             title.setVisibility(View.VISIBLE);
             title.setTextSize(TypedValue.COMPLEX_UNIT_SP, titleSize);
             title.setTextColor(titleColor);

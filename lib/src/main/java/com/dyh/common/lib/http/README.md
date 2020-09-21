@@ -1306,9 +1306,9 @@ public class MyApplication extends Application {
 -keep class com.google.gson.examples.android.model.** { *; }
 
 #RxEasyHttp
--keep class com.dyh.common.lib.http.model.** {*;}
--keep class com.dyh.common.lib.http.cache.model.** {*;}
--keep class com.dyh.common.lib.http.cache.stategy.**{*;}
+-keep class com.inscloudtech.easyandroid.http.model.** {*;}
+-keep class com.inscloudtech.easyandroid.http.cache.model.** {*;}
+-keep class com.inscloudtech.easyandroid.http.cache.stategy.**{*;}
 ```
 [请查看Demo中完整的混淆文件](https://github.com/zhou-you/RxEasyHttp/blob/master/app/proguard-rules.pro)
 

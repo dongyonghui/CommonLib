@@ -8,7 +8,7 @@ import android.os.Build;
 import android.text.TextUtils;
 
 /**
- * 作者：DongYonghui
+ * 作者：Allan
  * 时间：2019/11/5/005
  * 邮箱：648731994@qq.com
  * 描述：系统设置工具类
@@ -21,9 +21,9 @@ public class SystemSettingUtil {
      * @param activity
      */
     public static void goToSetting(Activity activity) {
-        String model = Build.MODEL; // 手机型号
+        String model = android.os.Build.MODEL; // 手机型号
 
-        String release = Build.VERSION.RELEASE; // android系统版本号
+        String release = android.os.Build.VERSION.RELEASE; // android系统版本号
         String brand = Build.BRAND;//手机厂商
         if (TextUtils.equals(brand.toLowerCase(), "redmi") || TextUtils.equals(brand.toLowerCase(), "xiaomi")) {
             gotoMiuiPermission(activity);//小米

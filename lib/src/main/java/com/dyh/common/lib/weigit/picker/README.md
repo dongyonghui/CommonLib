@@ -58,7 +58,7 @@ dependencies {
 -keepattributes InnerClasses,Signature
 -keepattributes *Annotation*
 
--keep class com.dyh.common.lib.weigit.picker.entity.** { *;}
+-keep class com.inscloudtech.easyandroid.weigit.picker.entity.** { *;}
 ```
 
 # Sample （更多用法详见示例项目）

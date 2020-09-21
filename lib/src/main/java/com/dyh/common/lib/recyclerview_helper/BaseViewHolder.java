@@ -16,17 +16,26 @@
 package com.dyh.common.lib.recyclerview_helper;
 
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IdRes;
-import android.support.annotation.StringRes;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.StringRes;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.Html;
+import android.text.Spanned;
 import android.text.util.Linkify;
 import android.util.SparseArray;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Adapter;
@@ -38,6 +47,11 @@ import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.dyh.common.lib.BaseApplication;
+import com.dyh.common.lib.dw.util.DensityUtils;
+import com.dyh.common.lib.glide.EasyGlide;
+
+import java.text.MessageFormat;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -125,6 +139,36 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
     }
 
     /**
+     * 设置使用MessageFormat.format(strFormatInfo, message)进行格式化的消息
+     *
+     * @param viewId
+     * @param strFormatInfo 带格式化占位符的字符串
+     * @param message       需要填充的参数
+     * @return
+     */
+    public BaseViewHolder setMessageFormatText(@IdRes int viewId, String strFormatInfo, Object... message) {
+        TextView view = getView(viewId);
+        view.setText(MessageFormat.format(strFormatInfo, message));
+        return this;
+    }
+
+    /**
+     * 设置使用MessageFormat.format(strFormatInfo, message)进行格式化的消息，以HTML方式进行显示
+     *
+     * @param viewId
+     * @param strFormatInfo
+     * @param message
+     * @return
+     */
+    public BaseViewHolder setMessageFormatHtml(int viewId, String strFormatInfo, Object... message) {
+        TextView tv = getView(viewId);
+        strFormatInfo = MessageFormat.format(strFormatInfo, message);
+        Spanned fromHtml = Html.fromHtml(strFormatInfo);
+        tv.setText(fromHtml);
+        return this;
+    }
+
+    /**
      * Will set the image of an ImageView from a resource id.
      *
      * @param viewId     The view id.
@@ -176,6 +220,53 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    public BaseViewHolder setTextColor(@IdRes int viewId, String textColor) {
+        TextView view = getView(viewId);
+        view.setTextColor(Color.parseColor(textColor));
+        return this;
+    }
+
+    /**
+     * Will set text color of a TextView.
+     *
+     * @param viewId    The view id.
+     * @param textColor The text color (resource id).
+     * @return The BaseViewHolder for chaining.
+     */
+    public BaseViewHolder setTextResColor(@IdRes int viewId, @ColorRes int textColor) {
+        TextView view = getView(viewId);
+        view.setTextColor(BaseApplication.getContext().getResources().getColor(textColor));
+        return this;
+    }
+
+    /**
+     * Will set text color of a TextView.
+     *
+     * @param viewId   The view id.
+     * @param textSize The text Size (resource id).
+     * @return The BaseViewHolder for chaining.
+     */
+    public BaseViewHolder setTextSizeRes(@IdRes int viewId, @DimenRes int textSize) {
+        TextView view = getView(viewId);
+
+        view.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                BaseApplication.getContext().getResources().getDimensionPixelSize(textSize));
+        return this;
+    }
+
+    public BaseViewHolder setTextDrawSolid(int viewId, String color) {
+        View tv = getView(viewId);
+        GradientDrawable background = (GradientDrawable) tv.getBackground();
+        background.setColor(Color.parseColor(color));
+        return this;
+    }
+
+    public BaseViewHolder setTextDrawStroke(int viewId, int width, String color) {
+        View tv = getView(viewId);
+        GradientDrawable background = (GradientDrawable) tv.getBackground();
+        background.setStroke(DensityUtils.dip2px(BaseApplication.getContext(), width), Color.parseColor(color));
+        return this;
+    }
 
     /**
      * Will set the image of an ImageView from a drawable.
@@ -198,6 +289,33 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         view.setImageBitmap(bitmap);
         return this;
     }
+
+    /**
+     * 根据url加载图片
+     *
+     * @param viewId
+     * @param imageUrl
+     * @return
+     */
+    public BaseViewHolder setImageUrl(@IdRes int viewId, String imageUrl) {
+        ImageView view = getView(viewId);
+        EasyGlide.loadImage(BaseApplication.getInstance(), imageUrl, view);
+        return this;
+    }
+
+    /**
+     * 根据url加载图片
+     *
+     * @param viewId
+     * @param imageUrl
+     * @return
+     */
+    public BaseViewHolder setImageUrl(@IdRes int viewId, String imageUrl, int radius) {
+        ImageView view = getView(viewId);
+        EasyGlide.loadRoundCornerImage(BaseApplication.getInstance(), imageUrl, radius, view);
+        return this;
+    }
+
 
     /**
      * Add an action to set the alpha of a view. Can be called multiple times.
@@ -369,7 +487,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      * or if you can use  recyclerView.addOnItemTouch(listerer)  wo also support this menthod
      */
     @SuppressWarnings("unchecked")
-    public BaseViewHolder addOnClickListener(@IdRes final int ...viewIds) {
+    public BaseViewHolder addOnClickListener(@IdRes final int... viewIds) {
         for (int viewId : viewIds) {
             childClickViewIds.add(viewId);
             final View view = getView(viewId);
@@ -402,7 +520,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      * @param viewIds add the child views id   can support childview click
      * @return
      */
-    public BaseViewHolder setNestView(@IdRes int ... viewIds) {
+    public BaseViewHolder setNestView(@IdRes int... viewIds) {
         for (int viewId : viewIds) {
             nestViews.add(viewId);
         }
@@ -421,7 +539,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      * or if you can use  recyclerView.addOnItemTouch(listerer)  wo also support this menthod
      */
     @SuppressWarnings("unchecked")
-    public BaseViewHolder addOnLongClickListener(@IdRes final int ... viewIds) {
+    public BaseViewHolder addOnLongClickListener(@IdRes final int... viewIds) {
         for (int viewId : viewIds) {
             itemChildLongClickViewIds.add(viewId);
             final View view = getView(viewId);
@@ -574,14 +692,15 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         }
         return this;
     }
+
     /**
      * Set the enabled state of this view.
      *
-     * @param viewId  The view id.
+     * @param viewId The view id.
      * @param enable The checked status;
      * @return The BaseViewHolder for chaining.
      */
-    public BaseViewHolder setEnabled(@IdRes int viewId,boolean enable) {
+    public BaseViewHolder setEnabled(@IdRes int viewId, boolean enable) {
         View view = getView(viewId);
         view.setEnabled(enable);
         return this;

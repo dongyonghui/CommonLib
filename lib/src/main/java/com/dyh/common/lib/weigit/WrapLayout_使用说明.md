@@ -36,7 +36,7 @@ dependencies {
 **布局:**
 
 ```xml
-<com.dyh.common.lib.weigit.WrapLayout
+<am.widget.wraplayout.WrapLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/wrapLayout__lyt_warp"
     android:layout_width="match_parent"
@@ -54,7 +54,7 @@ dependencies {
         android:layout_height="wrap_content"
         app:wrapLayout_Layout_gravity="center" />
     ⋯
-</com.dyh.common.lib.weigit.WrapLayout>
+</am.widget.wraplayout.WrapLayout>
 ```
 
 **代码：**

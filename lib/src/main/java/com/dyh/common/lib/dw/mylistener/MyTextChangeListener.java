@@ -4,7 +4,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 
 /**
- * 作者：DongYonghui
+ * 作者：Allan
  * 邮箱：648731994@qq.com
  * 创建时间：2019/12/11/011 11:17
  * 描述：自定义文本变化监听器，复写所有方法单不实现功能

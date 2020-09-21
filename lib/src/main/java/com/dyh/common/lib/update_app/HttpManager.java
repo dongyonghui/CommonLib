@@ -1,6 +1,6 @@
 package com.dyh.common.lib.update_app;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.io.File;
 import java.io.Serializable;

@@ -640,6 +640,7 @@ public class TagGroup extends ViewGroup {
                     }
                 }
             } else {
+                tag.setChecked(true);
                 if (mOnTagClickListener != null) {
                     mOnTagClickListener.onTagClick(tag.getText().toString());
                 }

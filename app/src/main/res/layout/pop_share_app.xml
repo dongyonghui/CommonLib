@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_all"
+    android:background="@color/cover">
+
+
+    <LinearLayout
+        style="@style/match_width"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mShareTextView"
+            style="@style/general_button_white"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/general_item_margin"
+            android:layout_marginRight="@dimen/general_item_margin"
+            android:drawableTop="@mipmap/pop_share_app_url"
+            android:drawablePadding="@dimen/general_item_padding"
+            android:padding="@dimen/general_item_padding_max"
+            android:text="@string/copyUrl" />
+
+
+        <TextView
+            android:id="@+id/mCancelTextView"
+            style="@style/general_button_white"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/general_item_margin"
+            android:text="@string/dialog_cancel" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

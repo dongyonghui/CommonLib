@@ -21,6 +21,7 @@ import org.json.JSONObject
 import java.io.StringReader
 import java.io.StringWriter
 import java.lang.reflect.Modifier
+import java.text.MessageFormat
 import java.util.*
 import javax.xml.transform.OutputKeys
 import javax.xml.transform.TransformerException
@@ -38,10 +39,10 @@ class EasyFormatter private constructor(private val builder: Builder) {
     private val indent = "    "
     private val list = mutableListOf<Any>()// 用于临时存放当前已被解析的类。防止出现循环引用导致栈溢出
 
-    fun formatWithArgs(message: String, vararg args:Any):String {
+    fun formatWithArgs(message: String, vararg args: Any): String {
         val array = arrayOfNulls<String>(args.size)
         args.forEachIndexed { index, any -> array[index] = format(any) }
-        return String.format(message, *array)
+        return MessageFormat.format(message, *array)
     }
 
     /**
@@ -101,7 +102,7 @@ class EasyFormatter private constructor(private val builder: Builder) {
         return StringBuilder(data)
     }
 
-    private fun formatXML(data:String):StringBuilder {
+    private fun formatXML(data: String): StringBuilder {
         return try {
             val xmlInput = StreamSource(StringReader(data))
             val xmlOutput = StreamResult(StringWriter())
@@ -145,7 +146,7 @@ class EasyFormatter private constructor(private val builder: Builder) {
             if (!isFlat) {
                 result.append("\n")
             }
-        } catch (e:Exception) {
+        } catch (e: Exception) {
             return StringBuilder(data)
         }
         result.append("]")
@@ -178,14 +179,14 @@ class EasyFormatter private constructor(private val builder: Builder) {
             if (!isFlat) {
                 result.append("\n")
             }
-        } catch (e:Exception) {
+        } catch (e: Exception) {
             return StringBuilder(data)
         }
         result.append("}")
         return result
     }
 
-    private fun isFlat(maxSize:Int, length:Int):Boolean {
+    private fun isFlat(maxSize: Int, length: Int): Boolean {
         return when {
             maxSize < 0 -> false
             length <= maxSize -> false
@@ -199,13 +200,16 @@ class EasyFormatter private constructor(private val builder: Builder) {
 
     private fun formatOther(any: Any): StringBuilder {
         val name = any.javaClass.canonicalName
-        if (name.startsWith("android")
-                || name.startsWith("java")
-                || name.startsWith("javax")
-                || name.startsWith("kotlin")) {
-            // 不对系统提供的类进行格式化
-            return StringBuilder(any.toString())
+        name?.let {
+            if (name.startsWith("android")
+                    || name.startsWith("java")
+                    || name.startsWith("javax")
+                    || name.startsWith("kotlin")) {
+                // 不对系统提供的类进行格式化
+                return StringBuilder(any.toString())
+            }
         }
+
 
         val result = StringBuilder("[${any.javaClass.simpleName}]{")
         val container = mutableMapOf<String, Any>()
@@ -219,23 +223,22 @@ class EasyFormatter private constructor(private val builder: Builder) {
     }
 
 
+    private fun formatAny(any: Any?): StringBuilder =
+            when (any) {
+                null -> StringBuilder()
+                is Collection<*> -> checkIfFormatted(any) { return@checkIfFormatted formatCollection(any) }
+                is Map<*, *> -> checkIfFormatted(any) { return@checkIfFormatted formatMap(any) }
+                is Array<*> -> checkIfFormatted(any) { return@checkIfFormatted formatCollection(Arrays.asList(*any)) }
+                is String -> formatString(any)
+                is Throwable -> formatException(any)
+                is Int, is Boolean, is Short, is Char, is Byte, is Long, is Float, is Double
+                -> StringBuilder(any.toString())
+                else -> checkIfFormatted(any) { return@checkIfFormatted formatOther(any) }
+            }
 
-    private fun formatAny(any:Any?):StringBuilder =
-        when(any) {
-            null -> StringBuilder()
-            is Collection<*> -> checkIfFormatted(any) {return@checkIfFormatted formatCollection(any)}
-            is Map<*, *> -> checkIfFormatted(any) {return@checkIfFormatted formatMap(any)}
-            is Array<*> -> checkIfFormatted(any) {return@checkIfFormatted formatCollection(Arrays.asList(*any))}
-            is String -> formatString(any)
-            is Throwable -> formatException(any)
-            is Int, is Boolean, is Short, is Char, is Byte, is Long, is Float, is Double
-            -> StringBuilder(any.toString())
-            else -> checkIfFormatted(any) {return@checkIfFormatted formatOther(any)}
-        }
-
-    private fun appendIterator(container:StringBuilder, /*数据存储容器*/
-                               iterator:Iterator<*>,
-                               isFlat:Boolean) {
+    private fun appendIterator(container: StringBuilder, /*数据存储容器*/
+                               iterator: Iterator<*>,
+                               isFlat: Boolean) {
         var hasNext = iterator.hasNext()
         while (hasNext) {
             if (!isFlat) {
@@ -279,13 +282,16 @@ class EasyFormatter private constructor(private val builder: Builder) {
 
     private fun scanFields(any: Any, clazz: Class<*>, container: MutableMap<String, Any>) {
         val name = clazz.canonicalName
-        if (name.startsWith("android")
-                || name.startsWith("java")
-                || name.startsWith("javax")
-                || name.startsWith("kotlin")) {
-            // 不对系统提供的类进行格式化
-            return
+        name?.let {
+            if (name.startsWith("android")
+                    || name.startsWith("java")
+                    || name.startsWith("javax")
+                    || name.startsWith("kotlin")) {
+                // 不对系统提供的类进行格式化
+                return
+            }
         }
+
 
         val fields = clazz.declaredFields
         for (field in fields) {
@@ -305,7 +311,7 @@ class EasyFormatter private constructor(private val builder: Builder) {
         scanFields(any, clazz.superclass, container)
     }
 
-    private fun checkIfFormatted(any:Any, invoke:()-> StringBuilder):StringBuilder {
+    private fun checkIfFormatted(any: Any, invoke: () -> StringBuilder): StringBuilder {
         return if (list.contains(any)) {
             StringBuilder("{(circle ref):${any.javaClass.simpleName}}")
         } else {
@@ -329,15 +335,15 @@ class EasyFormatter private constructor(private val builder: Builder) {
         /**
          * 最大行数，当格式化后的数据行数超过此数量后，将对超出部分数据进行平铺展示
          */
-        var maxLines:Int = -1
+        var maxLines: Int = -1
         /**
          * 最大Array尺寸，当Array(包括List/Set/Array/JSONArray)的长度超过此数量限制时：数据以平铺模式展示。
          */
-        var maxArraySize:Int = -1
+        var maxArraySize: Int = -1
         /**
          * 最大Map尺寸，当Map(包括Map/JSONObject/Bean)的长度超过此数量限制时：数据以平铺模式展示
          */
-        var maxMapSize:Int = -1
+        var maxMapSize: Int = -1
 
         fun build(): EasyFormatter {
             return EasyFormatter(this)

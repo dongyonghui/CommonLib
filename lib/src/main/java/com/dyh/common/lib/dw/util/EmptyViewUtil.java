@@ -9,7 +9,7 @@ import com.dyh.common.lib.R;
 
 
 /**
- * 作者：DongYonghui
+ * 作者：Allan
  * 时间：2019/11/1/001
  * 邮箱：648731994@qq.com
  * 描述：空页面工具类

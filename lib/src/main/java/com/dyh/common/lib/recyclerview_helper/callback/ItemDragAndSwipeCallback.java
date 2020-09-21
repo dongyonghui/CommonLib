@@ -1,9 +1,10 @@
 package com.dyh.common.lib.recyclerview_helper.callback;
 
 import android.graphics.Canvas;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
+
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.dyh.common.lib.R;

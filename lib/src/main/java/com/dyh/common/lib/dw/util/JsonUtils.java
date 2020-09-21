@@ -56,7 +56,10 @@ public class JsonUtils {
             if (jsonReader.peek() == JsonToken.NULL) {
                 jsonReader.nextNull();
                 return "";
-            } else {
+            } /*else if (jsonReader.peek() == JsonToken.NUMBER) {
+                String temp = jsonReader.nextString();
+                return MathUtil.cutNumberEnd0(temp);
+            } */else {
                 return jsonReader.nextString();
             }
         }

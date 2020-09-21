@@ -20,7 +20,13 @@ package com.dyh.common.lib.http.utils;
 import com.dyh.common.lib.http.func.HandleFuc;
 import com.dyh.common.lib.http.func.HttpResponseFunc;
 import com.dyh.common.lib.http.model.ApiResult;
-import com.dyh.common.lib.http.model.Optional;
+import com.dyh.common.lib.http.model.ResponseOptional;
+import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle2.LifecycleTransformer;
+import com.trello.rxlifecycle2.android.ActivityEvent;
+import com.trello.rxlifecycle2.android.FragmentEvent;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -65,10 +71,48 @@ public class RxUtil {
         };
     }
 
-    public static <T> ObservableTransformer<ApiResult<T>, Optional<T>> _io_main() {
-        return new ObservableTransformer<ApiResult<T>, Optional<T>>() {
+    public static <T> ObservableTransformer<T, T> applySchedulers(final LifecycleProvider provider) {
+        return new ObservableTransformer<T, T>() {
+            @Override public ObservableSource<T> apply(@NonNull Observable<T> upstream) {
+                return upstream
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .compose(RxUtil.<T>bindToLifecycle(provider));
+
+            }
+        };
+    }
+
+    private static <T> LifecycleTransformer<T> bindToLifecycle(LifecycleProvider provider) {
+        if (provider instanceof RxAppCompatActivity) {
+            return ((RxAppCompatActivity) provider).bindToLifecycle();
+        } else if (provider instanceof RxFragment) {
+            return ((RxFragment) provider).bindToLifecycle();
+        } else {
+            throw new IllegalArgumentException("class must extents RxAppCompatActivity or RxFragment");
+        }
+    }
+
+    private static <T> LifecycleTransformer<T> bindToLifecycle(LifecycleProvider provider, ActivityEvent event) {
+        if (provider instanceof RxAppCompatActivity) {
+            return ((RxAppCompatActivity) provider).bindUntilEvent(event);
+        } else {
+            throw new IllegalArgumentException("class must extents RxAppCompatActivity");
+        }
+    }
+
+    private static <T> LifecycleTransformer<T> bindToLifecycle(LifecycleProvider provider, FragmentEvent event) {
+        if (provider instanceof RxFragment) {
+            return ((RxFragment) provider).bindUntilEvent(event);
+        } else {
+            throw new IllegalArgumentException("class must extents RxFragment");
+        }
+    }
+
+    public static <T> ObservableTransformer<ApiResult<T>, ResponseOptional<T>> _io_main() {
+        return new ObservableTransformer<ApiResult<T>, ResponseOptional<T>>() {
             @Override
-            public ObservableSource<Optional<T>> apply(@NonNull Observable<ApiResult<T>> upstream) {
+            public ObservableSource<ResponseOptional<T>> apply(@NonNull Observable<ApiResult<T>> upstream) {
                 return upstream
                         .subscribeOn(Schedulers.io())
                         .unsubscribeOn(Schedulers.io())
@@ -92,10 +136,10 @@ public class RxUtil {
     }
 
 
-    public static <T> ObservableTransformer<ApiResult<T>, Optional<T>> _main() {
-        return new ObservableTransformer<ApiResult<T>, Optional<T>>() {
+    public static <T> ObservableTransformer<ApiResult<T>, ResponseOptional<T>> _main() {
+        return new ObservableTransformer<ApiResult<T>, ResponseOptional<T>>() {
             @Override
-            public ObservableSource<Optional<T>> apply(@NonNull Observable<ApiResult<T>> upstream) {
+            public ObservableSource<ResponseOptional<T>> apply(@NonNull Observable<ApiResult<T>> upstream) {
                 return upstream
                         //.observeOn(AndroidSchedulers.mainThread())
                         .map(new HandleFuc<T>())

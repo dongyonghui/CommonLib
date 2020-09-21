@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_gray"
+    android:paddingLeft="@dimen/general_panelPadding"
+    android:paddingTop="@dimen/general_item_padding_max"
+    android:paddingRight="@dimen/general_panelPadding"
+    android:paddingBottom="@dimen/general_item_padding_max">
+
+
+    <ImageView
+        android:id="@+id/mHeaderImageView"
+        android:layout_width="@dimen/courseDetail_commentsHeaderImageWidthHeight"
+        android:layout_height="@dimen/courseDetail_commentsHeaderImageWidthHeight"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mNickNameTextView"
+        style="@style/text_wrap_black16"
+        android:layout_width="0dp"
+        android:layout_marginLeft="@dimen/general_item_margin"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/mHeaderImageView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mHeaderImageView" />
+
+    <com.dyh.android.winehall.weigit.RatingBarView
+        android:id="@+id/mRatingBarView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/courseDetail_ratingBarHeight"
+        android:layout_marginTop="@dimen/general_item_margin_min"
+        app:layout_constraintLeft_toLeftOf="@+id/mNickNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/mNickNameTextView"
+        app:rbv_starCount="5"
+        app:rbv_starEmpty="@drawable/icon_rating_gray"
+        app:rbv_starFill="@drawable/icon_rating_red"
+        app:rbv_starImageSize="@dimen/courseDetail_ratingBarHeight" />
+
+    <TextView
+        android:id="@+id/mScoreTextView"
+        style="@style/text_wrap_12"
+        android:layout_marginLeft="@dimen/general_item_margin_min"
+        android:textColor="@color/text_222D"
+        app:layout_constraintBottom_toBottomOf="@+id/mRatingBarView"
+        app:layout_constraintLeft_toRightOf="@+id/mRatingBarView"
+        app:layout_constraintTop_toTopOf="@+id/mRatingBarView" />
+
+    <TextView
+        android:id="@+id/mTimeTextView"
+        style="@style/text_wrap_12"
+        android:textColor="@color/text_black_tran50"
+        app:layout_constraintBottom_toBottomOf="@+id/mScoreTextView"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/mCommentTextView"
+        style="@style/text_wrap_black16"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/general_item_margin"
+        android:ellipsize="end"
+        android:lineSpacingExtra="@dimen/general_item_padding_min"
+        android:maxLines="2"
+        android:textColor="@color/text_2225"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mRatingBarView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

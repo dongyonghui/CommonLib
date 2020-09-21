@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_white"
+    android:padding="@dimen/general_panelPadding">
+
+    <TextView
+        android:id="@+id/mTitleTextView"
+        style="@style/text_wrap_20"
+        android:textColor="@color/text_222D"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mCountTextView"
+        style="@style/text_wrap_12"
+        android:layout_marginLeft="@dimen/general_item_padding"
+        android:textColor="@color/text_black_tran50"
+        app:layout_constraintBottom_toBottomOf="@+id/mTitleTextView"
+        app:layout_constraintLeft_toRightOf="@+id/mTitleTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

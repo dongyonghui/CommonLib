@@ -1,7 +1,7 @@
 package com.dyh.common.lib.weigit.seekbar;
 
-import android.support.annotation.ColorInt;
-import android.support.annotation.IntRange;
+import androidx.annotation.ColorInt;
+import androidx.annotation.IntRange;
 
 import static com.dyh.common.lib.weigit.seekbar.BubbleUtils.dp2px;
 import static com.dyh.common.lib.weigit.seekbar.BubbleUtils.sp2px;

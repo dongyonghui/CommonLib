@@ -22,9 +22,12 @@ import android.app.Activity
  * @author haoge on 2018/5/29
  */
 interface MVPView {
-    fun getHostActivity():Activity
-    fun showLoadingDialog()
-    fun hideLoadingDialog()
-    fun toastMessage(message:String)
-    fun toastMessage(resId:Int)
+    fun getHostActivity(): Activity
+    fun showLoadingView(massage: String?)
+    fun showNetworkErrorView(massage: String?)
+    fun showErrorView(massage: String?)
+    fun showEmptyView(massage: String?)
+    fun hideLoadingView()
+    fun toastMessage(message: String)
+    fun toastMessage(resId: Int)
 }

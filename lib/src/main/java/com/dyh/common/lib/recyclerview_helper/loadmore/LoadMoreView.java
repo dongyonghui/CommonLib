@@ -1,7 +1,7 @@
 package com.dyh.common.lib.recyclerview_helper.loadmore;
 
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
 
 import com.dyh.common.lib.recyclerview_helper.BaseQuickAdapter;
 import com.dyh.common.lib.recyclerview_helper.BaseViewHolder;

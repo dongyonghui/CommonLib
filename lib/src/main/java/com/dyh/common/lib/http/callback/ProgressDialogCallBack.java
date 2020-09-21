@@ -21,7 +21,7 @@ import android.content.DialogInterface;
 
 import com.dyh.common.lib.easy.EasyToast;
 import com.dyh.common.lib.http.exception.ApiException;
-import com.dyh.common.lib.http.model.Optional;
+import com.dyh.common.lib.http.model.ResponseOptional;
 import com.dyh.common.lib.http.subsciber.IProgressDialog;
 import com.dyh.common.lib.http.subsciber.ProgressCancelListener;
 
@@ -35,7 +35,7 @@ import io.reactivex.disposables.Disposable;
  * 日期： 2017/4/24 15:35 <br>
  * 版本： v1.0<br>
  */
-public abstract class ProgressDialogCallBack<T> extends CallBack<Optional<T>> implements ProgressCancelListener {
+public abstract class ProgressDialogCallBack<T> extends CallBack<ResponseOptional<T>> implements ProgressCancelListener {
     private IProgressDialog progressDialog;
     private Dialog mDialog;
     private boolean isShowProgress = true;

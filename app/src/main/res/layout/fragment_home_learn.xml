@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/mAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCollapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="@color/bg_white"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="parallax">
+
+                <com.dyh.common.lib.weigit.banner.Banner
+                    android:id="@+id/mBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:banner_indicator_gravity="right"
+                    app:banner_indicator_height="@dimen/home_bannerIndicatorHeight"
+                    app:banner_indicator_marginBottom="@dimen/general_page_padding"
+                    app:banner_indicator_marginRight="@dimen/general_page_padding"
+                    app:banner_indicator_normal_color="@color/text_white_tran50"
+                    app:banner_indicator_normal_width="@dimen/home_bannerIndicatorWidth"
+                    app:banner_indicator_radius="0dp"
+                    app:banner_indicator_selected_color="@color/bg_white"
+                    app:banner_indicator_selected_width="@dimen/home_bannerIndicatorWidth"
+                    app:layout_constraintDimensionRatio="H,414:320"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/mToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/general_topTabHeight"
+                android:layout_marginLeft="@dimen/general_item_margin"
+                app:layout_collapseMode="pin"
+                app:logo="@mipmap/icon_home_logo_black"
+                app:menu="@menu/menu_home_learn" />
+
+            <LinearLayout
+                android:id="@+id/mTopSearchRootView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/general_topTabHeight"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_collapseMode="pin">
+
+                <TextView
+                    style="@style/text_wrap_16"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/home_centerSearchMarginLeft"
+                    android:layout_marginRight="@dimen/home_centerSearchMarginRight"
+                    android:background="@drawable/bg_home_learn_search"
+                    android:drawableRight="@mipmap/icon_search_white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/general_page_padding"
+                    android:paddingTop="6dp"
+                    android:paddingRight="@dimen/general_page_padding"
+                    android:paddingBottom="6dp"
+                    android:text="@string/hint_homeSearch"
+                    android:textColor="@color/text_white_tran50" />
+
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mRecyclerTab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/general_topTabHeight"
+            android:paddingLeft="@dimen/general_page_padding"
+            android:paddingRight="@dimen/general_page_padding" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mViewPager"
+        style="@style/match_all"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+    <FrameLayout
+        android:id="@+id/mLoadingContentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -116,6 +116,11 @@ public class ApiException extends Exception {
             ServerException resultException = (ServerException) e;
             ex = new ApiException(resultException, resultException.getErrCode());
             ex.message = resultException.getMessage();
+            int code = ex.getCode();
+            //6001 登录无效
+            if ((code == 6001)) {
+                BaseApplication.getInstance().reLogin();
+            }
             return ex;
         } else if (e instanceof JsonParseException
                 || e instanceof JSONException

@@ -1,6 +1,6 @@
 package com.dyh.common.lib.update_app.utils;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.dyh.common.lib.update_app.HttpManager;
 import com.zhy.http.okhttp.OkHttpUtils;

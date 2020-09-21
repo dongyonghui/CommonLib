@@ -1,7 +1,7 @@
 # `AndroidTagGroup`
 
 [![Release 1.4](https://img.shields.io/badge/Release-1.4.1-green.svg)](https://github.com/2dxgujun/AndroidTagGroup/releases)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.dyh.common.lib.weigit/library/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.dyh.common.lib.weigit/library)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inscloudtech.easyandroid.weigit/library/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.inscloudtech.easyandroid.weigit/library)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AndroidTagGroup-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1539)
 [![Build Status](https://travis-ci.org/2dxgujun/AndroidTagGroup.png?branch=master)](https://travis-ci.org/2dxgujun/AndroidTagGroup)
 
@@ -27,14 +27,14 @@ Also you can contribute new idea to me.
 #### Gradle
 ```groovy
 dependencies {
-   compile 'com.dyh.common.lib.weigit:library:1.4@aar'
+   compile 'com.inscloudtech.easyandroid.weigit:library:1.4@aar'
 }
 ```
 
 #### Maven
 ```xml
 <dependency>
-    <groupId>com.dyh.common.lib.weigit</groupId>
+    <groupId>com.inscloudtech.easyandroid.weigit</groupId>
     <artifactId>library</artifactId>
     <version>1.4</version>
     <type>apklib</type>
@@ -45,7 +45,7 @@ dependencies {
 
 Use it in your own code:
 ```xml
-<com.dyh.common.lib.weigit.TagGroup
+<com.inscloudtech.easyandroid.weigit.TagGroup
     android:id="@+id/tag_group"
     style="@style/TagGroup" />
 ```

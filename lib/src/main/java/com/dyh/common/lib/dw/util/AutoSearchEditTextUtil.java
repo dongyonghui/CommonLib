@@ -6,7 +6,7 @@ import android.os.Handler;
 import com.dyh.common.lib.easy.EasyLog;
 
 /**
- * 作者：DongYonghui
+ * 作者：Allan
  * 时间：2019/9/23/023
  * 邮箱：648731994@qq.com
  * 描述：自动搜索输入框工具类

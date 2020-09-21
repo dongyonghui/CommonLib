@@ -3,7 +3,7 @@ package com.dyh.common.lib.picture.tools;
 /**
  * author：luck
  * project：PictureSelector
- * package：com.dyh.common.lib.picture.tool
+ * package：com.inscloudtech.easyandroid.picture.tool
  * email：893855882@qq.com
  * data：2017/5/25
  */

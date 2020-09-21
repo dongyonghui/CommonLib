@@ -15,7 +15,7 @@
  */
 package com.dyh.common.lib.glide.http;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.GlideUrl;

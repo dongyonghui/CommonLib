@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.ColorRes;
+import androidx.annotation.ColorRes;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;

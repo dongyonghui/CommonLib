@@ -3,7 +3,7 @@ package com.dyh.common.lib.picture.permissions;
 /**
  * author：luck
  * project：PictureSelector
- * package：com.dyh.common.lib.picture.permissions
+ * package：com.inscloudtech.easyandroid.picture.permissions
  * email：893855882@qq.com
  * data：2017/5/31
  */

@@ -5,6 +5,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -40,6 +42,32 @@ import java.util.List;
  */
 @SuppressLint("NewApi")
 public class AppTools {
+
+    /**
+     * 复制内容到剪切板
+     *
+     * @param copyStr
+     * @return
+     */
+    public static boolean copy(Context context, String copyStr) {
+        try {
+            //获取剪贴板管理器
+            ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            // 创建普通字符型ClipData
+            ClipData mClipData = ClipData.newPlainText("Label", copyStr);
+            // 将ClipData内容放到系统剪贴板里。
+            cm.setPrimaryClip(mClipData);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static void showSoftKeyboard(EditText editText) {
+        InputMethodManager inputMethodManager = (InputMethodManager) editText.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.showSoftInput(editText, 0);
+    }
+
     private AppTools() {
     } // don't instantiate
 
@@ -313,7 +341,8 @@ public class AppTools {
      * @param activity
      */
     public static void hideSoftInput(Activity activity) {
-        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        hideSoftInput(activity,
+                activity.getWindow().getDecorView().getWindowToken());
     }
 
     /**
@@ -447,7 +476,7 @@ public class AppTools {
     }
 
     public static Drawable getBoundDrawable(Context context, int resId) {
-        if(0 == resId || -1 == resId){
+        if (0 == resId || -1 == resId) {
             return null;
         }
         Drawable drawable = context.getResources().getDrawable(resId);

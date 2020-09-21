@@ -539,11 +539,11 @@ class CustomActivity:BaseMVPActivity, CustomView {
 ```
 # EasyBundle
 -keepclasseswithmembernames class * {
-    @com.dyh.common.lib.easy.BundleField <fields>;
+    @com.inscloudtech.easyandroid.easy.BundleField <fields>;
 }
 
 # EasySharedPreferences
--keep class * implements com.dyh.common.lib.easy.PreferenceSupport { *; }
+-keep class * implements com.inscloudtech.easyandroid.easy.PreferenceSupport { *; }
 ```
 
 ## 联系作者

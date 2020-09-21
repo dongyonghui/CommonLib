@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:wheel="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/loading"
     android:layout_width="@dimen/alert_width"
     android:layout_height="wrap_content"
     android:gravity="center"
@@ -15,7 +14,7 @@
         android:layout_width="53dp"
         android:layout_height="53dp"
         android:layout_marginTop="5dp"
-        android:contentDescription="@string/app_name"
+        android:contentDescription="@string/lib_app_name"
         android:visibility="gone"
         android:scaleType="fitCenter" />
 
@@ -34,7 +33,7 @@
             android:id="@+id/error_x"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/app_name"
+            android:contentDescription="@string/lib_app_name"
             android:src="@drawable/error_center_x"
             android:scaleType="center" />
 
@@ -95,7 +94,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/app_name"
+            android:contentDescription="@string/lib_app_name"
             android:src="@drawable/warning_sigh"
             android:scaleType="center" />
     </FrameLayout>

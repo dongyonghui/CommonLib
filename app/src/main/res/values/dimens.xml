@@ -1,13 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="imageWidth_list">120dp</dimen>
-    <dimen name="imageHeight_list">120dp</dimen>
-    <dimen name="imageWidth_detail">100dp</dimen>
-    <dimen name="imageHeight_detail">100dp</dimen>
-    <dimen name="imageWidth_banner">279.2dp</dimen>
-    <dimen name="imageHeight_banner">70dp</dimen>
-    <dimen name="imageHeight_bannerFullWidth">100dp</dimen>
-    <dimen name="imageSlantedTextWidth_list">80dp</dimen>
-    <dimen name="imageSlantedTextHeight_list">80dp</dimen>
-    <dimen name="imageSlantedLength_list">30dp</dimen>
+    <!-- 登录页面  -->
+    <dimen name="login_titleTextSize">26dp</dimen>
+    <dimen name="login_marginTop">100dp</dimen>
+    <dimen name="login_marginItem">40dp</dimen>
+
+    <!--通用-->
+    <dimen name="general_topTabHeight">50dp</dimen>
+    <dimen name="general_panelPadding">25dp</dimen>
+    <dimen name="general_panelRadius">8dp</dimen>
+    <dimen name="general_labelRadius">2dp</dimen>
+
+    <!--=============================首页 开始=============================-->
+    <dimen name="home_tab_icon_size">20dp</dimen>
+    <dimen name="home_tab_padding">5dp</dimen>
+    <!--搜索框-->
+    <dimen name="home_centerSearchMarginLeft">70dp</dimen>
+    <dimen name="home_centerSearchMarginRight">60dp</dimen>
+    <!--Banner指示器大小-->
+    <dimen name="home_bannerIndicatorHeight">2dp</dimen>
+    <dimen name="home_bannerIndicatorWidth">16dp</dimen>
+    <dimen name="home_itemMarginTopBottom">26dp</dimen>
+    <!--Flag标签图标宽高-->
+    <dimen name="home_itemFlagImageWidthHeight">20dp</dimen>
+    <!--头像大小-->
+    <dimen name="home_headerImageWidthHeight">38dp</dimen>
+    <!--=============================首页 结束=============================-->
+
+    <!--=============================课程详情 开始=============================-->
+    <dimen name="courseDetail_bannerIndicatorHeight">2dp</dimen>
+    <dimen name="courseDetail_bannerIndicatorWidth">50dp</dimen>
+    <dimen name="courseDetail_centerPanelTableMarginTop">36dp</dimen>
+    <dimen name="courseDetail_speakerTitleMarginTop">32dp</dimen>
+    <dimen name="courseDetail_speakerTitleMarginBottom">66dp</dimen>
+    <dimen name="courseDetail_speakerBottomPanelHeight">66dp</dimen>
+    <dimen name="courseDetail_centerPanelTeacherPanelHeight">112dp</dimen>
+    <dimen name="courseDetail_headerImageWidthHeight">60dp</dimen>
+    <dimen name="courseDetail_commentsHeaderImageWidthHeight">36dp</dimen>
+    <dimen name="courseDetail_flagSpace">8dp</dimen>
+    <dimen name="courseDetail_ratingBarHeight">16dp</dimen>
+    <dimen name="courseDetail_buttonWidth">100dp</dimen>
+    <!--=============================课程详情 结束=============================-->
+
+    <!--=============================讲师详情 开始=============================-->
+    <dimen name="teacherDetail_pageMarginTop">150dp</dimen>
+    <dimen name="teacherDetail_closeButtonSize">48dp</dimen>
+    <dimen name="teacherDetail_closeButtonSizeHalf">24dp</dimen>
+    <dimen name="teacherDetail_contentTopMargin">50dp</dimen>
+    <dimen name="teacherDetail_closeButtonMarginRight">42dp</dimen>
+    <dimen name="teacherDetail_headerImageWidthHeight">84dp</dimen>
+    <!--=============================讲师详情 结束=============================-->
+
+    <!--=============================课节详情 开始=============================-->
+    <!--=============================课节详情 结束=============================-->
+
+    <!--=============================我的 开始=============================-->
+    <dimen name="mine_marginTop">100dp</dimen>
+    <!--=============================我的 结束=============================-->
+
+
+    <!--我的-->
+    <dimen name="mine_headerWidth">104dp</dimen>
+
+    <!--签到-->
+
+
 </resources>

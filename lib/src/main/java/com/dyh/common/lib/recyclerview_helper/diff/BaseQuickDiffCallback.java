@@ -1,8 +1,8 @@
 package com.dyh.common.lib.recyclerview_helper.diff;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.util.DiffUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DiffUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public abstract class BaseQuickDiffCallback<T> extends DiffUtil.Callback {
     private List<T> newList;
     private List<T> oldList;
 
-    public BaseQuickDiffCallback( List<T> newList) {
+    public BaseQuickDiffCallback(@Nullable List<T> newList) {
         this.newList = newList == null ? new ArrayList<T>() : newList;
     }
 
@@ -29,7 +29,7 @@ public abstract class BaseQuickDiffCallback<T> extends DiffUtil.Callback {
         return oldList;
     }
 
-    public void setOldList( List<T> oldList) {
+    public void setOldList(@Nullable List<T> oldList) {
         this.oldList = oldList == null ? new ArrayList<T>() : oldList;
     }
 
@@ -53,7 +53,7 @@ public abstract class BaseQuickDiffCallback<T> extends DiffUtil.Callback {
         return areContentsTheSame(oldList.get(oldItemPosition), newList.get(newItemPosition));
     }
 
-
+    @Nullable
     @Override
     public Object getChangePayload(int oldItemPosition, int newItemPosition) {
         return getChangePayload(oldList.get(oldItemPosition), newList.get(newItemPosition));
@@ -74,13 +74,13 @@ public abstract class BaseQuickDiffCallback<T> extends DiffUtil.Callback {
     protected abstract boolean areContentsTheSame(@NonNull T oldItem, @NonNull T newItem);
 
     /**
-     * Optional implementation
+     * ResponseOptional implementation
      *
      * @param oldItem New data
      * @param newItem old Data
      * @return Payload info
      */
-
+    @Nullable
     protected Object getChangePayload(@NonNull T oldItem, @NonNull T newItem) {
         return null;
     }

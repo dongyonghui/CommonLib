@@ -1,54 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.dyh.common.lib.weigit.refresh_layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mSmartRefreshLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_white">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/mLogoutTextView"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical">
-
-        <com.dyh.common.lib.weigit.titlebar.widget.CommonTitleBar
-            android:id="@+id/mCommonTitleBar"
-            style="@style/titleBar_default"
-            app:centerText="@string/mine"
-            app:showBottomLine="false" />
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/mContentRootView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/general_titleColor"
             android:orientation="vertical"
-            android:padding="@dimen/general_item_padding">
+            android:paddingLeft="@dimen/general_panelPadding"
+            android:paddingTop="@dimen/mine_marginTop"
+            android:paddingRight="@dimen/general_panelPadding"
+            android:paddingBottom="@dimen/mine_marginTop">
 
-            <TextView
-                android:id="@+id/mNameTextView"
-                style="@style/general_textStyle_blackMax2"
-                android:textColor="@color/text_white" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mHeaderRootView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/mRolesNameTextView"
-                style="@style/general_textStyle_blackDefaultSize"
-                android:layout_marginTop="@dimen/general_item_margin"
-                android:textColor="@color/text_white" />
+                <ImageView
+                    android:id="@+id/mHeadImageView"
+                    android:layout_width="@dimen/mine_headerWidth"
+                    android:layout_height="@dimen/mine_headerWidth"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@mipmap/person_head_default"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/mCityNameTextView"
-                style="@style/general_textStyle_blackDefaultSize"
-                android:layout_marginTop="@dimen/general_item_margin"
-                android:textColor="@color/text_white" />
+                <TextView
+                    android:id="@+id/mNickNameTextView"
+                    style="@style/text_wrap_24"
+                    android:textColor="@color/text_333"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/mHeadImageView" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/mNickNameInfoTextView"
+                    style="@style/text_wrap_12"
+                    android:layout_marginTop="@dimen/general_item_margin"
+                    android:lineSpacingExtra="@dimen/general_item_padding_min"
+                    android:text="@string/noSignInfo"
+                    android:textColor="@color/text_333"
+                    app:layout_constraintLeft_toLeftOf="@+id/mNickNameTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/mNickNameTextView" />
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/general_item_margin_min"
-            app:cardCornerRadius="@dimen/common_radius"
-            app:cardElevation="@dimen/general_item_margin_min">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,44 +61,35 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/mSetPrinterTextView"
-                    style="@style/general_textStyle_blackMax1"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/bg_white_selector"
-                    android:clickable="true"
-                    android:drawableLeft="@mipmap/icon_printer"
-                    android:drawableRight="@mipmap/more_right"
-                    android:drawablePadding="@dimen/general_item_padding"
-                    android:focusable="true"
-                    android:padding="@dimen/general_item_padding"
-                    android:text="@string/printerManager" />
+                    android:id="@+id/mAttachmentTextView"
+                    style="@style/mine_head_text_type"
+                    android:layout_marginTop="@dimen/general_item_margin_max"
+                    android:text="@string/mine_item_attachment" />
 
-                <View
-                    style="@style/horizontalLine"
-                    android:layout_marginLeft="@dimen/general_item_margin" />
+                <View style="@style/horizontalLine" />
 
                 <TextView
-                    android:id="@+id/mCheckVersionTextView"
-                    style="@style/general_textStyle_blackMax1"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/bg_white_selector"
-                    android:clickable="true"
-                    android:drawableLeft="@mipmap/icon_update"
-                    android:drawableRight="@mipmap/more_right"
-                    android:drawablePadding="@dimen/general_item_padding"
-                    android:focusable="true"
-                    android:padding="@dimen/general_item_padding" />
+                    android:id="@+id/mCouponTextView"
+                    style="@style/mine_head_text_type"
+                    android:text="@string/mine_item_coupon" />
+
+                <View style="@style/horizontalLine" />
+
+                <TextView
+                    android:id="@+id/mMyScoreTextView"
+                    style="@style/mine_head_text_type"
+                    android:text="@string/mine_item_myScore" />
+
+                <View style="@style/horizontalLine" />
+
+                <TextView
+                    android:id="@+id/mSettingTextView"
+                    style="@style/mine_head_text_type"
+                    android:text="@string/mine_item_setting" />
+
+                <View style="@style/horizontalLine" />
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/mLogoutTextView"
-        style="@style/general_button"
-        android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/general_item_margin_max"
-        android:text="@string/logout" />
-
-</RelativeLayout>
+</com.dyh.common.lib.weigit.refresh_layout.SmartRefreshLayout>

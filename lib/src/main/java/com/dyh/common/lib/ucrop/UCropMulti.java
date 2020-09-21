@@ -10,12 +10,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.dyh.common.lib.BuildConfig;
 import com.dyh.common.lib.ucrop.model.AspectRatio;
@@ -147,7 +147,7 @@ public class UCropMulti {
      *
      * @param fragment Fragment to receive result
      */
-    public void start(@NonNull Context context, @NonNull android.support.v4.app.Fragment fragment) {
+    public void start(@NonNull Context context, @NonNull androidx.fragment.app.Fragment fragment) {
         start(context, fragment, REQUEST_MULTI_CROP);
     }
 
@@ -168,7 +168,7 @@ public class UCropMulti {
      * @param fragment    Fragment to receive result
      * @param requestCode requestCode for result
      */
-    public void start(@NonNull Context context, @NonNull android.support.v4.app.Fragment fragment, int requestCode) {
+    public void start(@NonNull Context context, @NonNull androidx.fragment.app.Fragment fragment, int requestCode) {
         fragment.startActivityForResult(getIntent(context), requestCode);
     }
 
@@ -189,7 +189,7 @@ public class UCropMulti {
      *
      * @param intent crop result intent
      */
-
+    @Nullable
     public static List<CutInfo> getOutput(@NonNull Intent intent) {
         return (List<CutInfo>) intent.getSerializableExtra(EXTRA_OUTPUT_URI_LIST);
     }
@@ -228,7 +228,7 @@ public class UCropMulti {
      * @param result crop result Intent
      * @return Throwable that could happen while image processing
      */
-
+    @Nullable
     public static Throwable getError(@NonNull Intent result) {
         return (Throwable) result.getSerializableExtra(EXTRA_ERROR);
     }
@@ -468,7 +468,7 @@ public class UCropMulti {
         /**
          * @param text - desired text for Toolbar title
          */
-        public void setToolbarTitle( String text) {
+        public void setToolbarTitle(@Nullable String text) {
             mOptionBundle.putString(EXTRA_UCROP_TITLE_TEXT_TOOLBAR, text);
         }
 

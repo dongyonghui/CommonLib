@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <com.dyh.common.lib.weigit.loading_view.AVLoadingIndicatorView
+        android:id="@+id/loading_view_progress"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:av_indicatorColor="@color/loading_circleColor"
+        app:av_indicatorName="BallScaleMultipleIndicator" />
+
+    <TextView
+        android:id="@+id/status_hint_content"
+        style="@style/MultipleStatusView.Content"
+        android:text="@string/lib_loading" />
+</LinearLayout>

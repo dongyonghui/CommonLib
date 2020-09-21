@@ -182,7 +182,7 @@ class EasySharedPreferences(clazz: Class<*>) : SharedPreferences.OnSharedPrefere
      */
     fun apply() {
         if (handler.hasMessages(WRITE)) return
-        handler.sendEmptyMessageDelayed(WRITE, 100)
+        handler.sendEmptyMessage(WRITE)
         handler.apply { }
     }
 

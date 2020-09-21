@@ -11,11 +11,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -31,11 +26,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
+
 import com.dyh.common.lib.R;
 import com.dyh.common.lib.update_app.listener.ExceptionHandler;
 import com.dyh.common.lib.update_app.listener.ExceptionHandlerHelper;
 import com.dyh.common.lib.update_app.listener.IUpdateDialogFragmentListener;
-import com.dyh.common.lib.update_app.service.DownloadService;
+import com.dyh.common.lib.update_app.service.UpdateAppVersionDownloadService;
 import com.dyh.common.lib.update_app.utils.AppUpdateUtils;
 import com.dyh.common.lib.update_app.utils.ColorUtil;
 import com.dyh.common.lib.update_app.utils.DrawableUtil;
@@ -65,7 +66,7 @@ public class UpdateDialogFragment extends DialogFragment implements View.OnClick
 
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            startDownloadApp((DownloadService.DownloadBinder) service, headers);
+            startDownloadApp((UpdateAppVersionDownloadService.DownloadBinder) service, headers);
         }
 
         @Override
@@ -79,7 +80,7 @@ public class UpdateDialogFragment extends DialogFragment implements View.OnClick
     private ImageView mTopIv;
     private TextView mIgnore;
     private IUpdateDialogFragmentListener mUpdateDialogFragmentListener;
-    private DownloadService.DownloadBinder mDownloadBinder;
+    private UpdateAppVersionDownloadService.DownloadBinder mDownloadBinder;
     private Activity mActivity;
     private Map<String, String> headers;
 
@@ -99,7 +100,7 @@ public class UpdateDialogFragment extends DialogFragment implements View.OnClick
     }
 
     @Override
-    public void onCreate( Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShow = true;
 //        setStyle(DialogFragment.STYLE_NO_TITLE | DialogFragment.STYLE_NO_FRAME, 0);
@@ -146,14 +147,14 @@ public class UpdateDialogFragment extends DialogFragment implements View.OnClick
         dialogWindow.setAttributes(lp);
     }
 
-
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.lib_update_app_dialog, container);
     }
 
     @Override
-    public void onViewCreated(View view,  Bundle savedInstanceState) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
     }
@@ -272,7 +273,7 @@ public class UpdateDialogFragment extends DialogFragment implements View.OnClick
      */
     private void setDialogTheme(int color, int topResId) {
         mTopIv.setImageResource(topResId);
-        mUpdateOkButton.setBackgroundDrawable(DrawableUtil.getDrawable(AppUpdateUtils.dip2px(4, getActivity()), color));
+        mUpdateOkButton.setBackgroundDrawable(DrawableUtil.getDrawable(AppUpdateUtils.dip2px(40, getActivity()), color));
         mNumberProgressBar.setProgressTextColor(color);
         mNumberProgressBar.setReachedBarColor(color);
         //随背景颜色变化
@@ -371,19 +372,19 @@ public class UpdateDialogFragment extends DialogFragment implements View.OnClick
      */
     private void downloadApp() {
         //使用ApplicationContext延长他的生命周期
-        DownloadService.bindService(getActivity().getApplicationContext(), conn);
+        UpdateAppVersionDownloadService.bindService(getActivity().getApplicationContext(), conn);
     }
 
     /**
      * 回调监听下载
      */
-    private void startDownloadApp(DownloadService.DownloadBinder binder, @NonNull Map<String, String> headers) {
+    private void startDownloadApp(UpdateAppVersionDownloadService.DownloadBinder binder, @NonNull Map<String, String> headers) {
         // 开始下载，监听下载进度，可以用对话框显示
         if (mUpdateApp != null) {
 
             this.mDownloadBinder = binder;
 
-            binder.start(mUpdateApp, headers, new DownloadService.DownloadCallback() {
+            binder.start(mUpdateApp, headers, new UpdateAppVersionDownloadService.DownloadCallback() {
                 @Override
                 public void onStart() {
                     if (!UpdateDialogFragment.this.isRemoving()) {

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 /**
- * User: DongYonghui(404638723@qq.com)
+ * User: Allan(404638723@qq.com)
  * Date: 2015-11-27
  * Time: 15:29
  */

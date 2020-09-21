@@ -278,6 +278,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
         rlMain = new RelativeLayout(context);
         rlMain.setId(StatusBarUtils.generateViewId());
         rlMain.setBackgroundColor(titleBarColor);
+        rlMain.setPadding(PADDING_12,0,PADDING_12,0);
         LayoutParams mainParams = new LayoutParams(MATCH_PARENT, titleBarHeight);
         if (fillStatusBar && transparentStatusBar) {
             mainParams.addRule(RelativeLayout.BELOW, viewStatusBarFill.getId());
@@ -406,6 +407,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
             tvRight.setTextSize(TypedValue.COMPLEX_UNIT_PX, rightTextSize);
             tvRight.setGravity(Gravity.END | Gravity.CENTER_VERTICAL);
             tvRight.setSingleLine(true);
+            tvRight.setCompoundDrawablePadding(PADDING_5);
             tvRight.setPadding(PADDING_12, 0, PADDING_12, 0);
             tvRight.setOnClickListener(this);
             tvRight.setBackgroundResource(R.drawable.bg_common_toolbar_selector);
@@ -604,7 +606,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
             if (centerCustomView.getId() == View.NO_ID) {
                 centerCustomView.setId(StatusBarUtils.generateViewId());
             }
-            LayoutParams centerCustomParams = new LayoutParams(WRAP_CONTENT, MATCH_PARENT);
+            LayoutParams centerCustomParams = new LayoutParams(MATCH_PARENT, MATCH_PARENT);
             centerCustomParams.setMarginStart(PADDING_12);
             centerCustomParams.setMarginEnd(PADDING_12);
             centerCustomParams.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -970,14 +972,16 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
      * 显示中间进度条
      */
     public void showCenterProgress() {
-        progressCenter.setVisibility(View.VISIBLE);
+        if (null != progressCenter)
+            progressCenter.setVisibility(View.VISIBLE);
     }
 
     /**
      * 隐藏中间进度条
      */
     public void dismissCenterProgress() {
-        progressCenter.setVisibility(View.GONE);
+        if (null != progressCenter)
+            progressCenter.setVisibility(View.GONE);
     }
 
     /**
