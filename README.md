@@ -10,7 +10,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.dongyonghui:CommonLib:1.0'
+	        implementation 'com.github.dongyonghui:CommonLib:2.0'
 	}
 # 初始化
 
@@ -21,6 +21,7 @@ Step 2. Add the dependency
         SPEntity spEntity = EasySharedPreferences.load(SPEntity.class);
         spEntity.loginResponseBean = null;
         spEntity.commit();
+        //如果重新登录不需要退出所有页面，可删除下面这行
         AppExit();
         Intent intent = new Intent(this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

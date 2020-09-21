@@ -32,7 +32,7 @@ EasyGlide.loadImage(this, url4, iv2);
 
 EasyGlide.loadImage(this, url4, iv2, new RequestListener());
 
-EasyGlide.loadBlurImage(this, url4, iv3);
+EasyGlide.loadRoundCornerImage(this, url4, iv3);
 
 EasyGlide.loadCircleImage(this, url4, iv4);
 
