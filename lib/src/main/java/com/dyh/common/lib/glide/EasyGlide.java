@@ -173,12 +173,10 @@ public class EasyGlide {
     }
 
     public static void loadRoundCornerImage(Context context, String url, ImageView imageView) {
-        int radius = DensityUtils.dip2px(context, 4);
-        loadRoundCornerImage(context, url, radius, imageView, 0);
+        loadRoundCornerImage(context, url, 4, imageView, 0);
     }
 
     public static void loadRoundCornerImage(Context context, String url, int radius, ImageView imageView) {
-        radius = DensityUtils.dip2px(context, radius);
         loadRoundCornerImage(context, url, radius, imageView, 0);
     }
 

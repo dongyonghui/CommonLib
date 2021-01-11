@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.dyh.common.lib.R;
 import com.dyh.common.lib.dw.util.DensityUtils;
 import com.dyh.common.lib.http.subsciber.IProgressDialog;
+import com.dyh.common.lib.weigit.dialog_default.MyLoadingDialog;
 
 /**
  * 作者：Allan
@@ -32,9 +33,8 @@ public class ProgressDialogDefault implements IProgressDialog {
 
     @Override
     public Dialog getDialog() {
-        Dialog dialog = new Dialog(mActivity);
-        dialog.setContentView(R.layout.progress_dialog_default_loading_view);
-        TextView textView = dialog.findViewById(R.id.status_hint_content);
+        MyLoadingDialog dialog = new MyLoadingDialog(mActivity);
+        TextView textView = dialog.findViewById(R.id.mMessageTextView);
         textView.setText(mMessage);
         int dialogSize = DensityUtils.dp2px(mActivity, 160);
         Window window = dialog.getWindow();

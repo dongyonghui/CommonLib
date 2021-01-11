@@ -43,18 +43,28 @@ public abstract class BaseMultiQuickRecyclerViewAdapter<T extends MultiItemEntit
         if (list == null) {
             return;
         }
+        int startPosition = getItemCount();
         addData(list);
         refreshLoadMoreStatus(list.size());
-        super.notifyDataSetChanged();
+        if (startPosition >= 0) {
+            notifyItemRangeChanged(startPosition, list.size());
+        } else {
+            super.notifyDataSetChanged();
+        }
     }
 
     public void addListBottom(T item) {
         if (item == null) {
             return;
         }
+        int startPosition = getItemCount();
         addData(item);
         refreshLoadMoreStatus(1);
-        super.notifyDataSetChanged();
+        if (startPosition >= 0) {
+            notifyItemRangeChanged(startPosition, 1);
+        } else {
+            super.notifyDataSetChanged();
+        }
     }
 
     public void removeItem(T item) {

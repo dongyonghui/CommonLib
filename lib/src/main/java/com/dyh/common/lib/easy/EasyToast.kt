@@ -86,21 +86,21 @@ class EasyToast private constructor(private val builder: Builder) {
 
     @SuppressLint("ShowToast")
     private fun createToastIfNeeded() {
-        if (toast == null) {
-            if (builder.isDefault) {
-                toast = Toast.makeText(context, "", builder.duration)
-            } else {
-                container = builder.layout
-                        ?: LayoutInflater.from(context).inflate(builder.layoutId, null)
-                tv = container?.findViewById(builder.tvId)
-                toast = Toast(context)
-                toast?.view = container
-                toast?.duration = builder.duration
-            }
+        toast?.cancel()
 
-            if (builder.gravity != 0) {
-                toast?.setGravity(builder.gravity, builder.offsetX, builder.offsetY)
-            }
+        if (builder.isDefault) {
+            toast = Toast.makeText(context, "", builder.duration)
+        } else {
+            container = builder.layout
+                    ?: LayoutInflater.from(context).inflate(builder.layoutId, null)
+            tv = container?.findViewById(builder.tvId)
+            toast = Toast(context)
+            toast?.view = container
+            toast?.duration = builder.duration
+        }
+
+        if (builder.gravity != 0) {
+            toast?.setGravity(builder.gravity, builder.offsetX, builder.offsetY)
         }
     }
 

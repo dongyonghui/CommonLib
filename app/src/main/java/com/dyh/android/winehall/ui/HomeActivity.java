@@ -49,17 +49,11 @@ public class HomeActivity extends BaseMVPActivity implements IAppUpdateView {
         //初始化底部Tab栏
         ArrayList<CustomTabEntity> bottomMenuList = new ArrayList<CustomTabEntity>();
         bottomMenuList.add(new SimpleTabEntity(getString(R.string.main_tab1Title), R.mipmap.main_tab_read_select, R.mipmap.main_tab_read_normal));
-        bottomMenuList.add(new SimpleTabEntity(getString(R.string.main_tab2Title), R.mipmap.main_tab_training_select, R.mipmap.main_tab_training_normal));
-        bottomMenuList.add(new SimpleTabEntity(getString(R.string.main_tab3Title), R.mipmap.main_tab_product_select, R.mipmap.main_tab_product_normal));
-        bottomMenuList.add(new SimpleTabEntity(getString(R.string.main_tab4Title), R.mipmap.main_tab_notify_select, R.mipmap.main_tab_notify_normal));
         bottomMenuList.add(new SimpleTabEntity(getString(R.string.main_my), R.mipmap.main_tab_my_select, R.mipmap.main_tab_my_normal));
         mBottomCommonTabLayout.setTabData(bottomMenuList);
 
         MyViewPagerAdapter mAdapter = new MyViewPagerAdapter(getSupportFragmentManager(),
                 new BaseMVPFragment[]{
-                        HomeLearnFragment.buildIntentData(isStatusBarTrans),
-                        HomeLearnFragment.buildIntentData(isStatusBarTrans),
-                        HomeLearnFragment.buildIntentData(isStatusBarTrans),
                         HomeLearnFragment.buildIntentData(isStatusBarTrans),
                         MineFragment.buildIntentData(isStatusBarTrans)});
         mViewPager.setAdapter(mAdapter);

@@ -18,6 +18,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.MotionEvent;
@@ -173,22 +174,24 @@ public class AppTools {
     }
 
     /**
-     * 方法: getVersionCode
-     * 描述: 获取客户端版本号
-     *
-     * @return int    版本号
+     * 获取应用程序VersionCode
      */
-    public static int getVersionCode(Context context) {
-        int versionCode;
+    public static long getVersionCode(Context context) {
         try {
-            PackageManager pm = context.getPackageManager();
-            PackageInfo packageInfo = pm.getPackageInfo(context.getPackageName(), 0);
-            versionCode = packageInfo.versionCode;
-        } catch (Exception e) {
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(
+                    context.getPackageName(), 0);
+            long appVersionCode;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                appVersionCode = packageInfo.getLongVersionCode();
+            } else {
+                appVersionCode = packageInfo.versionCode;
+            }
+            return appVersionCode;
+        } catch (NameNotFoundException e) {
             e.printStackTrace();
-            versionCode = 999;
         }
-        return versionCode;
+        return 0;
     }
 
     /**
